@@ -1,23 +1,48 @@
-import styled from 'styled-components'
+import {
+  RegisterWrapper,
+  Title,
+  Container,
+  RegisterButton,
+  Input,
+} from '../../style/Register'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
-const HomeWrapper = styled.div`
+import '../../style/Home.css'
+
+const RegisterForm = styled.div`
   display: flex;
-  position: absolute;
   flex-direction: column;
-  justify-content: space-between;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #1f2869 0%, #355f9f 48.23%, #50a0d3 100%);
-  font-family: 'Changa One', 'sans-serif';
 `
 
 function Register() {
-  return <HomeWrapper></HomeWrapper>
+  return (
+    <RegisterWrapper>
+      <Title>Inscription</Title>
+      <Container>
+        <RegisterForm>
+          <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+          <Input
+            type="text"
+            name="username"
+            placeholder="Choisissez un nom d'utilisateur"
+          />
+          <br />
+          <br />
+          <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Choisissez un mot de passe"
+          />
+          <br />
+          <Link to="">
+            <RegisterButton type="submit" value="VALIDER" />
+          </Link>
+        </RegisterForm>
+      </Container>
+    </RegisterWrapper>
+  )
 }
 
 export default Register
