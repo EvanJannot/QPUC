@@ -8,7 +8,10 @@ const Question = require('./models/Question')
 const userRoutes = require('./routes/user')
 
 mongoose
-  .connect(connect, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(connect().toString(), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'))
 

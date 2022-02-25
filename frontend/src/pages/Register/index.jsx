@@ -36,7 +36,7 @@ function Register() {
             placeholder="Choisissez un mot de passe"
           />
           <br />
-          <Link to="">
+          <Link to="/" style={{ 'align-self': 'center' }}>
             <RegisterButton type="submit" value="VALIDER" />
           </Link>
         </RegisterForm>
