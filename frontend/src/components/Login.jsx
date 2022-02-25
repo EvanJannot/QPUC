@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { Input, Login, LoginButton } from '../style/Home'
 
 export default class NameForm extends React.Component {
@@ -15,14 +16,25 @@ export default class NameForm extends React.Component {
   changePassword(event) {
     this.setState({ password: event.target.value })
   }
+
   sendForm = (event) => {
+    // const { username } = useParams()
+    // const [usersData, setUsersData] = useState({})
+
+    // fetch(`http://localhost:4200/api/auth/`).then((response) =>
+    //   response
+    //     .json()
+    //     .then(({ usersData }) => console.log(usersData))
+    //     .catch((error) => console.log(error))
+    // )
+
     alert(
       "Nom d'utilisateur : " +
         this.state.username +
         '\nMot de passe : ' +
         this.state.password
     )
-    event.preventDefault()
+    // console.log(usersData[username])
   }
 
   render() {
