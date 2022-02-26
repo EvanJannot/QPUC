@@ -26,7 +26,7 @@ function Home() {
           requestData[0].password.toString() === password &&
           stateForm === true
         ) {
-          history.push('/register')
+          history.push('/rules')
         } else {
         }
       })
