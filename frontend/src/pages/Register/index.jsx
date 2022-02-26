@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   RegisterWrapper,
   Title,
@@ -5,7 +6,7 @@ import {
   RegisterButton,
   Input,
 } from '../../style/Register'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import '../../style/Home.css'
@@ -16,6 +17,38 @@ const RegisterForm = styled.div`
 `
 
 function Register() {
+  const [username, setUsername] = useState([])
+  const [password, setPassword] = useState([])
+  let history = useHistory()
+
+  function changeUsername(event) {
+    setUsername(event)
+  }
+
+  function changePassword(event) {
+    setPassword(event)
+  }
+
+  const clickRegister = (e) => {
+    fetch('http://localhost:4200/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.message === 'Utilisateur créé !') {
+          alert('Inscription effectuée !')
+          history.push('/')
+        } else {
+          alert("Erreur lors de l'inscription")
+        }
+      })
+  }
+
   return (
     <RegisterWrapper>
       <Title>Inscription</Title>
@@ -26,6 +59,9 @@ function Register() {
             type="text"
             name="username"
             placeholder="Choisissez un nom d'utilisateur"
+            onChange={(event) => {
+              changeUsername(event.target.value)
+            }}
           />
           <br />
           <br />
@@ -34,11 +70,12 @@ function Register() {
             type="password"
             name="password"
             placeholder="Choisissez un mot de passe"
+            onChange={(event) => {
+              changePassword(event.target.value)
+            }}
           />
           <br />
-          <Link to="/" style={{ 'align-self': 'center' }}>
-            <RegisterButton type="submit" value="VALIDER" />
-          </Link>
+          <RegisterButton onClick={clickRegister}>S'INSCRIRE</RegisterButton>
         </RegisterForm>
       </Container>
     </RegisterWrapper>

@@ -34,11 +34,13 @@ export const Title = styled.div`
   text-align: center;
   color: #fee301;
 `
-export const RegisterButton = styled.input`
+export const RegisterButton = styled.button`
   display: flex;
   align-self: center;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
+  font-family: 'Changa One', 'sans-serif';
 
   background: #fee301;
   width: 100px;

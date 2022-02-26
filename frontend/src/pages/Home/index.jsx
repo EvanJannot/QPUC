@@ -27,6 +27,7 @@ function Home() {
             requestData[i].password.toString() === password &&
             stateForm === true
           ) {
+            alert('Connexion réussie !')
             history.push('/rules')
           }
         }
@@ -36,7 +37,6 @@ function Home() {
 
   function sendForm() {
     setStateForm(true)
-    alert("Nom d'utilisateur : " + username + '\nMot de passe : ' + password)
   }
 
   function changeUsername(event) {
