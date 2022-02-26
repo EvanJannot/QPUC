@@ -45,16 +45,18 @@ export const Input = styled.input`
   border-radius: 25px;
 `
 
-export const Login = styled.form`
+export const Login = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-export const LoginButton = styled.input`
+export const LoginButton = styled.button`
   display: flex;
   align-self: center;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
+  font-family: 'Changa One', 'sans-serif';
 
   background: #fee301;
   width: 100px;
