@@ -21,13 +21,14 @@ function Home() {
     fetch(`http://localhost:4200/api/auth`)
       .then((response) => response.json())
       .then((requestData) => {
-        if (
-          requestData[0].username.toString() === username &&
-          requestData[0].password.toString() === password &&
-          stateForm === true
-        ) {
-          history.push('/rules')
-        } else {
+        for (let i = 0; i < requestData.length; i++) {
+          if (
+            requestData[i].username.toString() === username &&
+            requestData[i].password.toString() === password &&
+            stateForm === true
+          ) {
+            history.push('/rules')
+          }
         }
       })
       .catch((error) => console.log(error))
