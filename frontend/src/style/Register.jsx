@@ -18,8 +18,8 @@ export const Container = styled.div`
   align-self: center;
   align-items: center;
   justify-content: center;
-  height: 400px;
-  width: 650px;
+  height: 55%;
+  width: 65%;
   background: #ffffff;
   border: 2px solid #000000;
   box-sizing: border-box;

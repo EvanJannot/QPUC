@@ -13,8 +13,3 @@ input[type='text'] {
 input[type='password'] {
   font-size: 24px;
 }
-
-input[type='submit'] {
-  font-size: 18px;
-  font-family: 'Changa One', 'sans-serif';
-}

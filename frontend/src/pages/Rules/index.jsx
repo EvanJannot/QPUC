@@ -3,6 +3,7 @@ import {
   RulesWrapper,
   Wrapper,
   TextWrapper,
+  LeaderboardButton,
 } from '../../style/Rules'
 
 function Rules() {
@@ -35,21 +36,14 @@ function Rules() {
           eleifend ut urna in egestas. Donec tristique libero libero, at semper
           dolor feugiat pellentesque. Nullam scelerisque, ex tincidunt consequat
           euismod, lectus metus pellentesque massa, sit amet interdum lectus
-          risus ut nisi. Quisque ornare, sapien eget sollicitudin porta, nulla
-          enim dignissim quam, at consectetur mauris lorem in mauris. Sed semper
-          tortor fringilla tellus lacinia maximus. Mauris commodo non ante vitae
-          dignissim. Sed eros nisi, lobortis quis enim quis, vestibulum ultrices
-          dolor. Nulla sed lectus at felis aliquam fringilla eget quis elit. Sed
-          id felis nec urna pharetra faucibus porta eget enim. Maecenas suscipit
-          aliquet sem at pharetra. Curabitur sed libero sem. Etiam vulputate
-          purus lorem, blandit sagittis quam posuere id. Vivamus nec aliquet
-          elit. Sed porta euismod quam, nec porttitor justo blandit ac. Sed
-          eleifend ultricies nibh quis finibus. Proin eu vestibulum eros. Nulla
-          viverra porttitor tristique.
+          risus ut nisi.
         </TextWrapper>
         <PlayButton to="/register" $isFullLink>
           JOUER
         </PlayButton>
+        <LeaderboardButton to="/leaderboard" $isFullLink>
+          LEADERBOARD
+        </LeaderboardButton>
       </Wrapper>
     </RulesWrapper>
   )

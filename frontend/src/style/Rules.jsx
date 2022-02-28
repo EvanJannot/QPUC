@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
   border-radius: 35px;
 `
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.p`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,7 +46,6 @@ export const PlayButton = styled(Link)`
   display: flex;
   width: 130px;
   height: 130px;
-  margin-bottom: 40px;
   border-radius: 100px;
   align-self: center;
   align-items: center;
@@ -56,4 +55,20 @@ export const PlayButton = styled(Link)`
 
   background: #fee301;
   border: 2px solid #000000;
+`
+export const LeaderboardButton = styled(Link)`
+  display: flex;
+  width: 200px;
+  height: 40px;
+  margin-bottom: 40px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-family: 'Changa One', 'sans-serif';
+
+  background: #f2a616;
+  border: 3px solid #000000;
+  box-sizing: border-box;
+  border-radius: 25px;
 `

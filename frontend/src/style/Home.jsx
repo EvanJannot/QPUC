@@ -29,7 +29,7 @@ export const Container = styled.div`
   justify-content: center;
 
   width: 40%;
-  height: 45%;
+  height: 50%;
   background: #ffffff;
   border: 2px solid #000000;
   box-sizing: border-box;
@@ -38,7 +38,7 @@ export const Container = styled.div`
 
 export const Input = styled.input`
   height: 40px;
-  width: 350px;
+  width: 100%;
   background: #caddee;
   border: 1px solid #000000;
   box-sizing: border-box;

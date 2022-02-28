@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import Rules from './pages/Rules'
+import Leaderboard from './pages/Leaderboard'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 ReactDOM.render(
@@ -17,6 +18,9 @@ ReactDOM.render(
         </Route>
         <Route path="/rules">
           <Rules />
+        </Route>
+        <Route path="/leaderboard">
+          <Leaderboard />
         </Route>
       </Switch>
     </Router>
