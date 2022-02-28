@@ -30,23 +30,35 @@ function Register() {
   }
 
   const clickRegister = (e) => {
-    fetch('http://localhost:4200/api/auth/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.message === 'Utilisateur créé !') {
-          alert('Inscription effectuée !')
-          history.push('/')
-        } else {
-          alert("Erreur lors de l'inscription")
-        }
+    if (username.length >= 3 && password.length >= 5) {
+      fetch('http://localhost:4200/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
       })
+        .then((response) => response.json())
+        .then((result) => {
+          if (result.message === 'Utilisateur créé !') {
+            alert('Inscription effectuée !')
+            history.push('/')
+          } else {
+            alert("Erreur lors de l'inscription")
+          }
+        })
+    } else if (username.length === 0) {
+      alert('Veuillez choisir un pseudo !\n (minimum 3 caractères)')
+    } else if (username.length <= 3) {
+      alert('Veuillez choisir un pseudo plus long ! \n (minimum 3 caractères)')
+    } else if (password.length === 0) {
+      alert('Veuillez choisir un mot de passe !\n (minimum 5 caractères)')
+    } else {
+      alert(
+        'Veuillez choisir un mot de passe plus long ! \n (minimum 5 caractères)'
+      )
+    }
   }
 
   return (
