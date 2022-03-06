@@ -21,3 +21,7 @@
 
 <p>Ce projet devra répondre à des exigences fonctionnelles classées par importance de priorité. Certaines fonctionnalités sont pour le moment considérées comme “bonus” et seront implémentées si le planning le permet.</p>
 <p>La liste ci-dessous ne contient pas l’ensemble des caractéristiques du site, mais se concentre sur les fonctionnalités qui sont essentielles (ou bonus) afin de remplir l’objectif fixé dans ce projet en particulier.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/79797037/156943560-89acc58f-69fa-4199-89d3-c0cde017cb44.PNG">
+</p>
+
