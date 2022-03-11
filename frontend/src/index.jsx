@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Register from './pages/Register'
 import Rules from './pages/Rules'
 import Leaderboard from './pages/Leaderboard'
+import Suite4 from './pages/4suite'
+import Error from './components/Error'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 ReactDOM.render(
@@ -21,6 +23,12 @@ ReactDOM.render(
         </Route>
         <Route path="/leaderboard">
           <Leaderboard />
+        </Route>
+        <Route path="/4suite">
+          <Suite4 />
+        </Route>
+        <Route path="*">
+          <Error />
         </Route>
       </Switch>
     </Router>

@@ -20,7 +20,7 @@ function Leaderboard() {
         <Row>7#</Row>
         <Row>8#</Row>
         <Row>9#</Row>
-        <LastRow>10#</LastRow>
+        <Row>10#</Row>
       </Table>
     </LeaderboardWrapper>
   )

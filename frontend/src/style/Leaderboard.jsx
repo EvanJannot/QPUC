@@ -32,6 +32,9 @@ export const PageTitle = styled.div`
 `
 
 export const Table = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 80%;
   width: 85%;
   border: 5px solid #000000;
@@ -44,16 +47,7 @@ export const Row = styled.div`
   display: flex;
   align-self: center;
   align-items: center;
-  height: 9.2%;
+  height: 10%;
   width: 100%;
-  margin-left: -5px;
-  margin-top: -5px;
-  border: 5px solid #000000;
-`
-export const LastRow = styled.div`
-  display: flex;
-  align-self: center;
-  align-items: center;
-  height: 9.2%;
-  width: 100%;
+  border: 2.5px solid #000000;
 `
