@@ -6,6 +6,7 @@ const Leaderboard = require('./models/Leaderboard')
 const Question = require('./models/Question')
 
 const userRoutes = require('./routes/user')
+const questionRoutes = require('./routes/question')
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -31,5 +32,6 @@ mongoose
 app.use(express.json())
 
 app.use('/api/auth', userRoutes)
+app.use('api/question', questionRoutes)
 
 module.exports = app

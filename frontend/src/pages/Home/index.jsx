@@ -1,5 +1,5 @@
 import Logo from '../../assets/Logo.svg'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Input, Login, LoginButton } from '../../style/Home'
 import { useHistory } from 'react-router-dom'
 import {
@@ -15,28 +15,39 @@ function Home() {
   const [username, setUsername] = useState([])
   const [password, setPassword] = useState([])
   const [stateForm, setStateForm] = useState([])
+  const [countSendForm, setSendForm] = useState([])
   let history = useHistory()
+  const firstUpdate = useRef(true)
 
   useEffect(() => {
-    fetch(`http://localhost:4200/api/auth`)
-      .then((response) => response.json())
-      .then((requestData) => {
-        for (let i = 0; i < requestData.length; i++) {
-          if (
-            requestData[i].username.toString() === username &&
-            requestData[i].password.toString() === password &&
-            stateForm === true
-          ) {
-            alert('Connexion réussie !')
-            history.push('/rules')
+    if (firstUpdate.current) {
+      firstUpdate.current = false
+    } else {
+      fetch(`http://localhost:4200/api/auth`)
+        .then((response) => response.json())
+        .then((requestData) => {
+          for (let i = 0; i < requestData.length; i++) {
+            if (
+              requestData[i].username.toString() === username &&
+              requestData[i].password.toString() === password
+            ) {
+              alert('Connexion réussie !')
+              history.push('/rules')
+              this.setStateForm(false)
+            }
+            if (i === requestData.length - 1 && stateForm === true) {
+              setStateForm(false)
+              alert('Identifiant ou mot de passe incorrect')
+            }
           }
-        }
-      })
-      .catch((error) => console.log(error))
-  }, [history, password, stateForm, username])
+        })
+        .catch((error) => console.log(error))
+    }
+  }, [history, countSendForm])
 
   function sendForm() {
     setStateForm(true)
+    setSendForm(countSendForm + 1)
   }
 
   function changeUsername(event) {
