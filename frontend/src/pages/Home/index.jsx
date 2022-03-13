@@ -1,5 +1,5 @@
 import Logo from '../../assets/Logo.svg'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useContext } from 'react'
 import { Input, Login, LoginButton } from '../../style/Home'
 import { useHistory } from 'react-router-dom'
 import {
@@ -8,6 +8,7 @@ import {
   Container,
   RegisterButton,
 } from '../../style/Home'
+import { ConnexionContext } from '../../utils/context'
 
 import '../../style/Home.css'
 
@@ -16,6 +17,7 @@ function Home() {
   const [password, setPassword] = useState([])
   const [stateForm, setStateForm] = useState([])
   const [countSendForm, setSendForm] = useState([])
+  const { changeConnected } = useContext(ConnexionContext)
   let history = useHistory()
   const firstUpdate = useRef(true)
 
@@ -32,6 +34,7 @@ function Home() {
               requestData[i].password.toString() === password
             ) {
               alert('Connexion réussie !')
+              changeConnected()
               history.push('/rules')
               this.setStateForm(false)
             }

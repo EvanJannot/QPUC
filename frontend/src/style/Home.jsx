@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const HomeWrapper = styled.div`
   display: flex;
-  position: absolute;
+  ${'' /* position: absolute; */}
   flex-direction: column;
   justify-content: space-between;
   padding-top: 20px;

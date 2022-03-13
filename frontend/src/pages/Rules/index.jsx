@@ -1,3 +1,5 @@
+import { useEffect, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import {
   PlayButton,
   RulesWrapper,
@@ -5,8 +7,21 @@ import {
   TextWrapper,
   LeaderboardButton,
 } from '../../style/Rules'
+import { ConnexionContext } from '../../utils/context'
 
 function Rules() {
+  let history = useHistory()
+  const { connected } = useContext(ConnexionContext)
+  useEffect(() => {
+    console.log(connected)
+    alert(connected)
+    if (connected === false) {
+      history.push('/')
+    } else {
+      alert('C ok')
+    }
+  }, [history, connected])
+
   return (
     <RulesWrapper>
       <Wrapper>

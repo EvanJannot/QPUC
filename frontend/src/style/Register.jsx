@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const RegisterWrapper = styled.div`
   display: flex;
-  position: absolute;
+  ${'' /* position: absolute; */}
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 20px;

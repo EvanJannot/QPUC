@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const RulesWrapper = styled.div`
   display: flex;
-  position: absolute;
+  ${'' /* position: absolute; */}
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -19,7 +19,7 @@ export const RulesWrapper = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  position: absolute;
+  ${'' /* position: absolute; */}
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
