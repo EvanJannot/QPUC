@@ -32,6 +32,6 @@ mongoose
 app.use(express.json())
 
 app.use('/api/auth', userRoutes)
-app.use('api/question', questionRoutes)
+app.use('/api/question', questionRoutes)
 
 module.exports = app
