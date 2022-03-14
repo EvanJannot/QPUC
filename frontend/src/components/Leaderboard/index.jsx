@@ -1,18 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Table() {
-  const [user, setUser] = useState({})
-  const data = {
-    student: [
-      { id: 1, name: 'Wasif', age: 21, email: 'wasif@email.com' },
-      { id: 2, name: 'Ali', age: 19, email: 'ali@email.com' },
-      { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
-      { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' },
-    ],
-  }
-  setUser(data)
-  console.log(data)
-  console.log(user)
+  const [user, setUser] = useState([])
+  useEffect(() => {
+    fetch(`http://localhost:4200/api/auth`)
+      .then((response) => response.json())
+      .then((requestData) => {
+        setUser(requestData)
+      })
+  }, [])
 
   function renderTableHeader() {
     let header = ['pseudo', 'score']
@@ -22,12 +18,12 @@ function Table() {
   }
 
   function renderTableData() {
-    return user.map((student) => {
-      const { id, name, age } = student //destructuring
+    return user.map((joueur) => {
+      const { _id, username, highscore } = joueur
       return (
-        <tr key={id}>
-          <td>{name}</td>
-          <td>{age}</td>
+        <tr key={_id}>
+          <td>{username}</td>
+          <td>{highscore}</td>
         </tr>
       )
     })
@@ -35,7 +31,7 @@ function Table() {
 
   return (
     <div>
-      <table id="students">
+      <table>
         <tbody>
           <tr>{renderTableHeader()}</tr>
           {renderTableData()}

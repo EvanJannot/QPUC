@@ -13,7 +13,6 @@ function Rules() {
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
   useEffect(() => {
-    console.log(connected)
     if (connected === false) {
       history.push('/')
     }
