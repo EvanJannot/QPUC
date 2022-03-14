@@ -14,11 +14,8 @@ function Rules() {
   const { connected } = useContext(ConnexionContext)
   useEffect(() => {
     console.log(connected)
-    alert(connected)
     if (connected === false) {
       history.push('/')
-    } else {
-      alert('C ok')
     }
   }, [history, connected])
 

@@ -9,10 +9,21 @@ const FooterContainer = styled.footer`
   align-items: center;
   align-self: center;
   justify-content: center;
-  padding-top: 60px;
+  height: 10%;
+  background: #f2a615;
+  border: 4px solid #000000;
 `
 
-const NightModeButton = styled.button``
+const DisconnectButton = styled.button`
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  font-family: 'Changa One', 'sans-serif';
+  font-size: 16px;
+  background: #fee301;
+  width: 130px;
+  height: 65px;
+`
 
 function Footer() {
   const { changeConnected, connected } = useContext(ConnexionContext)
@@ -22,9 +33,9 @@ function Footer() {
   }
   return (
     <FooterContainer>
-      <NightModeButton onClick={() => changeConnected()}>
-        {connected === true ? 'Se déconnecter' : 'Se connecter'}
-      </NightModeButton>
+      <DisconnectButton onClick={() => changeConnected()}>
+        {connected === true ? 'DECONNEXION' : ' '}
+      </DisconnectButton>
     </FooterContainer>
   )
 }

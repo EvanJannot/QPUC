@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const RulesWrapper = styled.div`
   display: flex;
-  ${'' /* position: absolute; */}
+  margin: 0px;
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -12,19 +12,18 @@ export const RulesWrapper = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 90%;
   background: linear-gradient(180deg, #1f2869 0%, #355f9f 48.23%, #50a0d3 100%);
   font-family: 'Changa One', 'sans-serif';
 `
 
 export const Wrapper = styled.div`
   display: flex;
-  ${'' /* position: absolute; */}
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  width: 60%;
-  height: 82%;
+  width: 50%;
+  height: 90%;
   background: linear-gradient(180deg, #ffffff 0%, #caddee 100%);
   border: 2px solid #000000;
   box-sizing: border-box;
@@ -44,8 +43,8 @@ export const TextWrapper = styled.p`
 
 export const PlayButton = styled(Link)`
   display: flex;
-  width: 130px;
-  height: 130px;
+  width: 300px;
+  height: 50px;
   border-radius: 100px;
   align-self: center;
   align-items: center;
@@ -59,8 +58,7 @@ export const PlayButton = styled(Link)`
 export const LeaderboardButton = styled(Link)`
   display: flex;
   width: 200px;
-  height: 40px;
-  margin-bottom: 40px;
+  height: 50px;
   align-self: center;
   align-items: center;
   justify-content: center;

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 export const LeaderboardWrapper = styled.div`
   display: flex;
-  position: absolute;
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
