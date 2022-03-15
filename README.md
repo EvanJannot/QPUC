@@ -44,7 +44,7 @@ Je ne maîtrise pas ces technologies. Je vais donc devoir me former à ces derni
 <p>Voici mon planning prévisionnel (affichage hebdomadaire) allant du 24/01/2022 date de rendu de ce cahier des charges au 2/05/2022 date des soutenances de projet.</p>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/79797037/158335368-a5ac2df9-07f3-4172-9270-94424751ce96.PNG">
-/p>
+</p>
 
 <h2>Éventualités</h2>
 <p>Les technologies utilisées m’étaient inconnues pour le moment, du retard pourrait apparaître en début de projet lors de la partie “formation”. C’est pour cela que j’ai prévu un temps important pour cette partie. Il faut veiller à ne pas là sous-estimer.</p>
