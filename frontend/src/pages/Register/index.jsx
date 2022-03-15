@@ -5,11 +5,11 @@ import {
   Container,
   RegisterButton,
   Input,
-} from '../../style/Register'
+} from '../../utils/style/Register'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-import '../../style/Home.css'
+import '../../utils/style/Home.css'
 
 const RegisterForm = styled.div`
   display: flex;

@@ -1,4 +1,4 @@
-import { LeaderboardWrapper, PageTitle } from '../../style/Leaderboard'
+import { LeaderboardWrapper, PageTitle } from '../../utils/style/Leaderboard'
 import { useHistory } from 'react-router-dom'
 import TableL from '../../components/Leaderboard/'
 import { ConnexionContext } from '../../utils/context'

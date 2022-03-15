@@ -1,16 +1,18 @@
 import Logo from '../../assets/Logo.svg'
 import { useState, useEffect, useRef, useContext } from 'react'
-import { Input, Login, LoginButton } from '../../style/Home'
-import { useHistory } from 'react-router-dom'
 import {
+  Input,
+  Login,
+  LoginButton,
   HomeWrapper,
   Illustration,
   Container,
   RegisterButton,
-} from '../../style/Home'
+} from '../../utils/style/Home'
+import { useHistory } from 'react-router-dom'
 import { ConnexionContext } from '../../utils/context'
 
-import '../../style/Home.css'
+import '../../utils/style/Home.css'
 
 function Home() {
   const [username, setUsername] = useState([])
@@ -46,6 +48,7 @@ function Home() {
         })
         .catch((error) => console.log(error))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, countSendForm])
 
   function sendForm() {
