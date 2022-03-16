@@ -1,26 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-
-const Column = styled.td`
-  display: flex;
-  justify-content: center;
-  margin-right: 20px;
-  font-family: 'Changa One', 'sans-serif';
-  width: 500px;
-  font-size: 32px;
-`
-
-const Line = styled.tr`
-  display: flex;
-  align-self: center;
-  font-family: 'Changa One', 'sans-serif';
-  font-size: 32px;
-  width: 500px;
-`
-const Wrapper = styled.div`
-  justify-content: center;
-  align-items: center;
-`
+import { Column, Line, Wrapper } from './style'
 
 function Table() {
   const [user, setUser] = useState([])
