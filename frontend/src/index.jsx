@@ -12,7 +12,7 @@ import { ConnexionProvider } from './utils/context'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router> 
       <ConnexionProvider>
         <Switch>
           <Route exact path="/">
