@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { AnswerSelectedContext } from '../../utils/context'
+import { AnswerSelectedContext, QuestionListContext } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
 import {
@@ -23,6 +23,7 @@ function Gagnants9() {
   const [answers, setAnswers] = useState([])
   const [question, setQuestion] = useState({})
   const { listAnswer, changeClicked } = useContext(AnswerSelectedContext)
+  const { questionList, oldQuestion } = useContext(QuestionListContext)
   const [score, setScore] = useState(0)
   const [error, setError] = useState(0)
   const [time, setTime] = useState(0)
@@ -43,13 +44,38 @@ function Gagnants9() {
       .then((response) => response.json())
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)
-        setQuestion(requestData[questionNumber])
-        updateData(
-          requestData[questionNumber].question_answer,
-          requestData[questionNumber].fake1,
-          requestData[questionNumber].fake2,
-          requestData[questionNumber].fake3
-        )
+
+        if (questionList === []) {
+          setQuestion(requestData[questionNumber])
+          updateData(
+            requestData[questionNumber].question_answer,
+            requestData[questionNumber].fake1,
+            requestData[questionNumber].fake2,
+            requestData[questionNumber].fake3
+          )
+          oldQuestion(requestData[questionNumber]._id)
+        } else if (questionList.includes(requestData[questionNumber]._id)) {
+          while (questionList.includes(requestData[questionNumber]._id)) {
+            questionNumber = Math.floor(Math.random() * requestData.length)
+          }
+          setQuestion(requestData[questionNumber])
+          updateData(
+            requestData[questionNumber].question_answer,
+            requestData[questionNumber].fake1,
+            requestData[questionNumber].fake2,
+            requestData[questionNumber].fake3
+          )
+          oldQuestion(requestData[questionNumber]._id)
+        } else {
+          setQuestion(requestData[questionNumber])
+          updateData(
+            requestData[questionNumber].question_answer,
+            requestData[questionNumber].fake1,
+            requestData[questionNumber].fake2,
+            requestData[questionNumber].fake3
+          )
+          oldQuestion(requestData[questionNumber]._id)
+        }
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score, error])

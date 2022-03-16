@@ -1,5 +1,22 @@
 import React, { useState, createContext } from 'react'
 
+export const QuestionListContext = createContext()
+
+export const QuestionListProvider = ({ children }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [questionList, setQuestion] = useState([])
+  const oldQuestion = (questionID) => {
+    console.log(questionList)
+    questionList.push(questionID)
+  }
+
+  return (
+    <QuestionListContext.Provider value={{ questionList, oldQuestion }}>
+      {children}
+    </QuestionListContext.Provider>
+  )
+}
+
 export const AnswerSelectedContext = createContext()
 
 export const SelectedAnswerProvider = ({ children }) => {

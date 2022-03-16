@@ -10,38 +10,44 @@ import Error from './components/Error'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { ConnexionProvider, SelectedAnswerProvider } from './utils/context'
+import {
+  ConnexionProvider,
+  QuestionListProvider,
+  SelectedAnswerProvider,
+} from './utils/context'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ConnexionProvider>
         <SelectedAnswerProvider>
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/rules">
-              <Rules />
-            </Route>
-            <Route path="/leaderboard">
-              <Leaderboard />
-            </Route>
-            <Route path="/9gagnants">
-              <Gagnants9 />
-            </Route>
-            <Route path="/4suite">
-              <Suite4 />
-            </Route>
-            <Route path="*">
-              <Error />
-            </Route>
-          </Switch>
-          <Footer />
+          <QuestionListProvider>
+            <Header />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/register">
+                <Register />
+              </Route>
+              <Route path="/rules">
+                <Rules />
+              </Route>
+              <Route path="/leaderboard">
+                <Leaderboard />
+              </Route>
+              <Route path="/9gagnants">
+                <Gagnants9 />
+              </Route>
+              <Route path="/4suite">
+                <Suite4 />
+              </Route>
+              <Route path="*">
+                <Error />
+              </Route>
+            </Switch>
+            <Footer />
+          </QuestionListProvider>
         </SelectedAnswerProvider>
       </ConnexionProvider>
     </Router>
