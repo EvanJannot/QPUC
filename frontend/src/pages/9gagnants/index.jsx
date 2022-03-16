@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { AnswerSelectedContext } from '../../utils/context'
 import Answer from '../../components/Answer'
 import {
   MainWrapper,
@@ -19,6 +20,7 @@ import {
 function Gagnants9() {
   const [answers, setAnswers] = useState([])
   const [question, setQuestion] = useState({})
+  const { listAnswer } = useContext(AnswerSelectedContext)
   const [score, setScore] = useState(0)
   const [error, setError] = useState(0)
   const [time, setTime] = useState(0)
@@ -54,8 +56,10 @@ function Gagnants9() {
     return () => clearInterval(interval)
   }, [time])
 
-  function AlertC() {
-    alert('Je valide avec validation')
+  function Validate() {
+    question.question_answer === listAnswer[0]
+      ? console.log('Bonne réponse')
+      : console.log('Mauvaise réponse')
   }
 
   //   let history = useHistory()
@@ -88,7 +92,7 @@ function Gagnants9() {
           <Answer answer={answers[3]}></Answer>
         </Answers>
       </AnswersWrapper>
-      <ValidateButton onClick={AlertC}>Valider</ValidateButton>
+      <ValidateButton onClick={Validate}>Valider</ValidateButton>
     </MainWrapper>
   )
 }
