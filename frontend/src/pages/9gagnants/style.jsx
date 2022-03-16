@@ -137,9 +137,14 @@ export const Question = styled.div`
   font-size: 32px;
 `
 
+export const Theme = styled.div`
+  font-family: 'Changa One', 'sans-serif';
+  font-size: 24px;
+`
+
 export const QuestionPoints = styled.div`
   font-family: 'Changa One', 'sans-serif';
-  font-size: 32px;
+  font-size: 24px;
 `
 
 export const Answers = styled.div`
