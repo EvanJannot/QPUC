@@ -5,8 +5,10 @@ import Register from './pages/Register'
 import Rules from './pages/Rules'
 import Leaderboard from './pages/Leaderboard'
 import Suite4 from './pages/4suite'
+import Gagnants9 from './pages/9gagnants'
 import Error from './components/Error'
 import Footer from './components/Footer'
+import Header from './components/Header'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ConnexionProvider } from './utils/context'
 
@@ -14,6 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router> 
       <ConnexionProvider>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -21,13 +24,16 @@ ReactDOM.render(
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/rules" component={Footer}>
+          <Route path="/rules">
             <Rules />
           </Route>
-          <Route path="/leaderboard" component={Footer}>
+          <Route path="/leaderboard">
             <Leaderboard />
           </Route>
-          <Route path="/4suite" component={Footer}>
+          <Route path="/9gagnants">
+            <Gagnants9 />
+          </Route>
+          <Route path="/4suite">
             <Suite4 />
           </Route>
           <Route path="*">

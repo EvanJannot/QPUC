@@ -49,7 +49,7 @@ function Rules() {
           euismod, lectus metus pellentesque massa, sit amet interdum lectus
           risus ut nisi.
         </TextWrapper>
-        <PlayButton to="/4suite" $isFullLink>
+        <PlayButton to="/9gagnants" $isFullLink>
           JOUER
         </PlayButton>
         <LeaderboardButton to="/leaderboard" $isFullLink>

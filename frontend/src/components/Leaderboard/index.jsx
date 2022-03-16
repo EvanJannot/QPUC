@@ -33,6 +33,7 @@ function Table() {
   }, [])
 
   function renderTableData() {
+    user.sort((a, b) => b.highscore - a.highscore)
     return user.map((joueur) => {
       const { _id, username, highscore } = joueur
       return (

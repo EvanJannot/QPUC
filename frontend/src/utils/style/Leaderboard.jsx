@@ -15,6 +15,12 @@ export const LeaderboardWrapper = styled.div`
   font-family: 'Changa One', 'sans-serif';
 `
 
+export const TableBg = styled.div`
+  background: white;
+  border: 2px solid #000000;
+  border-radius: 25px;
+`
+
 export const PageTitle = styled.div`
   display: flex;
   width: 32%;

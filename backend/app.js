@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const connect = require('./connection')
-const Leaderboard = require('./models/Leaderboard')
 const Question = require('./models/Question')
 
 const userRoutes = require('./routes/user')
