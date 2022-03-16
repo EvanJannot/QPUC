@@ -1,4 +1,8 @@
-import { LeaderboardWrapper, PageTitle } from '../../utils/style/Leaderboard'
+import {
+  LeaderboardWrapper,
+  PageTitle,
+  TableBg,
+} from '../../utils/style/Leaderboard'
 import { useHistory } from 'react-router-dom'
 import TableL from '../../components/Leaderboard/'
 import { ConnexionContext } from '../../utils/context'
@@ -16,7 +20,9 @@ function Leaderboard() {
   return (
     <LeaderboardWrapper>
       <PageTitle>LEADERBOARD</PageTitle>
-      <TableL />
+      <TableBg>
+        <TableL />
+      </TableBg>
     </LeaderboardWrapper>
   )
 }

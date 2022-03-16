@@ -135,6 +135,44 @@ export const AnswersWrapper = styled.div`
   border-radius: 35px;
 `
 
+export const Question = styled.div`
+  font-family: 'Changa One', 'sans-serif';
+  font-size: 32px;
+`
+
+export const QuestionPoints = styled.div`
+  font-family: 'Changa One', 'sans-serif';
+  font-size: 32px;
+`
+
+export const Answers = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  flex-wrap: wrap;
+  font-family: 'Changa One', 'sans-serif';
+`
+
+export const Answer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+
+  background: white;
+  font-size: 24px;
+  width: 250px;
+  height: 60px;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 35px;
+  font-family: 'Changa One', 'sans-serif';
+`
+
 export const ValidateButton = styled.button`
   display: flex;
   align-self: center;
@@ -152,9 +190,33 @@ export const ValidateButton = styled.button`
 `
 
 function Gagnants9() {
+  const [answers, setAnswers] = useState([])
+  const [question, setQuestion] = useState({})
   const [score, setScore] = useState(0)
   const [error, setError] = useState(0)
   const [time, setTime] = useState(0)
+
+  const updateData = (value1, value2, value3, value4) => {
+    let newData = [...answers]
+    newData.push(value1, value2, value3, value4)
+    const shuffledData = newData.sort((a, b) => 0.5 - Math.random())
+    setAnswers(shuffledData)
+  }
+
+  useEffect(() => {
+    fetch(`http://localhost:4200/api/question/6231c58dbdf130c1a86a5f4e`)
+      .then((response) => response.json())
+      .then((requestData) => {
+        setQuestion(requestData)
+        updateData(
+          requestData.question_answer,
+          requestData.fake1,
+          requestData.fake2,
+          requestData.fake3
+        )
+        console.log(requestData)
+      })
+  }, [])
 
   useEffect(() => {
     let interval = null
@@ -187,7 +249,22 @@ function Gagnants9() {
           Erreurs :<ErrorsCounter>{error}</ErrorsCounter>
         </Errors>
       </InfoWrapper>
-      <AnswersWrapper></AnswersWrapper>
+      <AnswersWrapper>
+        <Question>{question.question_statement}</Question>
+        <QuestionPoints>{question.points}</QuestionPoints>
+        <Answers>
+          <Answer
+            onClick={() => {
+              console.log(answers[0])
+            }}
+          >
+            {answers[0]}
+          </Answer>
+          <Answer onClick={() => console.log(answers[1])}>{answers[1]}</Answer>
+          <Answer onClick={() => console.log(answers[2])}>{answers[2]}</Answer>
+          <Answer onClick={() => console.log(answers[3])}>{answers[3]}</Answer>
+        </Answers>
+      </AnswersWrapper>
       <ValidateButton onClick={AlertC}>Valider</ValidateButton>
     </MainWrapper>
   )

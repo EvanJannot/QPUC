@@ -13,6 +13,7 @@ const HeaderContainer = styled.header`
   height: 10%;
   padding-top: 15px;
   background: #1f2869;
+  padding-bottom: 10px;
 `
 
 const DisconnectButton = styled.button`
