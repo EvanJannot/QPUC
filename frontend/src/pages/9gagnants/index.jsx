@@ -57,9 +57,13 @@ function Gagnants9() {
   }, [time])
 
   function Validate() {
-    question.question_answer === listAnswer[0]
-      ? console.log('Bonne réponse')
-      : console.log('Mauvaise réponse')
+    if (question.question_answer === listAnswer[0]) {
+      alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
+      setScore(score + question.points)
+    } else {
+      alert(`Mauvaise réponse, + 1 erreur !`)
+      setError(error + 1)
+    }
   }
 
   //   let history = useHistory()
