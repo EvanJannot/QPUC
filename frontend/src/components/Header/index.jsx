@@ -1,18 +1,18 @@
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/LogoB.svg'
 import DisconectIcon from '../../assets/disconnect.svg'
 import { useContext } from 'react'
 import { ConnexionContext } from '../../utils/context'
 import styled from 'styled-components'
 import { useLocation } from 'react-router-dom'
 
-const HeaderContainer = styled.footer`
+const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   height: 10%;
-  background: #caddee;
-  border: 4px solid #000000;
+  padding-top: 15px;
+  background: #1f2869;
 `
 
 const DisconnectButton = styled.button`
@@ -34,8 +34,8 @@ const DisconnectButton = styled.button`
 const Illustration = styled.img`
   display: flex;
   align-self: center;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 `
 
