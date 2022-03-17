@@ -20,11 +20,15 @@ export const ErrorWrapper = styled.div`
 export const ErrorTitle = styled.h1`
   font-size: 70px;
   color: white;
+  -webkit-text-stroke: 1px black;
+  font-family: 'Changa One', 'sans-serif';
 `
 
 export const ErrorSubtitle = styled.h2`
   font-size: 24px;
   color: white;
+  -webkit-text-stroke: 0.5px black;
+  font-family: 'Changa One', 'sans-serif';
 `
 
 export const Illustration = styled.img`

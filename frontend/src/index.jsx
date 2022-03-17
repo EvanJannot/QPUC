@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import Register from './pages/Register'
 import Rules from './pages/Rules'
 import Leaderboard from './pages/Leaderboard'
-import Suite4 from './pages/4suite'
+import Suite4Theme from './pages/4suiteTheme'
 import Gagnants9 from './pages/9gagnants'
 import Error from './components/Error'
 import Footer from './components/Footer'
@@ -43,8 +43,8 @@ ReactDOM.render(
                   <Route path="/9gagnants">
                     <Gagnants9 />
                   </Route>
-                  <Route path="/4suite">
-                    <Suite4 />
+                  <Route path="/4suiteTheme">
+                    <Suite4Theme />
                   </Route>
                   <Route path="*">
                     <Error />
