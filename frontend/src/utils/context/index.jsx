@@ -8,9 +8,12 @@ export const ScoreProvider = ({ children }) => {
   const addPoints = (points) => {
     setScore(score + points)
   }
+  const resetScore = () => {
+    setScore(0)
+  }
 
   return (
-    <ScoreContext.Provider value={{ score, addPoints }}>
+    <ScoreContext.Provider value={{ score, addPoints, resetScore }}>
       {children}
     </ScoreContext.Provider>
   )
@@ -24,9 +27,12 @@ export const ErrorProvider = ({ children }) => {
   const addError = () => {
     setError(errors + 1)
   }
+  const resetErrors = () => {
+    setError(0)
+  }
 
   return (
-    <ErrorContext.Provider value={{ errors, addError }}>
+    <ErrorContext.Provider value={{ errors, addError, resetErrors }}>
       {children}
     </ErrorContext.Provider>
   )

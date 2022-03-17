@@ -4,6 +4,7 @@ import {
   QuestionListContext,
   ErrorContext,
   ScoreContext,
+  ConnexionContext,
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
@@ -28,8 +29,9 @@ function Gagnants9() {
   const [question, setQuestion] = useState({})
   const { changeClicked } = useContext(AnswerSelectedContext)
   const { questionList, oldQuestion } = useContext(QuestionListContext)
-  const { score } = useContext(ScoreContext)
-  const { errors } = useContext(ErrorContext)
+  const { connected } = useContext(ConnexionContext)
+  const { score, resetScore } = useContext(ScoreContext)
+  const { errors, resetErrors } = useContext(ErrorContext)
   const [time, setTime] = useState(0)
   let history = useHistory()
 
@@ -100,13 +102,14 @@ function Gagnants9() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
 
-  //   let history = useHistory()
-  //   const { connected } = useContext(ConnexionContext)
-  //   useEffect(() => {
-  //     if (connected === false) {
-  //       history.push('/')
-  //     }
-  //   }, [history, connected])
+  useEffect(() => {
+    if (connected === false) {
+      resetScore()
+      resetErrors()
+      history.push('/')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [history, connected])
   return (
     <MainWrapper>
       <InfoWrapper>
