@@ -20,19 +20,16 @@ import {
   Question,
   QuestionPoints,
   Answers,
-  ValidateButton,
   Theme,
 } from './style'
 
 function Gagnants9() {
   const [answers, setAnswers] = useState([])
   const [question, setQuestion] = useState({})
-  const { listAnswer, changeClicked } = useContext(AnswerSelectedContext)
+  const { changeClicked } = useContext(AnswerSelectedContext)
   const { questionList, oldQuestion } = useContext(QuestionListContext)
   const { score } = useContext(ScoreContext)
   const { errors } = useContext(ErrorContext)
-  // const [score, setScore] = useState(0)
-  // const [error, setError] = useState(0)
   const [time, setTime] = useState(0)
   let history = useHistory()
 
@@ -103,18 +100,6 @@ function Gagnants9() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
 
-  // function Validate() {
-  //   if (question.question_answer === listAnswer[0]) {
-  //     alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
-  //     listAnswer.splice(0, 1, '')
-  //     setScore(score + question.points)
-  //   } else {
-  //     alert(`Mauvaise réponse, + 1 erreur !`)
-  //     listAnswer.splice(0, 1, '')
-  //     setError(error + 1)
-  //   }
-  // }
-
   //   let history = useHistory()
   //   const { connected } = useContext(ConnexionContext)
   //   useEffect(() => {
@@ -140,13 +125,12 @@ function Gagnants9() {
         <Theme>{question.theme}</Theme>
         <QuestionPoints>{question.points} POINT(S)</QuestionPoints>
         <Answers>
-          <Answer answer={answers[0]} points={question.points}></Answer>
-          <Answer answer={answers[1]} points={question.points}></Answer>
-          <Answer answer={answers[2]} points={question.points}></Answer>
-          <Answer answer={answers[3]} points={question.points}></Answer>
+          <Answer answer={answers[0]} question={question}></Answer>
+          <Answer answer={answers[1]} question={question}></Answer>
+          <Answer answer={answers[2]} question={question}></Answer>
+          <Answer answer={answers[3]} question={question}></Answer>
         </Answers>
       </AnswersWrapper>
-      {/* <ValidateButton onClick={Validate}>Valider</ValidateButton> */}
     </MainWrapper>
   )
 }

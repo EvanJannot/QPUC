@@ -6,16 +6,16 @@ import {
 } from '../../utils/context'
 import { AnswerBlock } from './style'
 
-function Answer({ answer, points }) {
+function Answer({ answer, question }) {
   const { changeClicked, listAnswer } = useContext(AnswerSelectedContext)
-  const { errors, addError } = useContext(ErrorContext)
-  const { score, addPoints } = useContext(ScoreContext)
+  const { addError } = useContext(ErrorContext)
+  const { addPoints } = useContext(ScoreContext)
 
   function Validate() {
-    if (answer === listAnswer[0]) {
-      alert(`Bonne réponse, vous avez gagné ${points} point(s) !`)
+    if (answer === question.question_answer) {
+      alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
       listAnswer.splice(0, 1, '')
-      addPoints(points)
+      addPoints(question.points)
     } else {
       alert(`Mauvaise réponse, + 1 erreur !`)
       listAnswer.splice(0, 1, '')
@@ -28,8 +28,9 @@ function Answer({ answer, points }) {
       clicked={listAnswer.includes(answer) ? true : false}
       onClick={() => {
         changeClicked(answer)
-        Validate()
-        console.log(listAnswer[0])
+        setTimeout(function () {
+          Validate()
+        }, 1000)
       }}
     >
       {answer}{' '}
