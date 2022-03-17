@@ -1,5 +1,37 @@
 import React, { useState, createContext } from 'react'
 
+export const ScoreContext = createContext()
+
+export const ScoreProvider = ({ children }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [score, setScore] = useState(0)
+  const addPoints = (points) => {
+    setScore(score + points)
+  }
+
+  return (
+    <ScoreContext.Provider value={{ score, addPoints }}>
+      {children}
+    </ScoreContext.Provider>
+  )
+}
+
+export const ErrorContext = createContext()
+
+export const ErrorProvider = ({ children }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [errors, setError] = useState(0)
+  const addError = () => {
+    setError(errors + 1)
+  }
+
+  return (
+    <ErrorContext.Provider value={{ errors, addError }}>
+      {children}
+    </ErrorContext.Provider>
+  )
+}
+
 export const QuestionListContext = createContext()
 
 export const QuestionListProvider = ({ children }) => {

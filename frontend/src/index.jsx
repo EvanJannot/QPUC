@@ -14,6 +14,8 @@ import {
   ConnexionProvider,
   QuestionListProvider,
   SelectedAnswerProvider,
+  ErrorProvider,
+  ScoreProvider,
 } from './utils/context'
 
 ReactDOM.render(
@@ -22,31 +24,35 @@ ReactDOM.render(
       <ConnexionProvider>
         <SelectedAnswerProvider>
           <QuestionListProvider>
-            <Header />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/rules">
-                <Rules />
-              </Route>
-              <Route path="/leaderboard">
-                <Leaderboard />
-              </Route>
-              <Route path="/9gagnants">
-                <Gagnants9 />
-              </Route>
-              <Route path="/4suite">
-                <Suite4 />
-              </Route>
-              <Route path="*">
-                <Error />
-              </Route>
-            </Switch>
-            <Footer />
+            <ErrorProvider>
+              <ScoreProvider>
+                <Header />
+                <Switch>
+                  <Route exact path="/">
+                    <Home />
+                  </Route>
+                  <Route path="/register">
+                    <Register />
+                  </Route>
+                  <Route path="/rules">
+                    <Rules />
+                  </Route>
+                  <Route path="/leaderboard">
+                    <Leaderboard />
+                  </Route>
+                  <Route path="/9gagnants">
+                    <Gagnants9 />
+                  </Route>
+                  <Route path="/4suite">
+                    <Suite4 />
+                  </Route>
+                  <Route path="*">
+                    <Error />
+                  </Route>
+                </Switch>
+                <Footer />
+              </ScoreProvider>
+            </ErrorProvider>
           </QuestionListProvider>
         </SelectedAnswerProvider>
       </ConnexionProvider>

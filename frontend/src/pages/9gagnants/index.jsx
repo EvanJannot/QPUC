@@ -1,5 +1,10 @@
 import { useEffect, useState, useContext } from 'react'
-import { AnswerSelectedContext, QuestionListContext } from '../../utils/context'
+import {
+  AnswerSelectedContext,
+  QuestionListContext,
+  ErrorContext,
+  ScoreContext,
+} from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
 import {
@@ -24,8 +29,10 @@ function Gagnants9() {
   const [question, setQuestion] = useState({})
   const { listAnswer, changeClicked } = useContext(AnswerSelectedContext)
   const { questionList, oldQuestion } = useContext(QuestionListContext)
-  const [score, setScore] = useState(0)
-  const [error, setError] = useState(0)
+  const { score } = useContext(ScoreContext)
+  const { errors } = useContext(ErrorContext)
+  // const [score, setScore] = useState(0)
+  // const [error, setError] = useState(0)
   const [time, setTime] = useState(0)
   let history = useHistory()
 
@@ -78,7 +85,7 @@ function Gagnants9() {
         }
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [score, error])
+  }, [score, errors])
 
   useEffect(() => {
     let interval = null
@@ -96,17 +103,17 @@ function Gagnants9() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
 
-  function Validate() {
-    if (question.question_answer === listAnswer[0]) {
-      alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
-      listAnswer.splice(0, 1, '')
-      setScore(score + question.points)
-    } else {
-      alert(`Mauvaise réponse, + 1 erreur !`)
-      listAnswer.splice(0, 1, '')
-      setError(error + 1)
-    }
-  }
+  // function Validate() {
+  //   if (question.question_answer === listAnswer[0]) {
+  //     alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
+  //     listAnswer.splice(0, 1, '')
+  //     setScore(score + question.points)
+  //   } else {
+  //     alert(`Mauvaise réponse, + 1 erreur !`)
+  //     listAnswer.splice(0, 1, '')
+  //     setError(error + 1)
+  //   }
+  // }
 
   //   let history = useHistory()
   //   const { connected } = useContext(ConnexionContext)
@@ -125,7 +132,7 @@ function Gagnants9() {
           Score :<ScoreCounter>{score}</ScoreCounter>
         </Score>
         <Errors>
-          Erreurs :<ErrorsCounter>{error}</ErrorsCounter>
+          Erreurs :<ErrorsCounter>{errors}</ErrorsCounter>
         </Errors>
       </InfoWrapper>
       <AnswersWrapper>
@@ -133,13 +140,13 @@ function Gagnants9() {
         <Theme>{question.theme}</Theme>
         <QuestionPoints>{question.points} POINT(S)</QuestionPoints>
         <Answers>
-          <Answer answer={answers[0]}></Answer>
-          <Answer answer={answers[1]}></Answer>
-          <Answer answer={answers[2]}></Answer>
-          <Answer answer={answers[3]}></Answer>
+          <Answer answer={answers[0]} points={question.points}></Answer>
+          <Answer answer={answers[1]} points={question.points}></Answer>
+          <Answer answer={answers[2]} points={question.points}></Answer>
+          <Answer answer={answers[3]} points={question.points}></Answer>
         </Answers>
       </AnswersWrapper>
-      <ValidateButton onClick={Validate}>Valider</ValidateButton>
+      {/* <ValidateButton onClick={Validate}>Valider</ValidateButton> */}
     </MainWrapper>
   )
 }
