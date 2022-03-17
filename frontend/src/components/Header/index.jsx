@@ -9,21 +9,22 @@ function Header() {
   const { changeConnected, connected } = useContext(ConnexionContext)
   const { pathname } = useLocation()
   if (
-    pathname !== '/rules' ||
-    pathname !== '/leaderboard' ||
-    pathname !== '/9gagnants' ||
+    pathname !== '/rules' &&
+    pathname !== '/leaderboard' &&
+    pathname !== '/9gagnants' &&
     pathname !== '/4suite'
   ) {
     return null
+  } else {
+    return (
+      <HeaderContainer>
+        <Illustration src={Logo} />
+        <DisconnectButton onClick={() => changeConnected()}>
+          {connected === true ? <Icon src={DisconectIcon} /> : ' '}
+        </DisconnectButton>
+      </HeaderContainer>
+    )
   }
-  return (
-    <HeaderContainer>
-      <Illustration src={Logo} />
-      <DisconnectButton onClick={() => changeConnected()}>
-        {connected === true ? <Icon src={DisconectIcon} /> : ' '}
-      </DisconnectButton>
-    </HeaderContainer>
-  )
 }
 
 export default Header
