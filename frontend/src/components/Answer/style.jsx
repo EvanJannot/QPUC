@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import colors from '../../utils/style/colors'
 
 export const AnswerBlock = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ export const AnswerBlock = styled.div`
   margin-right: 20px;
   margin-left: 20px;
 
-  background: ${({ clicked }) => (clicked ? '#50A0D3' : 'white')};
+  background: ${({ clicked }) => (clicked ? colors.blue : 'white')};
   font-size: 24px;
   width: 250px;
   height: 60px;

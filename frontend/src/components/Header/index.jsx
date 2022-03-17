@@ -8,7 +8,12 @@ import { useLocation } from 'react-router-dom'
 function Header() {
   const { changeConnected, connected } = useContext(ConnexionContext)
   const { pathname } = useLocation()
-  if (pathname === '/' || pathname === '/register') {
+  if (
+    pathname !== '/rules' ||
+    pathname !== '/leaderboard' ||
+    pathname !== '/9gagnants' ||
+    pathname !== '/4suite'
+  ) {
     return null
   }
   return (

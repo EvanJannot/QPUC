@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import colors from '../../utils/style/colors'
 
 export const FooterContainer = styled.footer`
   display: flex;
@@ -7,7 +8,7 @@ export const FooterContainer = styled.footer`
   align-items: center;
   justify-content: center;
   height: 10%;
-  background: #caddee;
+  background: ${colors.lightBlue};
   border-top: 4px solid #000000;
 `
 

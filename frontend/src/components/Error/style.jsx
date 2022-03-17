@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import colors from '../../utils/style/colors'
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
   justify-content: center;
+  background: ${colors.linearBlue};
   top: 0;
 `
 
@@ -17,13 +18,13 @@ export const ErrorWrapper = styled.div`
 `
 
 export const ErrorTitle = styled.h1`
-  font-weight: 300;
-  font-family: 'Changa One', 'sans-serif';
+  font-size: 70px;
+  color: white;
 `
 
 export const ErrorSubtitle = styled.h2`
-  font-weight: 300;
-  font-family: 'Changa One', 'sans-serif';
+  font-size: 24px;
+  color: white;
 `
 
 export const Illustration = styled.img`
@@ -36,6 +37,7 @@ export const Redirect = styled(Link)`
   align-items: center;
   justify-content: center;
   font-size: 24px;
+  margin-bottom: 10px;
 
   background: #f2a616;
   width: 200px;
@@ -43,4 +45,5 @@ export const Redirect = styled(Link)`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  font-family: 'Changa One', 'sans-serif';
 `

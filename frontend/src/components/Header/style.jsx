@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import colors from '../../utils/style/colors'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -7,7 +8,7 @@ export const HeaderContainer = styled.header`
   justify-content: center;
   height: 10%;
   padding-top: 15px;
-  background: #1f2869;
+  background: ${colors.darkBlue};
   padding-bottom: 10px;
 `
 
@@ -20,7 +21,7 @@ export const DisconnectButton = styled.button`
   font-family: 'Changa One', 'sans-serif';
   margin-right: 30px;
   font-size: 16px;
-  background: #f2a616;
+  background: ${colors.orange};
   width: 65px;
   height: 65px;
   border: 2px solid #000000;

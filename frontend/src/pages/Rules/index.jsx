@@ -6,7 +6,7 @@ import {
   Wrapper,
   TextWrapper,
   LeaderboardButton,
-} from '../../utils/style/Rules'
+} from './style'
 import { ConnexionContext } from '../../utils/context'
 
 function Rules() {

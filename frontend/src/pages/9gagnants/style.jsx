@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import colors from '../../utils/style/colors'
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ export const MainWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #1f2869 0%, #355f9f 48.23%, #50a0d3 100%);
+  background: ${colors.linearBlue};
 `
 
 export const InfoWrapper = styled.div`
@@ -47,7 +48,7 @@ export const TimeCounter = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: #caddee;
+  background: ${colors.lightBlue};
   border: 2px solid #000000;
   box-sizing: border-box;
   font-size: 60px;
@@ -110,7 +111,7 @@ export const ErrorsCounter = styled.div`
 
   color: black;
   font-size: 60px;
-  background: #caddee;
+  background: ${colors.lightBlue};
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
@@ -126,7 +127,7 @@ export const AnswersWrapper = styled.div`
   width: 50%;
   height: 50%;
 
-  background: linear-gradient(180deg, #f2a616 0%, #fee301 65.1%);
+  background: ${colors.linearOrange};
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
@@ -153,21 +154,5 @@ export const Answers = styled.div`
   justify-content: center;
   width: 600px;
   flex-wrap: wrap;
-  font-family: 'Changa One', 'sans-serif';
-`
-
-export const ValidateButton = styled.button`
-  display: flex;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-
-  background: #f2a616;
-  width: 200px;
-  height: 50px;
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  border-radius: 35px;
   font-family: 'Changa One', 'sans-serif';
 `

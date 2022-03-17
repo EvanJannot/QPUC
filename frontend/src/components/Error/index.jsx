@@ -13,7 +13,7 @@ function Error() {
   return (
     <Container>
       <ErrorWrapper>
-        <ErrorTitle>Oups...</ErrorTitle>
+        <ErrorTitle>OUPS...</ErrorTitle>
         <Illustration src={ErrorIllustration} />
         <ErrorSubtitle>
           Il semblerait que la page que vous cherchez n’existe pas

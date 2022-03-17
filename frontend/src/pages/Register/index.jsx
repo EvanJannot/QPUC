@@ -5,7 +5,7 @@ import {
   Container,
   RegisterButton,
   Input,
-} from '../../utils/style/Register'
+} from './style'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 

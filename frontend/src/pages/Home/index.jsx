@@ -8,7 +8,7 @@ import {
   Illustration,
   Container,
   RegisterButton,
-} from '../../utils/style/Home'
+} from './style'
 import { useHistory } from 'react-router-dom'
 import { ConnexionContext } from '../../utils/context'
 

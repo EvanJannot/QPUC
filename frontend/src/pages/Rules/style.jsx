@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import colors from '../../utils/style/colors'
 
 export const RulesWrapper = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const RulesWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 90%;
-  background: linear-gradient(180deg, #1f2869 0%, #355f9f 48.23%, #50a0d3 100%);
+  background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
 `
 
@@ -24,7 +25,7 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 50%;
   height: 90%;
-  background: linear-gradient(180deg, #ffffff 0%, #caddee 100%);
+  background: ${colors.linearWhite};
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
@@ -52,7 +53,7 @@ export const PlayButton = styled(Link)`
   font-size: 25px;
   font-family: 'Changa One', 'sans-serif';
 
-  background: #fee301;
+  background: ${colors.yellow};
   border: 2px solid #000000;
 `
 export const LeaderboardButton = styled(Link)`
@@ -65,7 +66,7 @@ export const LeaderboardButton = styled(Link)`
   font-size: 20px;
   font-family: 'Changa One', 'sans-serif';
 
-  background: #f2a616;
+  background: ${colors.orange};
   border: 3px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;

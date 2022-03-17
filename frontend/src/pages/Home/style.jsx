@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import colors from '../../utils/style/colors'
 
 export const HomeWrapper = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ export const HomeWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #1f2869 0%, #355f9f 48.23%, #50a0d3 100%);
+  background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
 `
 export const Illustration = styled.img`
@@ -38,7 +39,7 @@ export const Container = styled.div`
 export const Input = styled.input`
   height: 40px;
   width: 100%;
-  background: #caddee;
+  background: ${colors.lightBlue};
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
@@ -57,7 +58,7 @@ export const LoginButton = styled.button`
   font-size: 18px;
   font-family: 'Changa One', 'sans-serif';
 
-  background: #fee301;
+  background: ${colors.yellow};
   width: 100px;
   height: 100px;
   border: 2px solid #000000;
@@ -71,7 +72,7 @@ export const RegisterButton = styled(Link)`
   justify-content: center;
   font-size: 24px;
 
-  background: #f2a616;
+  background: ${colors.orange};
   width: 200px;
   height: 50px;
   border: 2px solid #000000;
