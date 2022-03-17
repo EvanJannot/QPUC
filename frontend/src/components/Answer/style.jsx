@@ -5,6 +5,8 @@ export const AnswerBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
+  text-align: center;
 
   margin-bottom: 30px;
   margin-right: 20px;
