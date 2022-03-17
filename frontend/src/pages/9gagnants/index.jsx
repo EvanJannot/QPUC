@@ -97,7 +97,7 @@ function Gagnants9() {
   useEffect(() => {
     if (score >= 9) {
       changeClicked('')
-      history.push('/4suite')
+      history.push('/4suiteTheme')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])

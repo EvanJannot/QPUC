@@ -11,7 +11,6 @@ export const Suite4Wrapper = styled.div`
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 20px;
-  justify-content: space-around;
   align-items: center;
   left: 0;
   top: 0;
@@ -32,11 +31,10 @@ export const Title = styled.div`
 
 export const Themes = styled.div`
   display: flex;
-  ${
-    '' /* align-items: center;
-  justify-content: center; */
-  }
-  width: 600px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  width: 1200px;
   flex-wrap: wrap;
   font-family: 'Changa One', 'sans-serif';
 `
@@ -44,17 +42,16 @@ export const Theme = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: center;
   text-align: center;
 
-  margin-bottom: 30px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-bottom: 80px;
+  margin-right: 40px;
+  margin-left: 40px;
 
-  background: white;
-  font-size: 24px;
-  width: 250px;
-  height: 60px;
+  background: ${colors.linearOrange};
+  font-size: 30px;
+  width: 500px;
+  height: 150px;
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
