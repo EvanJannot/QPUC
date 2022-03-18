@@ -1,5 +1,21 @@
 import React, { useState, createContext } from 'react'
 
+export const ThemeContext = createContext()
+
+export const ThemeProvider = ({ children }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [choosenTheme] = useState([])
+  const SelectTheme = (theme) => {
+    choosenTheme.splice(0, 1, theme)
+  }
+
+  return (
+    <ThemeContext.Provider value={{ choosenTheme, SelectTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  )
+}
+
 export const ScoreContext = createContext()
 
 export const ScoreProvider = ({ children }) => {

@@ -16,6 +16,7 @@ import {
   SelectedAnswerProvider,
   ErrorProvider,
   ScoreProvider,
+  ThemeProvider,
 } from './utils/context'
 
 ReactDOM.render(
@@ -26,31 +27,33 @@ ReactDOM.render(
           <QuestionListProvider>
             <ErrorProvider>
               <ScoreProvider>
-                <Header />
-                <Switch>
-                  <Route exact path="/">
-                    <Home />
-                  </Route>
-                  <Route path="/register">
-                    <Register />
-                  </Route>
-                  <Route path="/rules">
-                    <Rules />
-                  </Route>
-                  <Route path="/leaderboard">
-                    <Leaderboard />
-                  </Route>
-                  <Route path="/9gagnants">
-                    <Gagnants9 />
-                  </Route>
-                  <Route path="/4suiteTheme">
-                    <Suite4Theme />
-                  </Route>
-                  <Route path="*">
-                    <Error />
-                  </Route>
-                </Switch>
-                <Footer />
+                <ThemeProvider>
+                  <Header />
+                  <Switch>
+                    <Route exact path="/">
+                      <Home />
+                    </Route>
+                    <Route path="/register">
+                      <Register />
+                    </Route>
+                    <Route path="/rules">
+                      <Rules />
+                    </Route>
+                    <Route path="/leaderboard">
+                      <Leaderboard />
+                    </Route>
+                    <Route path="/9gagnants">
+                      <Gagnants9 />
+                    </Route>
+                    <Route path="/4suiteTheme">
+                      <Suite4Theme />
+                    </Route>
+                    <Route path="*">
+                      <Error />
+                    </Route>
+                  </Switch>
+                  <Footer />
+                </ThemeProvider>
               </ScoreProvider>
             </ErrorProvider>
           </QuestionListProvider>
