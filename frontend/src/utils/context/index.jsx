@@ -76,6 +76,7 @@ export const QuestionListProvider = ({ children }) => {
   const oldQuestion = (questionID) => {
     console.log(questionList)
     questionList.push(questionID)
+    console.log(questionList)
   }
 
   return (
