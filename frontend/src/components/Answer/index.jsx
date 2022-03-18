@@ -26,6 +26,7 @@ function Answer({ answer, question }) {
   return (
     <AnswerBlock
       clicked={listAnswer.includes(answer) ? true : false}
+      goodAnswer={listAnswer[0] === question.question_answer ? true : false}
       onClick={() => {
         changeClicked(answer)
         setTimeout(function () {
