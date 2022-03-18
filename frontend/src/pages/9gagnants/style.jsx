@@ -153,7 +153,7 @@ export const Answers = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 600px;
+  width: 700px;
   flex-wrap: wrap;
   font-family: 'Changa One', 'sans-serif';
 `

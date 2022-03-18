@@ -8,8 +8,8 @@ export const AnswerBlock = styled.div`
   text-align: center;
 
   margin-bottom: 30px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
 
   background: ${({ clicked }) =>
     clicked ? ({ goodAnswer }) => (goodAnswer ? '#03c756' : 'red') : 'white'};

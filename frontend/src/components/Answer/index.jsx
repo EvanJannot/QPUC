@@ -6,20 +6,31 @@ import {
 } from '../../utils/context'
 import { AnswerBlock } from './style'
 
-function Answer({ answer, question }) {
+function Answer({ answer, question, game }) {
   const { changeClicked, listAnswer } = useContext(AnswerSelectedContext)
   const { addError } = useContext(ErrorContext)
-  const { addPoints } = useContext(ScoreContext)
+  const { addPoints, resetScore } = useContext(ScoreContext)
 
   function Validate() {
-    if (answer === question.question_answer) {
-      alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
-      listAnswer.splice(0, 1, '')
-      addPoints(question.points)
+    if (game === '9') {
+      if (answer === question.question_answer) {
+        alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
+        listAnswer.splice(0, 1, '')
+        addPoints(question.points)
+      } else {
+        alert(`Mauvaise réponse, + 1 erreur !`)
+        listAnswer.splice(0, 1, '')
+        addError()
+      }
     } else {
-      alert(`Mauvaise réponse, + 1 erreur !`)
-      listAnswer.splice(0, 1, '')
-      addError()
+      if (answer === question.question_answer) {
+        listAnswer.splice(0, 1, '')
+        addPoints(1)
+      } else {
+        listAnswer.splice(0, 1, '')
+        addError()
+        resetScore()
+      }
     }
   }
 

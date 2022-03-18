@@ -1,201 +1,113 @@
-import styled from 'styled-components'
-import colors from '../../utils/style/colors'
+import { useEffect, useState, useContext } from 'react'
+import {
+  AnswerSelectedContext,
+  QuestionListContext,
+  ErrorContext,
+  ScoreContext,
+  ConnexionContext,
+  TimeContext,
+} from '../../utils/context'
+import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
 
-export const Wrapper = styled.div`
-  display: flex;
-  margin: 0px;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  align-items: center;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 120%;
-  background: ${colors.linearBlue};
-`
-
-export const InfoWrapper = styled.div`
-  display: flex;
-
-  align-items: center;
-  justify-content: space-evenly;
-
-  width: 70%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-`
-
-export const Time = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  font-family: 'Changa One', 'sans-serif';
-
-  color: white;
-  font-size: 40px;
-`
-
-export const TimeCounter = styled.div`
-  display: flex;
-  width: 187px;
-  height: 106px;
-
-  align-items: center;
-  justify-content: center;
-
-  background: ${colors.lightBlue};
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  font-size: 60px;
-  color: black;
-  border-radius: 25px;
-`
-
-export const Timer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  font-family: 'Changa One', 'sans-serif';
-  color: white;
-  font-size: 40px;
-`
-
-export const TimerCounter = styled.div`
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 154px;
-  height: 154px;
-
-  box-sizing: border-box;
-  border-radius: 100px;
-  background: #ffffff;
-
-  font-family: 'Changa One', 'sans-serif';
-  font-size: 60px;
-  color: black;
-  border: 3px solid #000000;
-  box-sizing: border-box;
-`
-
-export const Errors = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  font-family: 'Changa One', 'sans-serif';
-  color: white;
-  font-size: 40px;
-`
-export const ErrorsCounter = styled.div`
-  display: flex;
-
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-
-  width: 187px;
-  height: 106px;
-
-  color: black;
-  font-size: 60px;
-  background: ${colors.lightBlue};
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  border-radius: 25px;
-`
-
-export const AnswersWrapper = styled.div`
-  display: flex;
-
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-
-  width: 50%;
-  height: 50%;
-
-  background: ${colors.linearOrange};
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  border-radius: 35px;
-`
-
-export const Question = styled.div`
-  text-align: center;
-  font-family: 'Changa One', 'sans-serif';
-  font-size: 32px;
-`
-
-export const QuestionPoints = styled.div`
-  font-family: 'Changa One', 'sans-serif';
-  font-size: 24px;
-`
-
-export const Answers = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 600px;
-  flex-wrap: wrap;
-  font-family: 'Changa One', 'sans-serif';
-`
-
-export const Pass = styled.div`
-  margin-top: 30px;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 50px;
-  background: ${colors.linearOrange};
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  border-radius: 35px;
-  font-family: 'Changa One', 'sans-serif';
-`
-
-export const PointsBar = styled.div`
-  margin-top: 30px;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 180px;
-  background: white;
-  box-sizing: border-box;
-  border: 4px solid #000000;
-  font-family: 'Changa One', 'sans-serif';
-`
-
-export const Point = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  width: 105%;
-  height: 104%;
-
-  border: 4px solid #000000;
-  box-sizing: border-box;
-  font-size: 50px;
-`
+import {
+  Wrapper,
+  InfoWrapper,
+  Time,
+  TimeCounter,
+  Timer,
+  TimerCounter,
+  Errors,
+  ErrorsCounter,
+  AnswersWrapper,
+  Question,
+  Answers,
+  PointsBar,
+  Point,
+  Pass,
+} from './style'
 
 function Suite4() {
+  const [answers, setAnswers] = useState([])
+  const [question, setQuestion] = useState({})
+  const { changeClicked } = useContext(AnswerSelectedContext)
+  const { questionList, oldQuestion } = useContext(QuestionListContext)
+  const { connected } = useContext(ConnexionContext)
+  const { score } = useContext(ScoreContext)
+  const { errors } = useContext(ErrorContext)
+  const { time, addSecond } = useContext(TimeContext)
+  const [timer, setTimer] = useState(120)
+  let history = useHistory()
+
+  const updateData = (value1, value2, value3, value4) => {
+    let newData = [...answers]
+    newData.splice(0, 1, value1)
+    newData.splice(1, 1, value2)
+    newData.splice(2, 1, value3)
+    newData.splice(3, 1, value4)
+    const shuffledData = newData.sort((a, b) => 0.5 - Math.random())
+    setAnswers(shuffledData)
+  }
+
+  useEffect(() => {
+    fetch(`http://localhost:4200/api/question/`)
+      .then((response) => response.json())
+      .then((requestData) => {
+        let questionNumber = Math.floor(Math.random() * requestData.length)
+
+        if (questionList === []) {
+          setQuestion(requestData[questionNumber])
+          updateData(
+            requestData[questionNumber].question_answer,
+            requestData[questionNumber].fake1,
+            requestData[questionNumber].fake2,
+            requestData[questionNumber].fake3
+          )
+          oldQuestion(requestData[questionNumber]._id)
+        } else if (questionList.includes(requestData[questionNumber]._id)) {
+          while (questionList.includes(requestData[questionNumber]._id)) {
+            questionNumber = Math.floor(Math.random() * requestData.length)
+          }
+          setQuestion(requestData[questionNumber])
+          updateData(
+            requestData[questionNumber].question_answer,
+            requestData[questionNumber].fake1,
+            requestData[questionNumber].fake2,
+            requestData[questionNumber].fake3
+          )
+          oldQuestion(requestData[questionNumber]._id)
+        } else {
+          setQuestion(requestData[questionNumber])
+          updateData(
+            requestData[questionNumber].question_answer,
+            requestData[questionNumber].fake1,
+            requestData[questionNumber].fake2,
+            requestData[questionNumber].fake3
+          )
+          oldQuestion(requestData[questionNumber]._id)
+        }
+      })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [score, errors])
+
+  useEffect(() => {
+    let interval = null
+    interval = setInterval(() => {
+      addSecond()
+      setTimer((time) => time - 1)
+    }, 1000)
+    return () => clearInterval(interval)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [timer])
+
+  useEffect(() => {
+    if (score === 4) {
+      changeClicked('')
+      history.push('/score')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [score])
+
   // let history = useHistory()
   // const { connected } = useContext(ConnexionContext)
   // useEffect(() => {
@@ -207,32 +119,39 @@ function Suite4() {
     <Wrapper>
       <InfoWrapper>
         <Time>
-          Temps :<TimeCounter>0</TimeCounter>
+          Temps :<TimeCounter>{time}</TimeCounter>
         </Time>
         <Timer>
-          Temps restant :<TimerCounter>0</TimerCounter>
+          Temps restant :<TimerCounter>{timer}</TimerCounter>
         </Timer>
         <Errors>
-          Erreurs :<ErrorsCounter>0</ErrorsCounter>
+          Erreurs :<ErrorsCounter>{errors}</ErrorsCounter>
         </Errors>
       </InfoWrapper>
       <AnswersWrapper>
-        <Question>Question</Question>
-        <QuestionPoints>POINT(S)</QuestionPoints>
+        <Question>{question.question_statement}</Question>
         <Answers>
-          <Answer answer={'réponse'} question={''}></Answer>
-          <Answer answer={'réponse'} question={''}></Answer>
-          <Answer answer={'réponse'} question={''}></Answer>
-          <Answer answer={'réponse'} question={''}></Answer>
+          <Answer answer={answers[0]} question={question} game={'4'}></Answer>
+          <Answer answer={answers[1]} question={question} game={'4'}></Answer>
+          <Answer answer={answers[2]} question={question} game={'4'}></Answer>
+          <Answer answer={answers[3]} question={question} game={'4'}></Answer>
         </Answers>
       </AnswersWrapper>
-      <Pass>Passer</Pass>
       <PointsBar>
-        <Point>1</Point>
-        <Point>2</Point>
-        <Point>3</Point>
-        <Point>4</Point>
+        <Point value={1} score={score}>
+          1
+        </Point>
+        <Point value={2} score={score}>
+          2
+        </Point>
+        <Point value={3} score={score}>
+          3
+        </Point>
+        <Point value={4} score={score}>
+          4
+        </Point>
       </PointsBar>
+      <Pass>Passer</Pass>
     </Wrapper>
   )
 }
