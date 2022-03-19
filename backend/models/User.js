@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    highscore: { type: Number, required: true, default: 0 },
+    highscore: { type: Number, required: true },
   },
   {
     versionKey: false,

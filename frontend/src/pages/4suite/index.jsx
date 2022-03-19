@@ -117,13 +117,11 @@ function Suite4() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
 
-  // let history = useHistory()
-  // const { connected } = useContext(ConnexionContext)
-  // useEffect(() => {
-  //   if (connected === false) {
-  //     history.push('/')
-  //   }
-  // }, [history, connected])
+  useEffect(() => {
+    if (connected === false) {
+      history.push('/')
+    }
+  }, [history, connected])
   return (
     <Wrapper>
       <InfoWrapper>

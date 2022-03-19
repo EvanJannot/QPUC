@@ -62,3 +62,9 @@ exports.getOneUser = (req, res, next) => {
       })
     })
 }
+
+exports.updateScore = (req, res, next) => {
+  User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+    .then(() => res.status(200).json({ message: 'Score modifié !' }))
+    .catch((error) => res.status(400).json({ error }))
+}

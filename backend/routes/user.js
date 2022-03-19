@@ -9,4 +9,6 @@ router.get('/:id', userCtrl.getOneUser)
 router.post('/signup', userCtrl.signup)
 router.post('/login', userCtrl.login)
 
+router.put('/:id', userCtrl.updateScore)
+
 module.exports = router
