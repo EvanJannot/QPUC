@@ -1,25 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   RegisterWrapper,
   Title,
   Container,
   RegisterButton,
   Input,
+  RegisterForm,
+  UpPage,
 } from './style'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
+import Return from '../../components/Return'
 
 import '../../utils/style/Home.css'
-
-const RegisterForm = styled.div`
-  display: flex;
-  flex-direction: column;
-`
 
 function Register() {
   const [username, setUsername] = useState([])
   const [password, setPassword] = useState([])
   let history = useHistory()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   function changeUsername(event) {
     setUsername(event)
@@ -65,30 +66,33 @@ function Register() {
     <RegisterWrapper>
       <Title>Inscription</Title>
       <Container>
-        <RegisterForm>
-          <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
-          <Input
-            type="text"
-            name="username"
-            placeholder="Choisissez un nom d'utilisateur"
-            onChange={(event) => {
-              changeUsername(event.target.value)
-            }}
-          />
-          <br />
-          <br />
-          <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Choisissez un mot de passe"
-            onChange={(event) => {
-              changePassword(event.target.value)
-            }}
-          />
-          <br />
-          <RegisterButton onClick={clickRegister}>S'INSCRIRE</RegisterButton>
-        </RegisterForm>
+        <UpPage>
+          <Return />
+          <RegisterForm>
+            <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+            <Input
+              type="text"
+              name="username"
+              placeholder="Choisissez un nom d'utilisateur"
+              onChange={(event) => {
+                changeUsername(event.target.value)
+              }}
+            />
+            <br />
+            <br />
+            <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+            <Input
+              type="password"
+              name="password"
+              placeholder="Choisissez un mot de passe"
+              onChange={(event) => {
+                changePassword(event.target.value)
+              }}
+            />
+            <br />
+            <RegisterButton onClick={clickRegister}>S'INSCRIRE</RegisterButton>
+          </RegisterForm>
+        </UpPage>
       </Container>
     </RegisterWrapper>
   )

@@ -10,8 +10,12 @@ export const TimeProvider = ({ children }) => {
     setTime(time + 1)
   }
 
+  const resetTime = () => {
+    setTime(0)
+  }
+
   return (
-    <TimeContext.Provider value={{ time, addSecond }}>
+    <TimeContext.Provider value={{ time, addSecond, resetTime }}>
       {children}
     </TimeContext.Provider>
   )
@@ -60,9 +64,12 @@ export const ErrorProvider = ({ children }) => {
   const addError = () => {
     setError(errors + 1)
   }
+  const resetError = () => {
+    setError(0)
+  }
 
   return (
-    <ErrorContext.Provider value={{ errors, addError }}>
+    <ErrorContext.Provider value={{ errors, addError, resetError }}>
       {children}
     </ErrorContext.Provider>
   )
@@ -77,8 +84,14 @@ export const QuestionListProvider = ({ children }) => {
     questionList.push(questionID)
   }
 
+  const resetList = () => {
+    questionList.splice(0, questionList.length)
+  }
+
   return (
-    <QuestionListContext.Provider value={{ questionList, oldQuestion }}>
+    <QuestionListContext.Provider
+      value={{ questionList, oldQuestion, resetList }}
+    >
       {children}
     </QuestionListContext.Provider>
   )

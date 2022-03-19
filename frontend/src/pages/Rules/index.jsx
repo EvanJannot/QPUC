@@ -10,6 +10,7 @@ import {
 import { ConnexionContext } from '../../utils/context'
 
 function Rules() {
+  window.scrollTo(0, 0)
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
   useEffect(() => {

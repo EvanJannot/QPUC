@@ -15,6 +15,7 @@ export const RegisterWrapper = styled.div`
 `
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   align-self: center;
   align-items: center;
   justify-content: center;
@@ -56,4 +57,17 @@ export const Input = styled.input`
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
+`
+export const RegisterForm = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const UpPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
 `

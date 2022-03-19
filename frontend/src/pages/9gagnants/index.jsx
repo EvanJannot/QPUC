@@ -106,6 +106,7 @@ function Gagnants9() {
   }, [score])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (connected === false) {
       resetScore()
       resetErrors()
@@ -113,6 +114,7 @@ function Gagnants9() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, connected])
+
   return (
     <MainWrapper>
       <InfoWrapper>

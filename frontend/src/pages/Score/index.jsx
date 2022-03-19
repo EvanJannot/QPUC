@@ -5,6 +5,7 @@ import {
   ConnexionContext,
   TimeContext,
   IdContext,
+  QuestionListContext,
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 
@@ -24,20 +25,33 @@ function Score() {
   const { time } = useContext(TimeContext)
   const { score } = useContext(ScoreContext)
   const { id } = useContext(IdContext)
+  const { resetError } = useContext(ErrorContext)
+  const { resetScore } = useContext(ScoreContext)
+  const { resetTime } = useContext(TimeContext)
+  const { resetList } = useContext(QuestionListContext)
   const [finalScore, setFinalScore] = useState()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     let calculus = score * (450 - time) - errors * time
-    console.log(calculus)
     setFinalScore(calculus)
-
-    fetch(`http://localhost:4200/api/auth/${id[0]}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        highscore: calculus,
-      }),
-    })
+    fetch(`http://localhost:4200/api/auth`)
+      .then((response) => response.json())
+      .then((requestData) => {
+        for (let i = 0; i < requestData.length; i++) {
+          if (requestData[i]._id === id[0]) {
+            if (requestData[i].highscore <= calculus) {
+              fetch(`http://localhost:4200/api/auth/${id[0]}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  highscore: calculus,
+                }),
+              })
+            }
+          }
+        }
+      })
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -60,7 +74,16 @@ function Score() {
           Score Final :<ScoreNumber>{finalScore}</ScoreNumber>
         </FinalScore>
       </InfoWrapper>
-      <LeaderboardButton to="/leaderboard" $isFullLink>
+      <LeaderboardButton
+        to="/leaderboard"
+        onClick={() => {
+          resetError()
+          resetScore()
+          resetTime()
+          resetList()
+        }}
+        $isFullLink
+      >
         LEADERBOARD
       </LeaderboardButton>
     </ScoreWrapper>

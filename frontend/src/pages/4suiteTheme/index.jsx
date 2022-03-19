@@ -9,6 +9,7 @@ function Suite4Theme() {
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (connected === false) {
       history.push('/')
     }

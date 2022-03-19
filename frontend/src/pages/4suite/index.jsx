@@ -75,8 +75,6 @@ function Suite4() {
           ) {
             questionNumber = Math.floor(Math.random() * requestData.length)
           }
-          console.log(choosenTheme[0])
-          console.log(requestData[questionNumber].theme)
           setQuestion(requestData[questionNumber])
           updateData(
             requestData[questionNumber].question_answer,
@@ -118,6 +116,7 @@ function Suite4() {
   }, [score])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (connected === false) {
       history.push('/')
     }
