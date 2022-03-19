@@ -103,6 +103,12 @@ function Suite4() {
   }, [score, errors])
 
   useEffect(() => {
+    if (timer === 0) {
+      alert(
+        `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
+      )
+      history.push('/score')
+    }
     let interval = null
     interval = setInterval(() => {
       addSecond()
