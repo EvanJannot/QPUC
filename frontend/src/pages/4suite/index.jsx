@@ -10,6 +10,7 @@ import {
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
+import { Loader } from '../../utils/style/Atoms'
 
 import {
   Wrapper,
@@ -38,6 +39,8 @@ function Suite4() {
   const { score, resetScore } = useContext(ScoreContext)
   const { errors, addError } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
+  // eslint-disable-next-line no-unused-vars
+  const [isDataLoading, setDataLoading] = useState(false)
   const [timer, setTimer] = useState(120)
   let history = useHistory()
 
@@ -52,6 +55,7 @@ function Suite4() {
   }
 
   useEffect(() => {
+    setDataLoading(true)
     fetch(`http://localhost:4200/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
@@ -94,6 +98,7 @@ function Suite4() {
           oldQuestion(requestData[questionNumber]._id)
         }
       })
+    setDataLoading(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score, errors])
 
@@ -134,37 +139,41 @@ function Suite4() {
           Erreurs :<ErrorsCounter>{errors}</ErrorsCounter>
         </Errors>
       </InfoWrapper>
-      <AnswersWrapper>
-        <Question>{question.question_statement}</Question>
-        <PointsBar>
-          <Point value={1} score={score}>
-            1
-          </Point>
-          <Point value={2} score={score}>
-            2
-          </Point>
-          <Point value={3} score={score}>
-            3
-          </Point>
-          <Point value={4} score={score}>
-            4
-          </Point>
-        </PointsBar>
-        <Answers>
-          <Answer answer={answers[0]} question={question} game={'4'}></Answer>
-          <Answer answer={answers[1]} question={question} game={'4'}></Answer>
-          <Answer answer={answers[2]} question={question} game={'4'}></Answer>
-          <Answer answer={answers[3]} question={question} game={'4'}></Answer>
-        </Answers>
-        <Pass
-          onClick={() => {
-            addError()
-            resetScore()
-          }}
-        >
-          Passer
-        </Pass>
-      </AnswersWrapper>
+      {isDataLoading ? (
+        <Loader />
+      ) : (
+        <AnswersWrapper>
+          <Question>{question.question_statement}</Question>
+          <PointsBar>
+            <Point value={1} score={score}>
+              1
+            </Point>
+            <Point value={2} score={score}>
+              2
+            </Point>
+            <Point value={3} score={score}>
+              3
+            </Point>
+            <Point value={4} score={score}>
+              4
+            </Point>
+          </PointsBar>
+          <Answers>
+            <Answer answer={answers[0]} question={question} game={'4'}></Answer>
+            <Answer answer={answers[1]} question={question} game={'4'}></Answer>
+            <Answer answer={answers[2]} question={question} game={'4'}></Answer>
+            <Answer answer={answers[3]} question={question} game={'4'}></Answer>
+          </Answers>
+          <Pass
+            onClick={() => {
+              addError()
+              resetScore()
+            }}
+          >
+            Passer
+          </Pass>
+        </AnswersWrapper>
+      )}
     </Wrapper>
   )
 }

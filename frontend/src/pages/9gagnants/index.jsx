@@ -24,6 +24,7 @@ import {
   Answers,
   Theme,
 } from './style'
+import { Loader } from '../../utils/style/Atoms'
 
 function Gagnants9() {
   const [answers, setAnswers] = useState([])
@@ -34,6 +35,8 @@ function Gagnants9() {
   const { score, resetScore } = useContext(ScoreContext)
   const { errors, resetErrors } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
+  // eslint-disable-next-line no-unused-vars
+  const [isDataLoading, setDataLoading] = useState(false)
   let history = useHistory()
 
   const updateData = (value1, value2, value3, value4) => {
@@ -47,6 +50,7 @@ function Gagnants9() {
   }
 
   useEffect(() => {
+    setDataLoading(true)
     fetch(`http://localhost:4200/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
@@ -84,6 +88,7 @@ function Gagnants9() {
           oldQuestion(requestData[questionNumber]._id)
         }
       })
+    setDataLoading(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score, errors])
 
@@ -128,17 +133,21 @@ function Gagnants9() {
           Erreurs :<ErrorsCounter>{errors}</ErrorsCounter>
         </Errors>
       </InfoWrapper>
-      <AnswersWrapper>
-        <Question>{question.question_statement}</Question>
-        <Theme>{question.theme}</Theme>
-        <QuestionPoints>{question.points} POINT(S)</QuestionPoints>
-        <Answers>
-          <Answer answer={answers[0]} question={question} game={'9'}></Answer>
-          <Answer answer={answers[1]} question={question} game={'9'}></Answer>
-          <Answer answer={answers[2]} question={question} game={'9'}></Answer>
-          <Answer answer={answers[3]} question={question} game={'9'}></Answer>
-        </Answers>
-      </AnswersWrapper>
+      {isDataLoading ? (
+        <Loader />
+      ) : (
+        <AnswersWrapper>
+          <Question>{question.question_statement}</Question>
+          <Theme>{question.theme}</Theme>
+          <QuestionPoints>{question.points} POINT(S)</QuestionPoints>
+          <Answers>
+            <Answer answer={answers[0]} question={question} game={'9'}></Answer>
+            <Answer answer={answers[1]} question={question} game={'9'}></Answer>
+            <Answer answer={answers[2]} question={question} game={'9'}></Answer>
+            <Answer answer={answers[3]} question={question} game={'9'}></Answer>
+          </Answers>
+        </AnswersWrapper>
+      )}
     </MainWrapper>
   )
 }
