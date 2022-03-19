@@ -6,13 +6,13 @@ import Theme from '../../components/Theme/index'
 import { Suite4Wrapper, Title, Themes } from './style'
 
 function Suite4Theme() {
-  // let history = useHistory()
-  // const { connected } = useContext(ConnexionContext)
-  // useEffect(() => {
-  //   if (connected === false) {
-  //     history.push('/')
-  //   }
-  // }, [history, connected])
+  let history = useHistory()
+  const { connected } = useContext(ConnexionContext)
+  useEffect(() => {
+    if (connected === false) {
+      history.push('/')
+    }
+  }, [history, connected])
   return (
     <Suite4Wrapper>
       <Title>Veuillez choisir un thème</Title>

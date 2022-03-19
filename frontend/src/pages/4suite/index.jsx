@@ -6,6 +6,7 @@ import {
   ScoreContext,
   ConnexionContext,
   TimeContext,
+  ThemeContext,
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
@@ -33,6 +34,7 @@ function Suite4() {
   const { changeClicked } = useContext(AnswerSelectedContext)
   const { questionList, oldQuestion } = useContext(QuestionListContext)
   const { connected } = useContext(ConnexionContext)
+  const { choosenTheme } = useContext(ThemeContext)
   const { score } = useContext(ScoreContext)
   const { errors } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
@@ -54,7 +56,6 @@ function Suite4() {
       .then((response) => response.json())
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)
-
         if (questionList === []) {
           setQuestion(requestData[questionNumber])
           updateData(
@@ -64,10 +65,18 @@ function Suite4() {
             requestData[questionNumber].fake3
           )
           oldQuestion(requestData[questionNumber]._id)
-        } else if (questionList.includes(requestData[questionNumber]._id)) {
-          while (questionList.includes(requestData[questionNumber]._id)) {
+        } else if (
+          questionList.includes(requestData[questionNumber]._id) ||
+          requestData[questionNumber].theme !== choosenTheme[0]
+        ) {
+          while (
+            questionList.includes(requestData[questionNumber]._id) ||
+            requestData[questionNumber].theme !== choosenTheme[0]
+          ) {
             questionNumber = Math.floor(Math.random() * requestData.length)
           }
+          console.log(choosenTheme[0])
+          console.log(requestData[questionNumber].theme)
           setQuestion(requestData[questionNumber])
           updateData(
             requestData[questionNumber].question_answer,

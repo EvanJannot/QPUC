@@ -74,9 +74,7 @@ export const QuestionListProvider = ({ children }) => {
   // eslint-disable-next-line no-unused-vars
   const [questionList, setQuestion] = useState([])
   const oldQuestion = (questionID) => {
-    console.log(questionList)
     questionList.push(questionID)
-    console.log(questionList)
   }
 
   return (
