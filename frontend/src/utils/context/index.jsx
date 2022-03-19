@@ -104,6 +104,19 @@ export const SelectedAnswerProvider = ({ children }) => {
   )
 }
 
+export const IdContext = createContext()
+
+export const IdProvider = ({ children }) => {
+  const [id] = useState([])
+  const changeId = (newId) => {
+    id.splice(0, 1, newId)
+  }
+
+  return (
+    <IdContext.Provider value={{ id, changeId }}>{children}</IdContext.Provider>
+  )
+}
+
 export const ConnexionContext = createContext()
 
 export const ConnexionProvider = ({ children }) => {

@@ -4,87 +4,51 @@ import {
   ScoreContext,
   ConnexionContext,
   TimeContext,
+  IdContext,
 } from '../../utils/context'
+import { useHistory } from 'react-router-dom'
 
-import styled from 'styled-components'
-import colors from '../../utils/style/colors'
-
-export const ScoreWrapper = styled.div`
-  display: flex;
-  margin: 0px;
-  flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  justify-content: center;
-  align-items: center;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: ${colors.linearBlue};
-`
-
-export const InfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  width: 35%;
-  height: 60%;
-  background: white;
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  border-radius: 35px;
-`
-
-export const TotalTime = styled.div`
-  margin-left: 20px;
-  font-size: 32px;
-  font-family: 'Changa One', 'sans-serif';
-`
-
-export const TotalErrors = styled.div`
-  margin-left: 20px;
-  font-size: 32px;
-  font-family: 'Changa One', 'sans-serif';
-`
-export const Separation = styled.div`
-  display: flex;
-  align-self: center;
-  margin-top: 30px;
-  left: 0;
-  height: 2%;
-  width: 100.5%;
-  background: black;
-`
-
-export const FinalScore = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  margin-left: 20px;
-  font-size: 32px;
-  font-family: 'Changa One', 'sans-serif';
-`
-
-export const ScoreNumber = styled.div`
-  display: flex;
-  align-self: center;
-  margin-top: 30px;
-  font-size: 50px;
-  font-family: 'Changa One', 'sans-serif';
-`
+import {
+  ScoreWrapper,
+  InfoWrapper,
+  TotalTime,
+  TotalErrors,
+  Separation,
+  FinalScore,
+  ScoreNumber,
+  LeaderboardButton,
+} from './style'
 
 function Score() {
   const { errors } = useContext(ErrorContext)
   const { time } = useContext(TimeContext)
   const { score } = useContext(ScoreContext)
+  const { id } = useContext(IdContext)
   const [finalScore, setFinalScore] = useState()
 
   useEffect(() => {
     let calculus = score * (450 - time) - errors * time
+    console.log(calculus)
     setFinalScore(calculus)
+
+    fetch(`http://localhost:4200/api/auth/${id[0]}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        highscore: calculus,
+      }),
+    })
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  let history = useHistory()
+  const { connected } = useContext(ConnexionContext)
+  useEffect(() => {
+    if (connected === false) {
+      history.push('/')
+    }
+  }, [history, connected])
 
   return (
     <ScoreWrapper>
@@ -96,6 +60,9 @@ function Score() {
           Score Final :<ScoreNumber>{finalScore}</ScoreNumber>
         </FinalScore>
       </InfoWrapper>
+      <LeaderboardButton to="/leaderboard" $isFullLink>
+        LEADERBOARD
+      </LeaderboardButton>
     </ScoreWrapper>
   )
 }

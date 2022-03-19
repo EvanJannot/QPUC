@@ -10,7 +10,7 @@ import {
   RegisterButton,
 } from './style'
 import { useHistory } from 'react-router-dom'
-import { ConnexionContext } from '../../utils/context'
+import { ConnexionContext, IdContext } from '../../utils/context'
 
 import '../../utils/style/Home.css'
 
@@ -20,6 +20,7 @@ function Home() {
   const [stateForm, setStateForm] = useState([])
   const [countSendForm, setSendForm] = useState([])
   const { changeConnected } = useContext(ConnexionContext)
+  const { changeId } = useContext(IdContext)
   let history = useHistory()
   const firstUpdate = useRef(true)
 
@@ -36,6 +37,7 @@ function Home() {
               requestData[i].password.toString() === password
             ) {
               alert('Connexion réussie !')
+              changeId(requestData[i]._id)
               changeConnected()
               history.push('/rules')
               this.setStateForm(false)

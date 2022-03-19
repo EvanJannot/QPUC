@@ -13,7 +13,8 @@ function Header() {
     pathname !== '/leaderboard' &&
     pathname !== '/9gagnants' &&
     pathname !== '/4suiteTheme' &&
-    pathname !== '/4suite'
+    pathname !== '/4suite' &&
+    pathname !== '/score'
   ) {
     return null
   } else {
