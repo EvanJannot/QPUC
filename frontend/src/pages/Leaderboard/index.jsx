@@ -1,8 +1,9 @@
-import { LeaderboardWrapper, PageTitle, TableBg } from './style'
+import { LeaderboardWrapper, PageTitle, TableBg, UpPage } from './style'
 import { useHistory } from 'react-router-dom'
 import TableL from '../../components/Leaderboard/'
 import { ConnexionContext } from '../../utils/context'
 import { useEffect, useContext } from 'react'
+import Return from '../../components/Return'
 
 function Leaderboard() {
   let history = useHistory()
@@ -15,7 +16,10 @@ function Leaderboard() {
 
   return (
     <LeaderboardWrapper>
-      <PageTitle>LEADERBOARD</PageTitle>
+      <UpPage>
+        <Return />
+        <PageTitle>LEADERBOARD</PageTitle>
+      </UpPage>
       <TableBg>
         <TableL />
       </TableBg>

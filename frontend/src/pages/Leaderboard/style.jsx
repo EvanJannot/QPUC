@@ -17,21 +17,32 @@ export const LeaderboardWrapper = styled.div`
 
 export const TableBg = styled.div`
   background: white;
-  border: 2px solid #000000;
+  border: 4px solid #000000;
   border-radius: 25px;
+  width: 40%;
+  height: 60%;
 `
 
 export const PageTitle = styled.div`
   display: flex;
   width: 32%;
-  height: 10%;
+  height: 80%;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  align-self: center;
 
   font-size: 40px;
   border: 4px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
   background: ${colors.linearOrange};
+`
+export const UpPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 50px;
 `

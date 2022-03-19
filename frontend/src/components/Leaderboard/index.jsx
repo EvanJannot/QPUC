@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Column, Line, Wrapper } from './style'
+import { Column, Line, Wrapper, Separation, TableDiv } from './style'
 
 function Table() {
   const [user, setUser] = useState([])
@@ -16,26 +16,30 @@ function Table() {
     return user.map((joueur) => {
       const { _id, username, highscore } = joueur
       return (
-        <Line key={_id}>
-          <Column>{username}</Column>
-          <Column>{highscore}</Column>
-        </Line>
+        <div>
+          <Separation />
+          <Line key={_id}>
+            <Column>{username}</Column>
+            <Column>{highscore}</Column>
+          </Line>
+        </div>
       )
     })
   }
 
   return (
     <Wrapper>
-      <table>
+      <TableDiv>
         <tbody>
           <Line>
             {' '}
             <Column>PSEUDO</Column>
             <Column>SCORE</Column>
           </Line>
+          <Separation />
           {renderTableData()}
         </tbody>
-      </table>
+      </TableDiv>
     </Wrapper>
   )
 }
