@@ -9,7 +9,6 @@ export const HeaderContainer = styled.header`
   height: 10%;
   padding-top: 15px;
   background: ${colors.darkBlue};
-  padding-bottom: 10px;
 `
 
 export const DisconnectButton = styled.button`

@@ -148,14 +148,13 @@ export const Answers = styled.div`
 `
 
 export const Pass = styled.div`
-  margin-top: 20px;
   font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 200px;
   height: 50px;
-  background: ${colors.linearOrange};
+  background: white;
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
@@ -163,13 +162,12 @@ export const Pass = styled.div`
 `
 
 export const PointsBar = styled.div`
-  margin-top: 20px;
   font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
-  height: 100px;
+  width: 80%;
+  height: 80px;
   background: white;
   box-sizing: border-box;
   border: 4px solid #000000;

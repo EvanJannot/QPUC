@@ -7,7 +7,7 @@ export const MainWrapper = styled.div`
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 20px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   left: 0;
   top: 0;
@@ -23,8 +23,6 @@ export const InfoWrapper = styled.div`
   justify-content: space-evenly;
 
   width: 70%;
-  padding-top: 20px;
-  padding-bottom: 20px;
 `
 
 export const Time = styled.div`
@@ -135,6 +133,7 @@ export const AnswersWrapper = styled.div`
 
 export const Question = styled.div`
   text-align: center;
+  padding: 5px;
   font-family: 'Changa One', 'sans-serif';
   font-size: 32px;
 `

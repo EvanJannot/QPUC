@@ -7,13 +7,15 @@ export const AnswerBlock = styled.div`
   align-self: center;
   text-align: center;
 
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 50px;
   margin-right: 50px;
 
   background: ${({ clicked }) =>
     clicked ? ({ goodAnswer }) => (goodAnswer ? '#03c756' : 'red') : 'white'};
-  font-size: 24px;
+  font-size: 20px;
+  padding: 5px;
   width: 250px;
   height: 60px;
   border: 2px solid #000000;

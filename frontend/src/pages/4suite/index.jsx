@@ -35,8 +35,8 @@ function Suite4() {
   const { questionList, oldQuestion } = useContext(QuestionListContext)
   const { connected } = useContext(ConnexionContext)
   const { choosenTheme } = useContext(ThemeContext)
-  const { score } = useContext(ScoreContext)
-  const { errors } = useContext(ErrorContext)
+  const { score, resetScore } = useContext(ScoreContext)
+  const { errors, addError } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
   const [timer, setTimer] = useState(120)
   let history = useHistory()
@@ -136,28 +136,35 @@ function Suite4() {
       </InfoWrapper>
       <AnswersWrapper>
         <Question>{question.question_statement}</Question>
+        <PointsBar>
+          <Point value={1} score={score}>
+            1
+          </Point>
+          <Point value={2} score={score}>
+            2
+          </Point>
+          <Point value={3} score={score}>
+            3
+          </Point>
+          <Point value={4} score={score}>
+            4
+          </Point>
+        </PointsBar>
         <Answers>
           <Answer answer={answers[0]} question={question} game={'4'}></Answer>
           <Answer answer={answers[1]} question={question} game={'4'}></Answer>
           <Answer answer={answers[2]} question={question} game={'4'}></Answer>
           <Answer answer={answers[3]} question={question} game={'4'}></Answer>
         </Answers>
+        <Pass
+          onClick={() => {
+            addError()
+            resetScore()
+          }}
+        >
+          Passer
+        </Pass>
       </AnswersWrapper>
-      <PointsBar>
-        <Point value={1} score={score}>
-          1
-        </Point>
-        <Point value={2} score={score}>
-          2
-        </Point>
-        <Point value={3} score={score}>
-          3
-        </Point>
-        <Point value={4} score={score}>
-          4
-        </Point>
-      </PointsBar>
-      <Pass>Passer</Pass>
     </Wrapper>
   )
 }
