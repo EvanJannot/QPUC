@@ -8,9 +8,14 @@ export const FaceScoreProvider = ({ children }) => {
   const addFacePoints = (points) => {
     setFaceScore(faceScore + points)
   }
+  const resetFacePoints = () => {
+    setFaceScore(0)
+  }
 
   return (
-    <FaceScoreContext.Provider value={{ faceScore, addFacePoints }}>
+    <FaceScoreContext.Provider
+      value={{ faceScore, addFacePoints, resetFacePoints }}
+    >
       {children}
     </FaceScoreContext.Provider>
   )

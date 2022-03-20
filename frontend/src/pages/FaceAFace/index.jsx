@@ -35,7 +35,7 @@ function FaceAFace() {
   const { connected } = useContext(ConnexionContext)
   const { errors, addError } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
-  const { faceScore } = useContext(FaceScoreContext)
+  const { faceScore, resetFacePoints } = useContext(FaceScoreContext)
   const [points, setPoints] = useState(4)
   const [timer, setTimer] = useState(20)
   // eslint-disable-next-line no-unused-vars
@@ -74,16 +74,7 @@ function FaceAFace() {
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)
 
-        if (questionList === []) {
-          setQuestion(requestData[questionNumber])
-          updateData(
-            requestData[questionNumber].question_answer,
-            requestData[questionNumber].fake1,
-            requestData[questionNumber].fake2,
-            requestData[questionNumber].fake3
-          )
-          oldQuestion(requestData[questionNumber]._id)
-        } else if (questionList.includes(requestData[questionNumber]._id)) {
+        if (questionList.includes(requestData[questionNumber]._id)) {
           while (questionList.includes(requestData[questionNumber]._id)) {
             questionNumber = Math.floor(Math.random() * requestData.length)
           }
@@ -113,6 +104,7 @@ function FaceAFace() {
   useEffect(() => {
     if (faceScore >= 12) {
       changeClicked('')
+      resetFacePoints()
       history.push('/score')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

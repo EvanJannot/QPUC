@@ -109,7 +109,7 @@ function Suite4() {
       alert(
         `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
       )
-      history.push('/score')
+      history.push('/faceaface')
     }
     let interval = null
     interval = setInterval(() => {
