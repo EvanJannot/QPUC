@@ -28,15 +28,31 @@ import {
 import { Loader } from '../../utils/style/Atoms'
 
 function Gagnants9() {
+  //Les states permettent de stocker les réponses et la question sur la page
+
   const [answers, setAnswers] = useState([])
   const [question, setQuestion] = useState({})
+
+  //Permet de changer la couleur de la réponse sur laquelle on a cliqué
   const { changeClicked } = useContext(AnswerSelectedContext)
+
+  //Permet de savoir quelles quetions ont déjà été posées
   const { questionList, oldQuestion } = useContext(QuestionListContext)
+
+  //Permet de savoir si l'utilisateur est connecté
   const { connected } = useContext(ConnexionContext)
+
+  //Permet de savoir le score de l'épreuve et de le modifier depuis d'autres pages grace au contexte
   const { score, resetScore } = useContext(ScoreContext)
+
+  //Idem que pour le score mais avec les erreurs
   const { errors, resetErrors } = useContext(ErrorContext)
+
+  //Permet de compter le temps total de jeu grace au contexte
   const { time, addSecond } = useContext(TimeContext)
+
   // eslint-disable-next-line no-unused-vars
+  //Permet d'afficher un chargement lorsque les questions sont récupérées.
   const [isDataLoading, setDataLoading] = useState(false)
   let history = useHistory()
 
