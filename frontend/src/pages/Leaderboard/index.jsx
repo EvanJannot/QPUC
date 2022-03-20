@@ -6,21 +6,28 @@ import { useEffect, useContext, useState } from 'react'
 import Return from '../../components/Return'
 
 function Leaderboard() {
-  const [nbpseudo, setNBPseudo] = useState(1)
+  //State qui compte le nb de pseudo
+
+  const [nbpseudo, setNBPseudo] = useState(0)
+  //Les contextes et history permettent une redirection en fonction de l'état du joueur et l'utilisation du bouton retour
+
   const { pathname } = useLocation()
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
 
+  //On récupère tous les utilisateurs et on compte leur nombre pour adapter la taille du fond du tableau en pixel
   useEffect(() => {
     fetch(`http://localhost:4200/api/auth`) //On récupère les utilisateurs de la bdd
       .then((response) => response.json())
       .then((requestData) => {
-        //On parcourt la liste des utilisateurs
+        //On défini le nombre de pseudo comme le nombre d'utilisateurs inscrits + 1 (pour la ligne pseudo/score)
+
         setNBPseudo(requestData.length + 1)
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  //Permet la redirection lorsque l'utilisateur n'est pas connecté
   useEffect(() => {
     window.scrollTo(0, 0)
     if (connected === false) {
@@ -36,6 +43,7 @@ function Leaderboard() {
       </UpPage>
       <TableBg numberPseudo={nbpseudo * 48}>
         <TableL />
+        {/* On utilise le composant TableL pour afficher nos pseudos et scores */}
       </TableBg>
     </LeaderboardWrapper>
   )
