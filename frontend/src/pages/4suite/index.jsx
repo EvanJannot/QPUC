@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
 import { Loader } from '../../utils/style/Atoms'
 import timeSound from '../../assets/time.mp3'
-import endTimeSound from '../../assets/endTimmer.mp3'
+import endTimeSound from '../../assets/endTimer.mp3'
 
 import {
   Wrapper,
