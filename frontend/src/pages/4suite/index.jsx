@@ -44,7 +44,7 @@ function Suite4() {
   const { time, addSecond } = useContext(TimeContext)
   // eslint-disable-next-line no-unused-vars
   const [isDataLoading, setDataLoading] = useState(false)
-  const [timer, setTimer] = useState(120)
+  const [timer, setTimer] = useState(60)
   let history = useHistory()
 
   const updateData = (value1, value2, value3, value4) => {
