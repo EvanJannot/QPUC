@@ -20,7 +20,7 @@ export const TableBg = styled.div`
   border: 4px solid #000000;
   border-radius: 25px;
   width: 40%;
-  height: 60%;
+  height: ${({ numberPseudo }) => `${numberPseudo}px`};
 `
 
 export const PageTitle = styled.div`
