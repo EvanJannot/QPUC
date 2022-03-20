@@ -7,6 +7,7 @@ import Leaderboard from './pages/Leaderboard'
 import Suite4Theme from './pages/4suiteTheme'
 import Suite4 from './pages/4suite'
 import Gagnants9 from './pages/9gagnants'
+import FaceAFace from './pages/FaceAFace'
 import Score from './pages/Score'
 import Error from './components/Error'
 import Footer from './components/Footer'
@@ -59,6 +60,9 @@ ReactDOM.render(
                         </Route>
                         <Route path="/score">
                           <Score />
+                        </Route>
+                        <Route path="/faceaface">
+                          <FaceAFace />
                         </Route>
                         <Route path="*">
                           <Error />
