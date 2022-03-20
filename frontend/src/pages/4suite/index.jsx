@@ -11,6 +11,8 @@ import {
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
 import { Loader } from '../../utils/style/Atoms'
+import timeSound from '../../assets/time.mp3'
+import endTimeSound from '../../assets/endTimmer.mp3'
 
 import {
   Wrapper,
@@ -61,16 +63,6 @@ function Suite4() {
       .then((response) => response.json())
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)
-        // if (questionList === []) {
-        //   setQuestion(requestData[questionNumber])
-        //   updateData(
-        //     requestData[questionNumber].question_answer,
-        //     requestData[questionNumber].fake1,
-        //     requestData[questionNumber].fake2,
-        //     requestData[questionNumber].fake3
-        //   )
-        //   oldQuestion(requestData[questionNumber]._id)
-        // }
         if (
           questionList.includes(requestData[questionNumber]._id) ||
           requestData[questionNumber].theme !== choosenTheme[0]
@@ -106,12 +98,14 @@ function Suite4() {
 
   useEffect(() => {
     if (timer === 0) {
+      new Audio(endTimeSound).play()
       alert(
         `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
       )
       history.push('/faceaface')
     }
     let interval = null
+    new Audio(timeSound).play()
     interval = setInterval(() => {
       addSecond()
       setTimer((time) => time - 1)

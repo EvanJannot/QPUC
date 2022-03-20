@@ -8,6 +8,7 @@ import {
   LeaderboardButton,
 } from './style'
 import { ConnexionContext } from '../../utils/context'
+import opening from '../../assets/opening.mp3'
 
 function Rules() {
   window.scrollTo(0, 0) //Permet de ramener la vue de l'écran au sommet de la page
@@ -17,6 +18,7 @@ function Rules() {
 
   //Permet de rediriger vers l'accueil si une personne tente d'accéder à cet écran par l'URL
   useEffect(() => {
+    new Audio(opening).play()
     if (connected === false) {
       history.push('/')
     }

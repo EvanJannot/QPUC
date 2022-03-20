@@ -6,6 +6,8 @@ import {
   ScoreContext,
 } from '../../utils/context'
 import { AnswerBlock } from './style'
+import correct from '../../assets/goodAnswer.mp3'
+import incorrect from '../../assets/wrongAnswer.mp3'
 
 function Answer({ answer, question, game, points }) {
   const { changeClicked, listAnswer } = useContext(AnswerSelectedContext)
@@ -13,14 +15,20 @@ function Answer({ answer, question, game, points }) {
   const { addPoints, resetScore } = useContext(ScoreContext)
   const { addFacePoints } = useContext(FaceScoreContext)
 
+  function Sound() {
+    if (answer === question.question_answer) {
+      new Audio(correct).play()
+    } else {
+      new Audio(incorrect).play()
+    }
+  }
+
   function Validate() {
     if (game === '9') {
       if (answer === question.question_answer) {
-        // alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
         listAnswer.splice(0, 1, '')
         addPoints(question.points)
       } else {
-        // alert(`Mauvaise réponse, + 1 erreur !`)
         listAnswer.splice(0, 1, '')
         addError()
       }
@@ -50,6 +58,7 @@ function Answer({ answer, question, game, points }) {
       goodAnswer={listAnswer[0] === question.question_answer ? true : false}
       onClick={() => {
         changeClicked(answer)
+        Sound()
         setTimeout(function () {
           Validate()
         }, 2000)

@@ -10,6 +10,8 @@ import {
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
 import { Loader } from '../../utils/style/Atoms'
+import timeSound from '../../assets/time.mp3'
+import endTimeSound from '../../assets/endTimmer.mp3'
 import {
   Wrapper,
   InfoWrapper,
@@ -113,9 +115,11 @@ function FaceAFace() {
   useEffect(() => {
     percentage(timer)
     if (timer === 0) {
+      new Audio(endTimeSound).play()
       addError()
     }
     let interval = null
+    new Audio(timeSound).play()
     interval = setInterval(() => {
       addSecond()
       setTimer((time) => time - 1)
