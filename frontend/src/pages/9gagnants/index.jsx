@@ -56,24 +56,33 @@ function Gagnants9() {
   const [isDataLoading, setDataLoading] = useState(false)
   let history = useHistory()
 
+  //Permet de remplacer les anciennes réponses par celles de la question actuelle
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...answers]
     newData.splice(0, 1, value1)
     newData.splice(1, 1, value2)
     newData.splice(2, 1, value3)
     newData.splice(3, 1, value4)
+    //On mélange le tableau pour ne pas que les réponses soient toujours au même endroit
     const shuffledData = newData.sort((a, b) => 0.5 - Math.random())
     setAnswers(shuffledData)
   }
 
+  //useEffect qui se lance à chaque fois que le joueur répond que ce soit juste ou faux
   useEffect(() => {
+    //On dit que les données chargent
+
     setDataLoading(true)
+    //On récupère toutes les questions
+
     fetch(`http://localhost:4200/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
+        //On génère un entier aléatoire avec comme limite le nombre de réponses
         let questionNumber = Math.floor(Math.random() * requestData.length)
 
         if (questionList === []) {
+          //Si c'est la première question à laquelle on répond on effectue pas de vérification
           setQuestion(requestData[questionNumber])
           updateData(
             requestData[questionNumber].question_answer,
@@ -83,7 +92,10 @@ function Gagnants9() {
           )
           oldQuestion(requestData[questionNumber]._id)
         } else if (questionList.includes(requestData[questionNumber]._id)) {
+          //Si la question qu'on a sélectionné a déjà été posée
+
           while (questionList.includes(requestData[questionNumber]._id)) {
+            //On en prend une autre jusqu'à ce qu'elle n'ait jamais été posée
             questionNumber = Math.floor(Math.random() * requestData.length)
           }
           setQuestion(requestData[questionNumber])
@@ -95,6 +107,7 @@ function Gagnants9() {
           )
           oldQuestion(requestData[questionNumber]._id)
         } else {
+          //Sinon c'est que la question n'a jamais été posée donc on peut définir la question actuelle comme celle-ci
           setQuestion(requestData[questionNumber])
           updateData(
             requestData[questionNumber].question_answer,

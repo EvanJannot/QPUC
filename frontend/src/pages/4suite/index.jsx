@@ -61,16 +61,17 @@ function Suite4() {
       .then((response) => response.json())
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)
-        if (questionList === []) {
-          setQuestion(requestData[questionNumber])
-          updateData(
-            requestData[questionNumber].question_answer,
-            requestData[questionNumber].fake1,
-            requestData[questionNumber].fake2,
-            requestData[questionNumber].fake3
-          )
-          oldQuestion(requestData[questionNumber]._id)
-        } else if (
+        // if (questionList === []) {
+        //   setQuestion(requestData[questionNumber])
+        //   updateData(
+        //     requestData[questionNumber].question_answer,
+        //     requestData[questionNumber].fake1,
+        //     requestData[questionNumber].fake2,
+        //     requestData[questionNumber].fake3
+        //   )
+        //   oldQuestion(requestData[questionNumber]._id)
+        // }
+        if (
           questionList.includes(requestData[questionNumber]._id) ||
           requestData[questionNumber].theme !== choosenTheme[0]
         ) {
