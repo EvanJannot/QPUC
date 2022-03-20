@@ -3,10 +3,8 @@ import {
   AnswerSelectedContext,
   QuestionListContext,
   ErrorContext,
-  ScoreContext,
   ConnexionContext,
   TimeContext,
-  ThemeContext,
   FaceScoreContext,
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
@@ -34,8 +32,6 @@ function FaceAFace() {
   const { changeClicked } = useContext(AnswerSelectedContext)
   const { questionList, oldQuestion } = useContext(QuestionListContext)
   const { connected } = useContext(ConnexionContext)
-  const { choosenTheme } = useContext(ThemeContext)
-  const { score } = useContext(ScoreContext)
   const { errors, addError } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
   const { faceScore } = useContext(FaceScoreContext)
@@ -70,12 +66,13 @@ function FaceAFace() {
   }
 
   useEffect(() => {
-    setDataLoading(true)
     setTimer(20)
+    setDataLoading(true)
     fetch(`http://localhost:4200/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)
+
         if (questionList === []) {
           setQuestion(requestData[questionNumber])
           updateData(
@@ -85,10 +82,7 @@ function FaceAFace() {
             requestData[questionNumber].fake3
           )
           oldQuestion(requestData[questionNumber]._id)
-        } else if (
-          questionList.includes(requestData[questionNumber]._id) ||
-          requestData[questionNumber].theme !== choosenTheme[0]
-        ) {
+        } else if (questionList.includes(requestData[questionNumber]._id)) {
           while (questionList.includes(requestData[questionNumber]._id)) {
             questionNumber = Math.floor(Math.random() * requestData.length)
           }
@@ -152,7 +146,7 @@ function FaceAFace() {
           Temps :<TimeCounter>{time}</TimeCounter>
         </Time>
         <Score>
-          Score :<ScoreCounter>{faceScore - score}</ScoreCounter>
+          Score :<ScoreCounter>{faceScore}</ScoreCounter>
         </Score>
         <Errors>
           Erreurs :<ErrorsCounter>{errors}</ErrorsCounter>
