@@ -23,6 +23,7 @@ import {
   QuestionPoints,
   Answers,
   Theme,
+  Title,
 } from './style'
 import { Loader } from '../../utils/style/Atoms'
 
@@ -122,6 +123,7 @@ function Gagnants9() {
 
   return (
     <MainWrapper>
+      <Title>9 POINTS GAGNANTS</Title>
       <InfoWrapper>
         <Time>
           Temps :<TimeCounter>{time}</TimeCounter>

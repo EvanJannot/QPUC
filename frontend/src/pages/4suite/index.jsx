@@ -27,6 +27,7 @@ import {
   PointsBar,
   Point,
   Pass,
+  Title,
 } from './style'
 
 function Suite4() {
@@ -134,6 +135,7 @@ function Suite4() {
   }, [history, connected])
   return (
     <Wrapper>
+      <Title>4 A LA SUITE</Title>
       <InfoWrapper>
         <Time>
           Temps :<TimeCounter>{time}</TimeCounter>

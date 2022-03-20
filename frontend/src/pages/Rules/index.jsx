@@ -10,9 +10,12 @@ import {
 import { ConnexionContext } from '../../utils/context'
 
 function Rules() {
-  window.scrollTo(0, 0)
+  window.scrollTo(0, 0) //Permet de ramener la vue de l'écran au sommet de la page
+
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
+
+  //Permet de rediriger vers l'accueil si une personne tente d'accéder à cet écran par l'URL
   useEffect(() => {
     if (connected === false) {
       history.push('/')
@@ -23,37 +26,47 @@ function Rules() {
     <RulesWrapper>
       <Wrapper>
         <TextWrapper>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis
-          elementum odio. Curabitur eget massa a nisi congue aliquet ut ac ex.
-          Curabitur euismod convallis felis, congue vehicula diam ultrices
-          fringilla. Curabitur aliquet dictum purus nec pharetra. Fusce auctor
-          lectus faucibus justo vehicula, vitae laoreet velit tempor. Morbi
-          sagittis viverra aliquam. Vestibulum vitae nisi ex. Aenean suscipit
-          velit ac ipsum euismod euismod. Integer sed sem condimentum, faucibus
-          velit vel, dictum odio. Phasellus sodales fermentum mi, quis tincidunt
-          lacus ornare in. Proin vitae lacinia massa. Phasellus metus sapien,
-          dapibus vitae velit in, elementum viverra risus. Nunc vestibulum et
-          leo non imperdiet. Vestibulum accumsan odio eget leo commodo, et
-          euismod augue maximus. Ut dapibus, purus convallis vestibulum
-          bibendum, est erat condimentum arcu, a tempus libero tortor et nisi.
-          Integer tincidunt ornare feugiat. Sed vitae luctus tortor, at auctor
-          mauris. Maecenas augue tortor, dictum quis tincidunt vitae, faucibus
-          at eros. Etiam rhoncus lobortis tortor, id consectetur mi lobortis id.
-          Donec orci tellus, commodo a mauris ac, commodo feugiat lectus. Etiam
-          quis tortor interdum, pellentesque diam eget, faucibus neque. Vivamus
-          egestas lacus porta, venenatis tortor in, aliquet sapien. Nam ac
-          malesuada arcu. In hac habitasse platea dictumst. Ut rhoncus elit
-          suscipit malesuada aliquet. Suspendisse non maximus dolor. Fusce
-          elementum elit sed blandit lobortis. Sed semper porta lobortis. Ut
-          eleifend ut urna in egestas. Donec tristique libero libero, at semper
-          dolor feugiat pellentesque. Nullam scelerisque, ex tincidunt consequat
-          euismod, lectus metus pellentesque massa, sit amet interdum lectus
-          risus ut nisi.
+          Bienvenue dans "Questions pour un cogniticien" ! <br /> <br />
+          Je suppose que vous connaissez déjà le jeu "Question pour un
+          Champion", ici, le principe est le même sauf qu'au lieu de répondre à
+          des questions de culture générale vous allez répondre à des questions
+          sur l'ENSC, ses élèves, ses professeurs et sa vie étudiante. <br />
+          <br />
+          Les règles sont simples. Une partie se décompose en 3 jeux.
+          <ul>
+            <li>
+              Le 9 points gagnants qui consiste à répondre correctement à des
+              questions rapportant plus ou moins de points et qui portent sur
+              différents thèmes.
+            </li>
+            <br />
+            <li>
+              Le 4 à la suite qui consiste à répondre de manière correcte à 4
+              questions d'affilé sur un thème choisi. Toute mauvaise réponse
+              ramène le compteur de points à 0. De plus, vous êtes limité dans
+              le temps. Le score retenu sera le meilleur effectué.
+            </li>
+            <br />
+            <li>
+              Le Face à Face qui consiste à une suite de questions où le temps
+              est précieux. En effet, plus vous mettez de temps à répondre,
+              moins vous gagnerez de points. Attention, si vous mettez trop de
+              temps cela comptera comme une erreur et la question changera ! Le
+              but est d'arriver à 12 points le plus vite possible.
+            </li>
+          </ul>
+          Votre score final dépend du temps total que vous avez mis, de votre
+          nombre d'erreurs ainsi que de votre score au 4 à la suite. Vous pouvez
+          consulter le tableau des scores en cliquant sur le bouton
+          "LEADERBOARD" ci-dessous ou, lancer une partie en cliquant sur
+          "JOUER".
         </TextWrapper>
         <PlayButton to="/9gagnants" $isFullLink>
+          {/*Redirige vers la première épreuve*/}
           JOUER
         </PlayButton>
         <LeaderboardButton to="/leaderboard" $isFullLink>
+          {/*Redirige vers le leaderboard*/}
           LEADERBOARD
         </LeaderboardButton>
       </Wrapper>

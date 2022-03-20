@@ -35,11 +35,11 @@ export const TextWrapper = styled.p`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
-  margin-left:30px;
-  margin-right:30px;
-  margin-top:30px;
-  }
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  font-size: 16px;
 `
 
 export const PlayButton = styled(Link)`
@@ -60,6 +60,7 @@ export const LeaderboardButton = styled(Link)`
   display: flex;
   width: 200px;
   height: 50px;
+  margin-bottom: 10px;
   align-self: center;
   align-items: center;
   justify-content: center;

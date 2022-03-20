@@ -16,6 +16,20 @@ export const MainWrapper = styled.div`
   background: ${colors.linearBlue};
 `
 
+export const Title = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  width: 30%;
+  color: black;
+  background: ${colors.linearOrange};
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 35px;
+  font-family: 'Changa One', 'sans-serif';
+`
+
 export const InfoWrapper = styled.div`
   display: flex;
 

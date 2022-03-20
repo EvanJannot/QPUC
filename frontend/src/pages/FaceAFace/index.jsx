@@ -24,6 +24,7 @@ import {
   Answers,
   PointsBar,
   Point,
+  Title,
 } from './styles'
 
 function FaceAFace() {
@@ -140,8 +141,8 @@ function FaceAFace() {
 
   return (
     <Wrapper>
+      <Title>FACE A FACE</Title>
       <InfoWrapper>
-        {' '}
         <Time>
           Temps :<TimeCounter>{time}</TimeCounter>
         </Time>
