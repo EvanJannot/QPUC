@@ -1,5 +1,21 @@
 import React, { useState, createContext } from 'react'
 
+export const FaceScoreContext = createContext()
+
+export const FaceScoreProvider = ({ children }) => {
+  // eslint-disable-next-line no-unused-vars
+  const [faceScore, setFaceScore] = useState(0)
+  const addFacePoints = (points) => {
+    setFaceScore(faceScore + points)
+  }
+
+  return (
+    <FaceScoreContext.Provider value={{ faceScore, addFacePoints }}>
+      {children}
+    </FaceScoreContext.Provider>
+  )
+}
+
 export const TimeContext = createContext()
 
 export const TimeProvider = ({ children }) => {

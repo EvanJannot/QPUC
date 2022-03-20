@@ -121,7 +121,7 @@ function Suite4() {
   useEffect(() => {
     if (score === 4) {
       changeClicked('')
-      history.push('/score')
+      history.push('/faceaface')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])

@@ -25,6 +25,7 @@ function Header() {
     pathname !== '/9gagnants' &&
     pathname !== '/4suiteTheme' &&
     pathname !== '/4suite' &&
+    pathname !== '/faceaface' &&
     pathname !== '/score'
   ) {
     return null
