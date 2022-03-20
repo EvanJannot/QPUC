@@ -16,11 +16,11 @@ function Answer({ answer, question, game, points }) {
   function Validate() {
     if (game === '9') {
       if (answer === question.question_answer) {
-        alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
+        // alert(`Bonne réponse, vous avez gagné ${question.points} point(s) !`)
         listAnswer.splice(0, 1, '')
         addPoints(question.points)
       } else {
-        alert(`Mauvaise réponse, + 1 erreur !`)
+        // alert(`Mauvaise réponse, + 1 erreur !`)
         listAnswer.splice(0, 1, '')
         addError()
       }
@@ -52,7 +52,7 @@ function Answer({ answer, question, game, points }) {
         changeClicked(answer)
         setTimeout(function () {
           Validate()
-        }, 1000)
+        }, 2000)
       }}
     >
       {answer}{' '}
