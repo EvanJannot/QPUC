@@ -99,10 +99,12 @@ function Suite4() {
   useEffect(() => {
     if (timer === 0) {
       new Audio(endTimeSound).play()
-      alert(
-        `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
-      )
-      history.push('/faceaface')
+      setTimeout(function () {
+        alert(
+          `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
+        )
+        history.push('/faceaface')
+      }, 1000)
     }
     let interval = null
     new Audio(timeSound).play()
