@@ -79,6 +79,9 @@ export const ScoreContext = createContext()
 export const ScoreProvider = ({ children }) => {
   // eslint-disable-next-line no-unused-vars
   const [score, setScore] = useState(0)
+  const changeScore = (points) => {
+    setScore(points)
+  }
   const addPoints = (points) => {
     setScore(score + points)
   }
@@ -87,7 +90,9 @@ export const ScoreProvider = ({ children }) => {
   }
 
   return (
-    <ScoreContext.Provider value={{ score, addPoints, resetScore }}>
+    <ScoreContext.Provider
+      value={{ score, addPoints, resetScore, changeScore }}
+    >
       {children}
     </ScoreContext.Provider>
   )

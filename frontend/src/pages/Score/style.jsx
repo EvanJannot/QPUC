@@ -51,6 +51,12 @@ export const TotalTime = styled.div`
   font-family: 'Changa One', 'sans-serif';
 `
 
+export const Score4 = styled.div`
+  margin-left: 20px;
+  font-size: 32px;
+  font-family: 'Changa One', 'sans-serif';
+`
+
 export const TotalErrors = styled.div`
   margin-left: 20px;
   font-size: 32px;
