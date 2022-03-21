@@ -93,8 +93,9 @@ function Suite4() {
           )
           oldQuestion(requestData[questionNumber]._id)
         }
+        setDataLoading(false)
       })
-    setDataLoading(false)
+      .catch((error) => console.log(error))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score, errors])
 
