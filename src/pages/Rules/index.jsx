@@ -6,6 +6,7 @@ import {
   Wrapper,
   TextWrapper,
   LeaderboardButton,
+  Title,
 } from './style'
 import { ConnexionContext, SoundContext } from '../../utils/context'
 import opening from '../../assets/opening.mp3'
@@ -30,10 +31,11 @@ function Rules() {
 
   return (
     <RulesWrapper>
+      <Title>INSTRUCTIONS</Title>
       <Wrapper>
         <TextWrapper>
           Bienvenue dans "Questions pour un cogniticien" ! <br /> <br />
-          Je suppose que vous connaissez déjà le jeu "Question pour un
+          Je suppose que vous connaissez déjà le jeu "Questions pour un
           Champion", ici, le principe est le même sauf qu'au lieu de répondre à
           des questions de culture générale vous allez répondre à des questions
           sur l'ENSC, ses élèves, ses professeurs et sa vie étudiante. <br />
@@ -48,7 +50,7 @@ function Rules() {
             <br />
             <li>
               Le 4 à la suite qui consiste à répondre de manière correcte à 4
-              questions d'affilé sur un thème choisi. Toute mauvaise réponse
+              questions d'affilée sur un thème choisi. Toute mauvaise réponse
               ramène le compteur de points à 0. De plus, vous êtes limité dans
               le temps. Le score retenu sera le meilleur effectué.
             </li>

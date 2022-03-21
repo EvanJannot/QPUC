@@ -20,7 +20,9 @@ export const Title = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  width: 30%;
+  padding-left: 50px;
+  padding-right: 50px;
+  /* width: 30%; */
   color: black;
   background: ${colors.linearOrange};
   border: 2px solid #000000;
