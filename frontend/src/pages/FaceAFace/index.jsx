@@ -161,7 +161,7 @@ function FaceAFace() {
       ) : (
         <AnswersWrapper>
           <Question>{question.question_statement}</Question>
-          <PointsBar percent={percent}>
+          <PointsBar>
             <Point value={1} score={points}>
               1
             </Point>
