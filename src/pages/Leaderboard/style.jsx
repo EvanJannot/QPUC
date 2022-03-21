@@ -21,6 +21,7 @@ export const TableBg = styled.div`
   border-radius: 25px;
   width: 40%;
   height: ${({ numberPseudo }) => `${numberPseudo}px`};
+  box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
 `
 
 export const PageTitle = styled.div`
@@ -30,6 +31,7 @@ export const PageTitle = styled.div`
   align-items: center;
   justify-content: center;
   align-self: center;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
 
   font-size: 40px;
   border: 4px solid #000000;

@@ -31,10 +31,11 @@ export const Container = styled.div`
 
   width: 40%;
   height: 50%;
-  background: #ffffff;
+  background: ${colors.linearWhite};
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
 `
 
 export const Input = styled.input`
@@ -42,6 +43,7 @@ export const Input = styled.input`
   width: 60%;
   background: ${colors.lightBlue};
   border: 1px solid #000000;
+  box-shadow: 6px 5px 8px 3px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 25px;
 `
@@ -53,6 +55,7 @@ export const LoginButton = styled.button`
   justify-content: center;
   font-size: 18px;
   font-family: 'Changa One', 'sans-serif';
+  box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
 
   background: ${colors.yellow};
   width: 20%;
@@ -72,6 +75,7 @@ export const RegisterButton = styled(Link)`
   width: 200px;
   height: 50px;
   border: 2px solid #000000;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 35px;
 `

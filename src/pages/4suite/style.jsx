@@ -22,7 +22,7 @@ export const Title = styled.div`
   font-size: 40px;
   padding-left: 50px;
   padding-right: 50px;
-  /* width: 30%; */
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   color: black;
   background: ${colors.linearOrange};
   border: 2px solid #000000;
@@ -49,6 +49,7 @@ export const Time = styled.div`
   align-items: center;
   justify-content: center;
 
+  -webkit-text-stroke: 1.5px black;
   font-family: 'Changa One', 'sans-serif';
 
   color: white;
@@ -63,6 +64,7 @@ export const TimeCounter = styled.div`
   align-items: center;
   justify-content: center;
 
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   background: ${colors.lightBlue};
   border: 2px solid #000000;
   box-sizing: border-box;
@@ -78,6 +80,7 @@ export const Timer = styled.div`
   align-items: center;
   justify-content: center;
 
+  -webkit-text-stroke: 1.5px black;
   font-family: 'Changa One', 'sans-serif';
   color: white;
   font-size: 40px;
@@ -96,6 +99,7 @@ export const TimerCounter = styled.div`
   border-radius: 100px;
   background: #ffffff;
 
+  box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: 'Changa One', 'sans-serif';
   font-size: 60px;
   color: black;
@@ -110,6 +114,7 @@ export const Errors = styled.div`
   align-items: center;
   justify-content: center;
 
+  -webkit-text-stroke: 1.5px black;
   font-family: 'Changa One', 'sans-serif';
   color: white;
   font-size: 40px;
@@ -124,6 +129,7 @@ export const ErrorsCounter = styled.div`
   width: 187px;
   height: 106px;
 
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   color: black;
   font-size: 60px;
   background: ${colors.lightBlue};
@@ -142,6 +148,7 @@ export const AnswersWrapper = styled.div`
   width: 50%;
   height: 50%;
 
+  box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
   background: ${colors.linearOrange};
   border: 2px solid #000000;
   box-sizing: border-box;
@@ -174,6 +181,7 @@ export const Pass = styled.div`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: 'Changa One', 'sans-serif';
 `
 
@@ -187,6 +195,7 @@ export const PointsBar = styled.div`
   background: white;
   box-sizing: border-box;
   border: 4px solid #000000;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: 'Changa One', 'sans-serif';
 `
 
