@@ -7,6 +7,7 @@ import {
   ConnexionContext,
   TimeContext,
   ThemeContext,
+  SoundContext,
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
@@ -40,6 +41,7 @@ function Suite4() {
   const { connected } = useContext(ConnexionContext)
   const { choosenTheme } = useContext(ThemeContext)
   const { score, resetScore } = useContext(ScoreContext)
+  const { soundState } = useContext(SoundContext)
   const { errors, addError } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
   // eslint-disable-next-line no-unused-vars
@@ -98,7 +100,9 @@ function Suite4() {
 
   useEffect(() => {
     if (timer === 0) {
-      new Audio(endTimeSound).play()
+      if (soundState === true) {
+        new Audio(endTimeSound).play()
+      }
       setTimeout(function () {
         alert(
           `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
@@ -107,7 +111,9 @@ function Suite4() {
       }, 1000)
     }
     let interval = null
-    new Audio(timeSound).play()
+    if (soundState === true) {
+      new Audio(timeSound).play()
+    }
     interval = setInterval(() => {
       addSecond()
       setTimer((time) => time - 1)

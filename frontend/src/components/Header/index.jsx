@@ -1,5 +1,7 @@
 import Logo from '../../assets/LogoB.svg'
 import DisconectIcon from '../../assets/disconnect.svg'
+import SoundOn from '../../assets/sound.svg'
+import SoundOff from '../../assets/mute.svg'
 import { useContext } from 'react'
 import {
   ConnexionContext,
@@ -7,8 +9,15 @@ import {
   QuestionListContext,
   ScoreContext,
   TimeContext,
+  SoundContext,
 } from '../../utils/context'
-import { HeaderContainer, DisconnectButton, Illustration, Icon } from './style'
+import {
+  HeaderContainer,
+  DisconnectButton,
+  Illustration,
+  Icon,
+  SoundButton,
+} from './style'
 import { useLocation, useHistory } from 'react-router-dom'
 
 function Header() {
@@ -18,6 +27,7 @@ function Header() {
   const { resetTime } = useContext(TimeContext)
   const { resetList } = useContext(QuestionListContext)
   const { pathname } = useLocation()
+  const { soundState, changeSound } = useContext(SoundContext)
   let history = useHistory()
   if (
     pathname !== '/rules' &&
@@ -33,6 +43,18 @@ function Header() {
     return (
       <HeaderContainer>
         <Illustration src={Logo} />
+        <SoundButton
+          onClick={() => {
+            changeSound()
+            console.log('here')
+          }}
+        >
+          {soundState === true ? (
+            <Icon src={SoundOn} />
+          ) : (
+            <Icon src={SoundOff} />
+          )}
+        </SoundButton>
         <DisconnectButton
           onClick={() => {
             changeConnected()

@@ -1,5 +1,21 @@
 import React, { useState, createContext } from 'react'
 
+export const SoundContext = createContext()
+
+export const SoundProvider = ({ children }) => {
+  const [soundState, setSound] = useState(true)
+  const changeSound = () => {
+    setSound(soundState === false ? true : false)
+    console.log(soundState)
+  }
+
+  return (
+    <SoundContext.Provider value={{ soundState, changeSound }}>
+      {children}
+    </SoundContext.Provider>
+  )
+}
+
 export const FaceScoreContext = createContext()
 
 export const FaceScoreProvider = ({ children }) => {

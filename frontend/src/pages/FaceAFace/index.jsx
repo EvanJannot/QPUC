@@ -6,6 +6,7 @@ import {
   ConnexionContext,
   TimeContext,
   FaceScoreContext,
+  SoundContext,
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
 import Answer from '../../components/Answer'
@@ -38,6 +39,7 @@ function FaceAFace() {
   const { errors, addError } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
   const { faceScore, resetFacePoints } = useContext(FaceScoreContext)
+  const { soundState } = useContext(SoundContext)
   const [points, setPoints] = useState(4)
   const [timer, setTimer] = useState(20)
   // eslint-disable-next-line no-unused-vars
@@ -115,11 +117,15 @@ function FaceAFace() {
   useEffect(() => {
     percentage(timer)
     if (timer === 0) {
-      new Audio(endTimeSound).play()
+      if (soundState === true) {
+        new Audio(endTimeSound).play()
+      }
       addError()
     }
     let interval = null
-    new Audio(timeSound).play()
+    if (soundState === true) {
+      new Audio(timeSound).play()
+    }
     interval = setInterval(() => {
       addSecond()
       setTimer((time) => time - 1)

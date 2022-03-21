@@ -10,6 +10,21 @@ export const HeaderContainer = styled.header`
   padding-top: 15px;
   background: ${colors.darkBlue};
 `
+export const SoundButton = styled.button`
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin-left: 30px;
+  font-size: 16px;
+  background: ${colors.orange};
+  width: 65px;
+  height: 65px;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 100px;
+`
 
 export const DisconnectButton = styled.button`
   display: flex;
@@ -17,7 +32,6 @@ export const DisconnectButton = styled.button`
   align-items: center;
   justify-content: center;
   position: absolute;
-  font-family: 'Changa One', 'sans-serif';
   margin-right: 30px;
   font-size: 16px;
   background: ${colors.orange};

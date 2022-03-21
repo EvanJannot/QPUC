@@ -23,6 +23,7 @@ import {
   TimeProvider,
   IdProvider,
   FaceScoreProvider,
+  SoundProvider,
 } from './utils/context'
 
 ReactDOM.render(
@@ -37,40 +38,42 @@ ReactDOM.render(
                   <TimeProvider>
                     <IdProvider>
                       <FaceScoreProvider>
-                        <Header />
-                        <Switch>
-                          <Route exact path="/">
-                            <Home />
-                          </Route>
-                          <Route path="/register">
-                            <Register />
-                          </Route>
-                          <Route path="/rules">
-                            <Rules />
-                          </Route>
-                          <Route path="/leaderboard">
-                            <Leaderboard />
-                          </Route>
-                          <Route path="/9gagnants">
-                            <Gagnants9 />
-                          </Route>
-                          <Route path="/4suiteTheme">
-                            <Suite4Theme />
-                          </Route>
-                          <Route path="/4suite">
-                            <Suite4 />
-                          </Route>
-                          <Route path="/score">
-                            <Score />
-                          </Route>
-                          <Route path="/faceaface">
-                            <FaceAFace />
-                          </Route>
-                          <Route path="*">
-                            <Error />
-                          </Route>
-                        </Switch>
-                        <Footer />
+                        <SoundProvider>
+                          <Header />
+                          <Switch>
+                            <Route exact path="/">
+                              <Home />
+                            </Route>
+                            <Route path="/register">
+                              <Register />
+                            </Route>
+                            <Route path="/rules">
+                              <Rules />
+                            </Route>
+                            <Route path="/leaderboard">
+                              <Leaderboard />
+                            </Route>
+                            <Route path="/9gagnants">
+                              <Gagnants9 />
+                            </Route>
+                            <Route path="/4suiteTheme">
+                              <Suite4Theme />
+                            </Route>
+                            <Route path="/4suite">
+                              <Suite4 />
+                            </Route>
+                            <Route path="/score">
+                              <Score />
+                            </Route>
+                            <Route path="/faceaface">
+                              <FaceAFace />
+                            </Route>
+                            <Route path="*">
+                              <Error />
+                            </Route>
+                          </Switch>
+                          <Footer />
+                        </SoundProvider>
                       </FaceScoreProvider>
                     </IdProvider>
                   </TimeProvider>

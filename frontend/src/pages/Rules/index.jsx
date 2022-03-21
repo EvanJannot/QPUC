@@ -7,21 +7,25 @@ import {
   TextWrapper,
   LeaderboardButton,
 } from './style'
-import { ConnexionContext } from '../../utils/context'
+import { ConnexionContext, SoundContext } from '../../utils/context'
 import opening from '../../assets/opening.mp3'
 
 function Rules() {
   window.scrollTo(0, 0) //Permet de ramener la vue de l'écran au sommet de la page
+  const { soundState } = useContext(SoundContext)
 
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
 
   //Permet de rediriger vers l'accueil si une personne tente d'accéder à cet écran par l'URL
   useEffect(() => {
-    new Audio(opening).play()
+    if (soundState === true) {
+      new Audio(opening).play()
+    }
     if (connected === false) {
       history.push('/')
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, connected])
 
   return (
