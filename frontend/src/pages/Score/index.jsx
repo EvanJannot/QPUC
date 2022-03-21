@@ -33,7 +33,7 @@ function Score() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    let calculus = score * (450 - time) - errors * time
+    let calculus = score * (1000 - time) - errors * 100
     setFinalScore(calculus)
     fetch(`http://localhost:4200/api/auth`)
       .then((response) => response.json())
