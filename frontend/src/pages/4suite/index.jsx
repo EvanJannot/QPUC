@@ -61,7 +61,7 @@ function Suite4() {
 
   useEffect(() => {
     setDataLoading(true)
-    fetch(`http://localhost:4200/api/question/`)
+    fetch(`https://qpuc-backend.herokuapp.com/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)

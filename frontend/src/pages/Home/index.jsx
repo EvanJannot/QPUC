@@ -40,7 +40,7 @@ function Home() {
     } else {
       //Sinon
 
-      fetch(`http://localhost:4200/api/auth`) //On récupère les utilisateurs de la bdd
+      fetch(`https://qpuc-backend.herokuapp.com/api/auth`) //On récupère les utilisateurs de la bdd
         .then((response) => response.json())
         .then((requestData) => {
           //On parcourt la liste des utilisateurs

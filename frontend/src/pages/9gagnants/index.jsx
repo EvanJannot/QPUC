@@ -75,7 +75,7 @@ function Gagnants9() {
     setDataLoading(true)
     //On récupère toutes les questions
 
-    fetch(`http://localhost:4200/api/question/`)
+    fetch(`https://qpuc-backend.herokuapp.com/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
         //On génère un entier aléatoire avec comme limite le nombre de réponses

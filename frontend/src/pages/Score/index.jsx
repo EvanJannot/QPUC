@@ -35,13 +35,13 @@ function Score() {
     window.scrollTo(0, 0)
     let calculus = score * (1000 - time) - errors * 100
     setFinalScore(calculus)
-    fetch(`http://localhost:4200/api/auth`)
+    fetch(`https://qpuc-backend.herokuapp.com/api/auth`)
       .then((response) => response.json())
       .then((requestData) => {
         for (let i = 0; i < requestData.length; i++) {
           if (requestData[i]._id === id[0]) {
             if (requestData[i].highscore <= calculus) {
-              fetch(`http://localhost:4200/api/auth/${id[0]}`, {
+              fetch(`https://qpuc-backend.herokuapp.com/api/auth/${id[0]}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

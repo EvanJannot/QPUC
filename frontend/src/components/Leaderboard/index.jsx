@@ -4,7 +4,7 @@ import { Column, Line, Wrapper, Separation, TableDiv } from './style'
 function Table() {
   const [user, setUser] = useState([])
   useEffect(() => {
-    fetch(`http://localhost:4200/api/auth`)
+    fetch(`https://qpuc-backend.herokuapp.com/api/auth`)
       .then((response) => response.json())
       .then((requestData) => {
         setUser(requestData)

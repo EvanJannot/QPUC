@@ -42,7 +42,7 @@ function Register() {
     if (username.length >= 3 && password.length >= 5) {
       //On utilise une requête POST pour écrire l'username et le mdp dans la bdd
 
-      fetch('http://localhost:4200/api/auth/signup', {
+      fetch('https://qpuc-backend.herokuapp.com/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
