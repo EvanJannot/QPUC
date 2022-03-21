@@ -182,7 +182,7 @@ export const Point = styled.div`
   width: 105%;
   height: 104%;
 
-  background: ${({ value, score }) => (value <= score ? 'blue' : 'white')};
+  background: ${({ value, score }) => (value <= score ? '#50A0D3' : 'white')};
   border: 4px solid #000000;
   box-sizing: border-box;
   font-size: 50px;
