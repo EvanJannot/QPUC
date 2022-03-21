@@ -11,7 +11,7 @@ export const AnswerBlock = styled.div`
   margin-bottom: 20px;
   margin-left: 50px;
   margin-right: 50px;
-
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   background: ${({ clicked }) =>
     clicked ? ({ goodAnswer }) => (goodAnswer ? '#03c756' : 'red') : 'white'};
   font-size: 20px;

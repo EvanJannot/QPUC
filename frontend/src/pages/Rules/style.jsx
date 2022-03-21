@@ -29,6 +29,7 @@ export const Title = styled.p`
   box-sizing: border-box;
   border-radius: 35px;
   font-size: 40px;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
 `
 
 export const Wrapper = styled.div`
@@ -39,6 +40,7 @@ export const Wrapper = styled.div`
   width: 60%;
   height: 130%;
   background: ${colors.linearWhite};
+  box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
   border: 4px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
@@ -49,8 +51,8 @@ export const TextWrapper = styled.p`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   margin-top: 20px;
   font-size: 20px;
 `
@@ -68,6 +70,7 @@ export const PlayButton = styled(Link)`
   margin-bottom: 20px;
   background: ${colors.yellow};
   border: 2px solid #000000;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
 `
 export const LeaderboardButton = styled(Link)`
   display: flex;
@@ -82,5 +85,6 @@ export const LeaderboardButton = styled(Link)`
   background: ${colors.orange};
   border: 3px solid #000000;
   box-sizing: border-box;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   border-radius: 25px;
 `

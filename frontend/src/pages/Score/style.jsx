@@ -16,18 +16,33 @@ export const ScoreWrapper = styled.div`
   background: ${colors.linearBlue};
 `
 
+export const Title = styled.p`
+  display: flex;
+  width: 30%;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  background: ${colors.linearOrange};
+  font-family: 'Changa One', 'sans-serif';
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 35px;
+  font-size: 40px;
+`
+
 export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  margin-top: 3%;
   width: 35%;
   height: 60%;
   background: white;
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
 `
 
 export const TotalTime = styled.div`
@@ -63,8 +78,14 @@ export const FinalScore = styled.div`
 export const ScoreNumber = styled.div`
   display: flex;
   align-self: center;
+  justify-content: center;
   margin-top: 30px;
   font-size: 50px;
+  width: 100%;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: ${colors.linearOrange};
   font-family: 'Changa One', 'sans-serif';
 `
 
@@ -72,13 +93,13 @@ export const LeaderboardButton = styled(Link)`
   display: flex;
   margin-top: 40px;
   width: 300px;
-  height: 80px;
+  height: 60px;
   align-self: center;
   align-items: center;
   justify-content: center;
   font-size: 32px;
   font-family: 'Changa One', 'sans-serif';
-
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   background: ${colors.orange};
   border: 3px solid #000000;
   box-sizing: border-box;

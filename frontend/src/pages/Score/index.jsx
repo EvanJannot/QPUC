@@ -18,6 +18,7 @@ import {
   FinalScore,
   ScoreNumber,
   LeaderboardButton,
+  Title,
 } from './style'
 
 function Score() {
@@ -66,6 +67,7 @@ function Score() {
 
   return (
     <ScoreWrapper>
+      <Title>PARTIE TERMINEE</Title>
       <InfoWrapper>
         <TotalTime>Temps Total : {time}</TotalTime>
         <TotalErrors>Nombre d'Erreurs : {errors}</TotalErrors>

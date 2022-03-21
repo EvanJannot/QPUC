@@ -24,6 +24,7 @@ export const SoundButton = styled.button`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 100px;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
 `
 
 export const DisconnectButton = styled.button`
@@ -40,6 +41,7 @@ export const DisconnectButton = styled.button`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 100px;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
 `
 export const Illustration = styled.img`
   display: flex;

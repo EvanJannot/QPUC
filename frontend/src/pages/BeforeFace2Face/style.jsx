@@ -7,7 +7,7 @@ export const MainWrapper = styled.div`
   flex-direction: column;
   margin: 0px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   justify-content: center;
   align-items: center;
   left: 0;
@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
 `
 
 export const TextWrapper = styled.p`
@@ -46,6 +47,7 @@ export const Title = styled.p`
   justify-content: center;
   align-items: center;
   background: ${colors.linearOrange};
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
@@ -62,7 +64,7 @@ export const PlayButton = styled(Link)`
   justify-content: center;
   font-size: 30px;
   font-family: 'Changa One', 'sans-serif';
-
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   background: ${colors.yellow};
   border: 2px solid #000000;
 `

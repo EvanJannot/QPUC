@@ -14,6 +14,7 @@ export const Arrow = styled.div`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
 `
 export const Illustration = styled.img`
   display: flex;

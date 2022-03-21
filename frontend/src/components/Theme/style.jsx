@@ -18,5 +18,6 @@ export const ThemeSelector = styled.div`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: 'Changa One', 'sans-serif';
 `
