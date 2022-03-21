@@ -35,6 +35,7 @@ function Header() {
     pathname !== '/9gagnants' &&
     pathname !== '/4suiteTheme' &&
     pathname !== '/4suite' &&
+    pathname !== '/beforeFace2Face' &&
     pathname !== '/faceaface' &&
     pathname !== '/score'
   ) {

@@ -24,6 +24,7 @@ import {
   ErrorsCounter,
   AnswersWrapper,
   Question,
+  Theme,
   Answers,
   PointsBar,
   Point,
@@ -161,6 +162,7 @@ function FaceAFace() {
       ) : (
         <AnswersWrapper>
           <Question>{question.question_statement}</Question>
+          <Theme>{question.theme}</Theme>
           <PointsBar>
             <Point value={1} score={points}>
               1

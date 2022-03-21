@@ -108,7 +108,7 @@ function Suite4() {
         alert(
           `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
         )
-        history.push('/faceaface')
+        history.push('/beforeFace2Face')
       }, 1000)
     }
     let interval = null
@@ -126,7 +126,7 @@ function Suite4() {
   useEffect(() => {
     if (score === 4) {
       changeClicked('')
-      history.push('/faceaface')
+      history.push('/beforeFace2Face')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
@@ -139,7 +139,7 @@ function Suite4() {
   }, [history, connected])
   return (
     <Wrapper>
-      <Title>4 A LA SUITE</Title>
+      <Title>4 A LA SUITE : {choosenTheme[0]}</Title>
       <InfoWrapper>
         <Time>
           Temps :<TimeCounter>{time}</TimeCounter>

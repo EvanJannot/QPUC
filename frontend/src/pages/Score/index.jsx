@@ -33,7 +33,7 @@ function Score() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    let calculus = score * (1000 - time) - errors * 100
+    let calculus = score * (600 - time) - errors * 100
     setFinalScore(calculus)
     fetch(`https://qpuc-backend.herokuapp.com/api/auth`)
       .then((response) => response.json())
