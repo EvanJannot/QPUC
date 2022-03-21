@@ -24,6 +24,7 @@ export const Illustration = styled.img`
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   align-self: center;
   align-items: center;
   justify-content: center;
@@ -37,17 +38,12 @@ export const Container = styled.div`
 `
 
 export const Input = styled.input`
-  height: 40px;
-  width: 100%;
+  height: 10%;
+  width: 60%;
   background: ${colors.lightBlue};
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
-`
-
-export const Login = styled.div`
-  display: flex;
-  flex-direction: column;
 `
 
 export const LoginButton = styled.button`
@@ -59,11 +55,11 @@ export const LoginButton = styled.button`
   font-family: 'Changa One', 'sans-serif';
 
   background: ${colors.yellow};
-  width: 100px;
-  height: 100px;
+  width: 20%;
+  height: 33%;
   border: 2px solid #000000;
   box-sizing: border-box;
-  border-radius: 100px;
+  border-radius: 100%;
 `
 export const RegisterButton = styled(Link)`
   display: flex;

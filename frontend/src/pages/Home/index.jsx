@@ -2,7 +2,6 @@ import Logo from '../../assets/Logo.svg'
 import { useState, useEffect, useRef, useContext } from 'react'
 import {
   Input,
-  Login,
   LoginButton,
   HomeWrapper,
   Illustration,
@@ -90,30 +89,28 @@ function Home() {
     <HomeWrapper>
       <Illustration src={Logo} />
       <Container>
-        <Login>
-          <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
-          <Input
-            type="text"
-            onChange={(event) => {
-              changeUsername(event.target.value)
-            }}
-            name="username"
-            placeholder="Entrez votre nom d'utilisateur"
-          />
-          <br />
-          <br />
-          <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
-          <Input
-            type="password"
-            onChange={(event) => {
-              changePassword(event.target.value)
-            }}
-            name="password"
-            placeholder="Entrez votre mot de passe"
-          />
-          <br />
-          <LoginButton onClick={sendForm}>CONNEXION</LoginButton>
-        </Login>
+        <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+        <Input
+          type="text"
+          onChange={(event) => {
+            changeUsername(event.target.value)
+          }}
+          name="username"
+          placeholder="Entrez votre nom d'utilisateur"
+        />
+        <br />
+        <br />
+        <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+        <Input
+          type="password"
+          onChange={(event) => {
+            changePassword(event.target.value)
+          }}
+          name="password"
+          placeholder="Entrez votre mot de passe"
+        />
+        <br />
+        <LoginButton onClick={sendForm}>CONNEXION</LoginButton>
       </Container>
       <RegisterButton to="/register" $isFullLink>
         S'INSCRIRE
