@@ -100,8 +100,9 @@ function FaceAFace() {
           )
           oldQuestion(requestData[questionNumber]._id)
         }
+        setDataLoading(false)
       })
-    setDataLoading(false)
+      .catch((error) => console.log(error))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [faceScore, errors])
 
