@@ -63,6 +63,7 @@ export const LoginButton = styled.button`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 100%;
+  cursor: pointer;
 `
 export const RegisterButton = styled(Link)`
   display: flex;
