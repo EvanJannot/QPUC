@@ -43,6 +43,7 @@ export const Input = styled.input`
   width: 60%;
   background: ${colors.lightBlue};
   border: 1px solid #000000;
+  padding-left: 15px;
   box-shadow: 6px 5px 8px 3px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 25px;
@@ -63,6 +64,7 @@ export const LoginButton = styled.button`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 100%;
+  cursor: pointer;
 `
 export const RegisterButton = styled(Link)`
   display: flex;
@@ -78,4 +80,28 @@ export const RegisterButton = styled(Link)`
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 35px;
+`
+
+export const OverlayForm = styled.div`
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+
+  width: 40%;
+  height: 20%;
+  font-size: 30px;
+  border: 4px solid #000000;
+  box-sizing: border-box;
+  border-radius: 35px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(242, 166, 22, 0.8) 0%,
+    rgba(254, 227, 1, 0.8) 100%
+  );
+`
+export const ErrorMessage = styled.div`
+  margin-bottom: 10px;
+  color: red;
 `

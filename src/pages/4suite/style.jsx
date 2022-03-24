@@ -157,6 +157,8 @@ export const AnswersWrapper = styled.div`
 
 export const Question = styled.div`
   text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
   font-family: 'Changa One', 'sans-serif';
   font-size: 32px;
 `
