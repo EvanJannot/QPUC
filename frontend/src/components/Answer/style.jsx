@@ -21,5 +21,6 @@ export const AnswerBlock = styled.div`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  cursor: pointer;
   font-family: 'Changa One', 'sans-serif';
 `
