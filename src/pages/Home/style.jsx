@@ -43,6 +43,7 @@ export const Input = styled.input`
   width: 60%;
   background: ${colors.lightBlue};
   border: 1px solid #000000;
+  padding-left: 15px;
   box-shadow: 6px 5px 8px 3px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 25px;
@@ -63,6 +64,7 @@ export const LoginButton = styled.button`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 100%;
+  cursor: pointer;
 `
 export const RegisterButton = styled(Link)`
   display: flex;
