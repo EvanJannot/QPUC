@@ -81,3 +81,23 @@ export const RegisterButton = styled(Link)`
   box-sizing: border-box;
   border-radius: 35px;
 `
+
+export const OverlayForm = styled.div`
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+
+  width: 40%;
+  height: 20%;
+  font-size: 30px;
+  border: 4px solid #000000;
+  box-sizing: border-box;
+  border-radius: 35px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(242, 166, 22, 0.8) 0%,
+    rgba(254, 227, 1, 0.8) 100%
+  );
+`
