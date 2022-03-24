@@ -7,6 +7,7 @@ import {
   Illustration,
   Container,
   RegisterButton,
+  OverlayForm,
 } from './style'
 import { useHistory } from 'react-router-dom'
 import { ConnexionContext, IdContext } from '../../utils/context'
@@ -19,6 +20,7 @@ function Home() {
   const [password, setPassword] = useState([])
   const [stateForm, setStateForm] = useState([])
   const [countSendForm, setSendForm] = useState([])
+  const [message, setMessage] = useState('')
 
   //Avec le contexte on gère l'état de connexion de l'utilisateur
   const { changeConnected } = useContext(ConnexionContext)
@@ -53,17 +55,27 @@ function Home() {
             ) {
               //Si on a une correspondance, on le notifie et on le redirige sur la page suivante
 
-              alert('Connexion réussie !')
-              changeId(requestData[i]._id)
-              changeConnected() //On change l'état de connexion
-              history.push('/rules')
-              this.setStateForm(false)
+              setMessage('Connexion réussie !') //On met un message de réussite
+
+              //On attend que l'utilisateur puisse lire le message et on redirige
+              setTimeout(function () {
+                changeId(requestData[i]._id)
+                changeConnected() //On change l'état de connexion
+                history.push('/rules') //Redirige vers la page des règles
+                setStateForm(false) //On change l'état du formulaire
+                setMessage('')
+              }, 1000)
+              break
             }
             if (i === requestData.length - 1 && stateForm === true) {
               //Sinon, on repasse à false l'état d'envoi du formulaire et on notifie de l'erreur
 
-              setStateForm(false)
-              alert('Identifiant ou mot de passe incorrect')
+              setMessage('Identifiant ou mot de passe incorrect') //On met un message d'erreur
+              setTimeout(function () {
+                //On attend que l'utilisateur puisse lire le message
+                setStateForm(false)
+                setMessage('')
+              }, 1000)
             }
           }
         })
@@ -88,30 +100,34 @@ function Home() {
   return (
     <HomeWrapper>
       <Illustration src={Logo} />
-      <Container>
-        <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
-        <Input
-          type="text"
-          onChange={(event) => {
-            changeUsername(event.target.value)
-          }}
-          name="username"
-          placeholder="Entrez votre nom d'utilisateur"
-        />
-        <br />
-        <br />
-        <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
-        <Input
-          type="password"
-          onChange={(event) => {
-            changePassword(event.target.value)
-          }}
-          name="password"
-          placeholder="Entrez votre mot de passe"
-        />
-        <br />
-        <LoginButton onClick={sendForm}>CONNEXION</LoginButton>
-      </Container>
+      {stateForm === true ? (
+        <OverlayForm>{message}</OverlayForm>
+      ) : (
+        <Container>
+          <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+          <Input
+            type="text"
+            onChange={(event) => {
+              changeUsername(event.target.value)
+            }}
+            name="username"
+            placeholder="Entrez votre nom d'utilisateur"
+          />
+          <br />
+          <br />
+          <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+          <Input
+            type="password"
+            onChange={(event) => {
+              changePassword(event.target.value)
+            }}
+            name="password"
+            placeholder="Entrez votre mot de passe"
+          />
+          <br />
+          <LoginButton onClick={sendForm}>CONNEXION</LoginButton>
+        </Container>
+      )}
       <RegisterButton to="/register" $isFullLink>
         S'INSCRIRE
       </RegisterButton>
