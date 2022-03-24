@@ -101,3 +101,7 @@ export const OverlayForm = styled.div`
     rgba(254, 227, 1, 0.8) 100%
   );
 `
+export const ErrorMessage = styled.div`
+  margin-bottom: 10px;
+  color: red;
+`

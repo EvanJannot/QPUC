@@ -8,6 +8,7 @@ import {
   Container,
   RegisterButton,
   OverlayForm,
+  ErrorMessage,
 } from './style'
 import { useHistory } from 'react-router-dom'
 import { ConnexionContext, IdContext } from '../../utils/context'
@@ -101,7 +102,35 @@ function Home() {
     <HomeWrapper>
       <Illustration src={Logo} />
       {stateForm === true ? (
-        <OverlayForm>{message}</OverlayForm>
+        message === 'Connexion réussie !' ? (
+          <OverlayForm>{message}</OverlayForm>
+        ) : (
+          <Container>
+            <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+            <Input
+              type="text"
+              onChange={(event) => {
+                changeUsername(event.target.value)
+              }}
+              name="username"
+              placeholder="Entrez votre nom d'utilisateur"
+            />
+            <br />
+            <br />
+            <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+            <Input
+              type="password"
+              onChange={(event) => {
+                changePassword(event.target.value)
+              }}
+              name="password"
+              placeholder="Entrez votre mot de passe"
+            />
+            <br />
+            <ErrorMessage>{message}</ErrorMessage>
+            <LoginButton onClick={sendForm}>CONNEXION</LoginButton>
+          </Container>
+        )
       ) : (
         <Container>
           <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
