@@ -67,7 +67,7 @@ function Home() {
                 history.push('/rules') //Redirige vers la page des règles
                 setStateForm(false) //On change l'état du formulaire
                 setMessage('')
-              }, 1000)
+              }, 2000)
               break
             }
             if (i === requestData.length - 1 && stateForm === true) {
