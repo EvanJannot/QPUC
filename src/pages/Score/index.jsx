@@ -19,6 +19,7 @@ import {
   ScoreNumber,
   LeaderboardButton,
   Title,
+  Score4,
 } from './style'
 
 function Score() {
@@ -70,6 +71,7 @@ function Score() {
       <Title>PARTIE TERMINEE</Title>
       <InfoWrapper>
         <TotalTime>Temps Total : {time}</TotalTime>
+        <Score4>Score 4 à la suite : {score}</Score4>
         <TotalErrors>Nombre d'Erreurs : {errors}</TotalErrors>
         <Separation />
         <FinalScore>

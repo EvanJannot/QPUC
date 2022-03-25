@@ -36,11 +36,12 @@ import {
 function Suite4() {
   const [answers, setAnswers] = useState([])
   const [question, setQuestion] = useState({})
+  const [bestScore, setBestScore] = useState(0)
   const { changeClicked } = useContext(AnswerSelectedContext)
   const { questionList, oldQuestion } = useContext(QuestionListContext)
   const { connected } = useContext(ConnexionContext)
   const { choosenTheme } = useContext(ThemeContext)
-  const { score, resetScore } = useContext(ScoreContext)
+  const { score, resetScore, changeScore } = useContext(ScoreContext)
   const { soundState } = useContext(SoundContext)
   const { errors, addError } = useContext(ErrorContext)
   const { time, addSecond } = useContext(TimeContext)
@@ -100,13 +101,17 @@ function Suite4() {
   }, [score, errors])
 
   useEffect(() => {
+    if (score >= bestScore) {
+      setBestScore(score)
+    }
     if (timer === 0) {
       if (soundState === true) {
         new Audio(endTimeSound).play()
       }
       setTimeout(function () {
+        changeScore(bestScore)
         alert(
-          `Temps écoulé, vous avez réussi à répondre à ${score} réponse(s) d'affilée(s) !`
+          `Temps écoulé, vous avez réussi à répondre à ${bestScore} réponse(s) d'affilée(s) !`
         )
         history.push('/beforeFace2Face')
       }, 1000)
