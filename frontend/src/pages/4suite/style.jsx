@@ -185,6 +185,7 @@ export const Pass = styled.div`
   border-radius: 35px;
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: 'Changa One', 'sans-serif';
+  cursor: pointer;
 `
 
 export const PointsBar = styled.div`
