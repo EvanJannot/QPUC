@@ -10,6 +10,7 @@ import {
   OverlayForm,
   ErrorMessage,
 } from './style'
+import { Loader } from '../../utils/style/Atoms'
 import { useHistory } from 'react-router-dom'
 import { ConnexionContext, IdContext } from '../../utils/context'
 
@@ -22,6 +23,7 @@ function Home() {
   const [stateForm, setStateForm] = useState([])
   const [countSendForm, setSendForm] = useState([])
   const [message, setMessage] = useState('')
+  const [isDataLoading, setDataLoading] = useState(false)
 
   //Avec le contexte on gère l'état de connexion de l'utilisateur
   const { changeConnected } = useContext(ConnexionContext)
@@ -41,7 +43,7 @@ function Home() {
       firstUpdate.current = false
     } else {
       //Sinon
-
+      setDataLoading(true)
       fetch(`https://qpuc-backend.herokuapp.com/api/auth`) //On récupère les utilisateurs de la bdd
         .then((response) => response.json())
         .then((requestData) => {
@@ -65,7 +67,7 @@ function Home() {
                 history.push('/rules') //Redirige vers la page des règles
                 setStateForm(false) //On change l'état du formulaire
                 setMessage('')
-              }, 1000)
+              }, 2000)
               break
             }
             if (i === requestData.length - 1 && stateForm === true) {
@@ -79,6 +81,7 @@ function Home() {
               }, 1000)
             }
           }
+          setDataLoading(false)
         })
         .catch((error) => console.log(error))
     }
@@ -101,7 +104,9 @@ function Home() {
   return (
     <HomeWrapper>
       <Illustration src={Logo} />
-      {stateForm === true ? (
+      {isDataLoading ? (
+        <Loader />
+      ) : stateForm === true ? (
         message === 'Connexion réussie !' ? (
           <OverlayForm>{message}</OverlayForm>
         ) : (
