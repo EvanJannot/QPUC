@@ -49,6 +49,7 @@ export const RegisterButton = styled.button`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 100px;
+  cursor: pointer;
 `
 export const Input = styled.input`
   height: 40px;
