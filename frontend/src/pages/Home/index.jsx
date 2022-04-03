@@ -17,12 +17,18 @@ import { ConnexionContext, IdContext } from '../../utils/context'
 import '../../utils/style/Home.css'
 
 function Home() {
-  //On défini avec le state le pseudo, mdp et l'état du formulaire
+  //State
+  //Pseudo entré
   const [username, setUsername] = useState([])
+  //Mdp entré
   const [password, setPassword] = useState([])
+  //Etat d'envoi du formulaire de connexion
   const [stateForm, setStateForm] = useState([])
+  //Nombre de fois où a été envoyé le formulaire
   const [countSendForm, setSendForm] = useState([])
+  //Message de connexion
   const [message, setMessage] = useState('')
+  //Etat de chargement des données
   const [isDataLoading, setDataLoading] = useState(false)
 
   //Avec le contexte on gère l'état de connexion de l'utilisateur
@@ -88,15 +94,18 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, countSendForm])
 
+  //Fonction appelée quand on clique sur le bouton de connexion et qui permete de changer l'état du formulaire pour vérifier les id de connexion
   function sendForm() {
     setStateForm(true)
     setSendForm(countSendForm + 1)
   }
 
+  //Change le state contenant le pseudo entré dans l'input
   function changeUsername(event) {
     setUsername(event)
   }
 
+  //Change le state contenant le mdp entré dans l'input
   function changePassword(event) {
     setPassword(event)
   }
@@ -104,12 +113,20 @@ function Home() {
   return (
     <HomeWrapper>
       <Illustration src={Logo} />
+      {/* Si les données chargent */}
+
       {isDataLoading ? (
+        //On affiche un Loader
+
         <Loader />
       ) : stateForm === true ? (
+        //Si les infos de connexion sont bonnes on affiche ce mesage
+
         message === 'Connexion réussie !' ? (
           <OverlayForm>{message}</OverlayForm>
         ) : (
+          //Si elles sont fausses on affiche un message d'erreur
+
           <Container>
             <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
             <Input
@@ -137,6 +154,8 @@ function Home() {
           </Container>
         )
       ) : (
+        //Si le formulaire n'a pas été envoyé on l'affiche
+
         <Container>
           <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
           <Input

@@ -15,7 +15,6 @@ import '../../utils/style/Home.css'
 
 function Register() {
   //State pour conserver les données entrées par l'utilisateur
-
   const [username, setUsername] = useState([])
   const [password, setPassword] = useState([])
   let history = useHistory()

@@ -123,8 +123,10 @@ function Gagnants9() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score, errors])
 
+  //Ce useEffect est appelé quand le temps change et permet de chronométrer la partie
   useEffect(() => {
     let interval = null
+    //On augmente le temps d'une seconde
     interval = setInterval(() => {
       addSecond()
     }, 1000)
@@ -132,7 +134,9 @@ function Gagnants9() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time])
 
+  //Ce useEffect est appelé quand le score change
   useEffect(() => {
+    //Si le score est supérieur ou égale à 9 on redirige vers la page suivante
     if (score >= 9) {
       changeClicked('')
       resetScore()
@@ -141,6 +145,7 @@ function Gagnants9() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [score])
 
+  //Redirige le joueur si il tente d'accéder à la page par l'url sans être connecté
   useEffect(() => {
     window.scrollTo(0, 0)
     if (connected === false) {

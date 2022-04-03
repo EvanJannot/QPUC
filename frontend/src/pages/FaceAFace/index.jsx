@@ -32,22 +32,38 @@ import {
 } from './styles'
 
 function FaceAFace() {
+  //State
+  //Réponses de la question actuelle
   const [answers, setAnswers] = useState([])
+  //Question actuelle
   const [question, setQuestion] = useState({})
-  const { changeClicked } = useContext(AnswerSelectedContext)
-  const { questionList, oldQuestion } = useContext(QuestionListContext)
-  const { connected } = useContext(ConnexionContext)
-  const { errors, addError } = useContext(ErrorContext)
-  const { time, addSecond } = useContext(TimeContext)
-  const { faceScore, resetFacePoints } = useContext(FaceScoreContext)
-  const { soundState } = useContext(SoundContext)
+  //Points de la réponse
   const [points, setPoints] = useState(4)
+  //Temps pour répondre à la question
   const [timer, setTimer] = useState(20)
-  // eslint-disable-next-line no-unused-vars
+
+  //Context
+  //Etat de chargement des données
   const [isDataLoading, setDataLoading] = useState(false)
+  //Element cliqué
+  const { changeClicked } = useContext(AnswerSelectedContext)
+  //Liste des questions posées
+  const { questionList, oldQuestion } = useContext(QuestionListContext)
+  //Etat de connexion du joueur
+  const { connected } = useContext(ConnexionContext)
+  //Nombre d'erreurs du joueur sur la partie
+  const { errors, addError } = useContext(ErrorContext)
+  //Temps écoulé depuis le début de la partie
+  const { time, addSecond } = useContext(TimeContext)
+  //Score du Face à Face
+  const { faceScore, resetFacePoints } = useContext(FaceScoreContext)
+  //Etat d'activation du son
+  const { soundState } = useContext(SoundContext)
+
   let history = useHistory()
   let percent = 100
 
+  //Modifie le nombre de points que vaut une question en fonction du pourcentage de temps restant
   const percentage = (timerValue) => {
     percent = (timerValue / 20) * 100
     if (percent > 75 && percent <= 100) {
@@ -61,28 +77,41 @@ function FaceAFace() {
     }
   }
 
+  //Change les réponses affichées lorsque la question est renouvelée
   const updateData = (value1, value2, value3, value4) => {
     let newData = [...answers]
     newData.splice(0, 1, value1)
     newData.splice(1, 1, value2)
     newData.splice(2, 1, value3)
     newData.splice(3, 1, value4)
-    const shuffledData = newData.sort((a, b) => 0.5 - Math.random())
+    const shuffledData = newData.sort((a, b) => 0.5 - Math.random()) //Permet de mélanger l'ordre des réponses
     setAnswers(shuffledData)
   }
 
+  //A chaque fois que le joueur gagne des points ou fait une erreur on appelle ce useEffect
   useEffect(() => {
+    //On défini le temps à 20 secondes
+
     setTimer(20)
     setDataLoading(true)
+    //On récupère les questions
+
     fetch(`https://qpuc-backend.herokuapp.com/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
         let questionNumber = Math.floor(Math.random() * requestData.length)
+        //On en prend une aléatoirement
 
         if (questionList.includes(requestData[questionNumber]._id)) {
+          //Si elle a déjà été posée
+
           while (questionList.includes(requestData[questionNumber]._id)) {
+            //On en prend une autre
+
             questionNumber = Math.floor(Math.random() * requestData.length)
           }
+          //On met à jour les données contenant la question et les réponses
+
           setQuestion(requestData[questionNumber])
           updateData(
             requestData[questionNumber].question_answer,
@@ -90,8 +119,12 @@ function FaceAFace() {
             requestData[questionNumber].fake2,
             requestData[questionNumber].fake3
           )
+          //On ajoute la question à la liste des questions posées
+
           oldQuestion(requestData[questionNumber]._id)
         } else {
+          //Si elle n'a pas été posée on met directement à jour les données et on l'ajoute à la liste des questions posées
+
           setQuestion(requestData[questionNumber])
           updateData(
             requestData[questionNumber].question_answer,
@@ -107,6 +140,7 @@ function FaceAFace() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [faceScore, errors])
 
+  //On vérifie quand le score change si il est supérieur ou égal à 12, si c'est le cas on redirige
   useEffect(() => {
     if (faceScore >= 12) {
       changeClicked('')
@@ -116,15 +150,20 @@ function FaceAFace() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [faceScore])
 
+  //A chaque fois que le timer diminue on appelle ce useEffect
   useEffect(() => {
     percentage(timer)
     if (timer === 0) {
+      //Si le timer vaut 0 on ajoute une erreur et on joue un son
+
       if (soundState === true) {
         new Audio(endTimeSound).play()
       }
       addError()
     }
     let interval = null
+
+    //Sinon on diminue le temps restant dans le timer en jouant un son
     if (soundState === true) {
       new Audio(timeSound).play()
     }
@@ -136,6 +175,7 @@ function FaceAFace() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer])
 
+  //Permet de rediriger le joueur si il tente d'accéder à la page en étant déconnecté
   useEffect(() => {
     window.scrollTo(0, 0)
     if (connected === false) {

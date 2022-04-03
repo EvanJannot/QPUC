@@ -23,26 +23,39 @@ import {
 } from './style'
 
 function Score() {
-  const { errors } = useContext(ErrorContext)
-  const { time } = useContext(TimeContext)
-  const { score } = useContext(ScoreContext)
+  //Nombre d'erreurs au cours de la partie
+  const { errors, resetError } = useContext(ErrorContext)
+  //Temps de jeu
+  const { time, resetTime } = useContext(TimeContext)
+  //Score du 4 à la suite
+  const { score, resetScore } = useContext(ScoreContext)
+  //id du joueur
   const { id } = useContext(IdContext)
-  const { resetError } = useContext(ErrorContext)
-  const { resetScore } = useContext(ScoreContext)
-  const { resetTime } = useContext(TimeContext)
+  //Permet de réinitialiser la liste des questions posées
   const { resetList } = useContext(QuestionListContext)
+
+  //Score du joueur après calcul
   const [finalScore, setFinalScore] = useState()
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    //Calcul du score final par rapport au score du 4 à la suite, du temps écoulé et du nombre d'erreurs
+
     let calculus = score * (600 - time - errors * 30)
     setFinalScore(calculus)
+
+    //Récupère les utilisateurs
     fetch(`https://qpuc-backend.herokuapp.com/api/auth`)
       .then((response) => response.json())
       .then((requestData) => {
         for (let i = 0; i < requestData.length; i++) {
           if (requestData[i]._id === id[0]) {
+            //Si l'utilisateur parcouru est l'utilisateur connecté
+
             if (requestData[i].highscore <= calculus) {
+              //Si le score de cette partie est supérieur au highscore enregistré
+
+              //On le met à jour
               fetch(`https://qpuc-backend.herokuapp.com/api/auth/${id[0]}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -58,6 +71,7 @@ function Score() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  //Permet de rediriger le joueur si il accède à l'url sans être connecté
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
   useEffect(() => {
@@ -79,6 +93,7 @@ function Score() {
         </FinalScore>
       </InfoWrapper>
       <LeaderboardButton
+        //Redirige vers le leaderboard et remet à 0 tous les compteurs du context
         to="/leaderboard"
         onClick={() => {
           resetError()
