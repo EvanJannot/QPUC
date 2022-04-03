@@ -1,43 +1,21 @@
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-
 const User = require('../models/User')
 
+//Permet d'inscrire un utilisateur
 exports.signup = (req, res, next) => {
+  //On créé un utilisateur à partir du corps de la requête
   const user = new User({
     ...req.body,
   })
+  //On l'enregistre et si tout ce passe bien on confirme avec un message et sinon une erreur
   user
     .save()
     .then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
     .catch((error) => res.status(400).json({ error }))
 }
 
-exports.login = (req, res, next) => {
-  User.findOne({ username: req.body.username })
-    .then((user) => {
-      if (!user) {
-        return res.status(401).json({ error: 'Utilisateur non trouvé !' })
-      }
-      bcrypt
-        .compare(req.body.password, user.password)
-        .then((valid) => {
-          if (!valid) {
-            return res.status(401).json({ error: 'Mot de passe incorrect !' })
-          }
-          res.status(200).json({
-            userId: user._id,
-            token: jwt.sign({ userId: user._id }, 'RANDOM_TOKEN_SECRET', {
-              expiresIn: '24h',
-            }),
-          })
-        })
-        .catch((error) => res.status(500).json({ error }))
-    })
-    .catch((error) => res.status(500).json({ error }))
-}
-
+//Permet de récupérer les utilisateurs
 exports.getAllUsers = (req, res, next) => {
+  //On récupères tous les utilisateurs et si tout va bien on envoie un message de confirmation et sinon une erreur
   User.find()
     .then((users) => {
       res.status(200).json(users)
@@ -49,7 +27,9 @@ exports.getAllUsers = (req, res, next) => {
     })
 }
 
+//Permet de récupérer un utilisateur
 exports.getOneUser = (req, res, next) => {
+  //On récupère un utilisateur dont l'id correspond à celui passé dans la requête, si tout va bien on confirme sinon on renvoie une erreur
   User.findOne({
     _id: req.params.id,
   })
@@ -63,7 +43,10 @@ exports.getOneUser = (req, res, next) => {
     })
 }
 
+//Permet de modifier le score d'un utilisateur
 exports.updateScore = (req, res, next) => {
+  //On modifie le score de l'utilisteur dont l'id correspond à celui passé en requête.
+  //Les nouvelles informations de l'utilisateur sont celles passées dans le corps de la requête
   User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
     .then(() => res.status(200).json({ message: 'Score modifié !' }))
     .catch((error) => res.status(400).json({ error }))

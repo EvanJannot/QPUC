@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const uniqueValidator = require('mongoose-unique-validator')
 
+//Un utilisateur a un pseudo, un mot de passe et un highscore
 const userSchema = mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
