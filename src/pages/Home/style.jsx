@@ -61,11 +61,11 @@ export const Container = styled.div`
     width: 80%;
     height: 40%;
   }
-  @media screen and (min-width: 800px) and (max-width: 1200px) {
+  @media screen and (min-width: 900px) and (max-width: 1200px) {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 80%;
-    height: 40%;
+    width: 60%;
+    height: 60%;
   }
 `
 
@@ -114,6 +114,7 @@ export const LoginButton = styled.button`
   @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 12vh;
     height: 12vh;
+    font-size: 16px;
   }
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     width: 12vh;
@@ -134,6 +135,9 @@ export const RegisterButton = styled(Link)`
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 35px;
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    margin-top: 30px;
+  }
 `
 
 export const OverlayForm = styled.div`
