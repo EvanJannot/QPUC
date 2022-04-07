@@ -19,12 +19,9 @@ export const Arrow = styled.div`
     margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '280px')};
   }
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    margin-left: ${({ page }) => (page === '/leaderboard' ? '300px' : '20px')};
-    margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '320px')};
-  }
-  @media screen and (min-width: 800px) and (max-width: 1200px) {
-    margin-left: ${({ page }) => (page === '/leaderboard' ? '300px' : '40px')};
-    margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '360px')};
+    margin-left: ${({ page }) => (page === '/leaderboard' ? '20px' : '20px')};
+    margin-bottom: ${({ page }) =>
+      page === '/leaderboard' ? '150px' : '320px'};
   }
 `
 export const Illustration = styled.img`

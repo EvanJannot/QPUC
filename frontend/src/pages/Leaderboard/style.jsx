@@ -13,6 +13,9 @@ export const LeaderboardWrapper = styled.div`
   height: 100%;
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    height: 75%;
+  }
 `
 
 export const TableBg = styled.div`
@@ -22,6 +25,10 @@ export const TableBg = styled.div`
   width: 40%;
   height: ${({ numberPseudo }) => `${numberPseudo}px`};
   box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 90%;
+    height: ${({ numberPseudo }) => `${numberPseudo * 0.56}px`};
+  }
 `
 
 export const PageTitle = styled.div`
@@ -38,6 +45,10 @@ export const PageTitle = styled.div`
   box-sizing: border-box;
   border-radius: 25px;
   background: ${colors.linearOrange};
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    height: 60px;
+    width: 350px;
+  }
 `
 export const UpPage = styled.div`
   display: flex;
@@ -47,4 +58,8 @@ export const UpPage = styled.div`
   width: 100%;
   height: 100px;
   margin-bottom: 50px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    margin-bottom: 0px;
+    height: 30%;
+  }
 `
