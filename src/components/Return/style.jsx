@@ -24,7 +24,7 @@ export const Arrow = styled.div`
   }
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     margin-left: ${({ page }) => (page === '/leaderboard' ? '300px' : '40px')};
-    margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '460px')};
+    margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '360px')};
   }
 `
 export const Illustration = styled.img`

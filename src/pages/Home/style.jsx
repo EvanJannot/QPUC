@@ -58,8 +58,8 @@ export const Container = styled.div`
   @media screen and (min-width: 300px) and (max-width: 790px) {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 80%;
-    height: 40%;
+    width: 320px;
+    height: 330px;
   }
   @media screen and (min-width: 900px) and (max-width: 1200px) {
     margin-top: 10px;
@@ -86,8 +86,8 @@ export const Input = styled.input`
   box-sizing: border-box;
   border-radius: 25px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 80%;
-    height: 10%;
+    width: 280px;
+    height: 30px;
     padding-left: 8px;
     ::placeholder {
       font-size: 16px;
@@ -112,13 +112,13 @@ export const LoginButton = styled.button`
   border-radius: 100%;
   cursor: pointer;
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 12vh;
-    height: 12vh;
+    width: 100px;
+    height: 100px;
     font-size: 16px;
   }
   @media screen and (min-width: 800px) and (max-width: 1200px) {
-    width: 12vh;
-    height: 12vh;
+    width: 120px;
+    height: 160px;
   }
 `
 export const RegisterButton = styled(Link)`
