@@ -12,6 +12,9 @@ export const Column = styled.td`
   font-family: 'Changa One', 'sans-serif';
   width: 300%;
   font-size: 40px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 20px;
+  }
 `
 
 export const Line = styled.tr`

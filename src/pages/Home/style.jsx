@@ -18,11 +18,6 @@ export const HomeWrapper = styled.div`
     width: 100%;
     height: 85%;
   }
-  @media screen and (min-width: 800px) and (max-width: 1200px) {
-    justify-content: space-evenly;
-    width: 100%;
-    height: 85%;
-  }
 `
 export const Illustration = styled.img`
   align-self: center;
@@ -30,10 +25,6 @@ export const Illustration = styled.img`
   max-height: 45%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    max-width: 80%;
-    max-height: 80%;
-  }
-  @media screen and (min-width: 800px) and (max-width: 1200px) {
     max-width: 80%;
     max-height: 80%;
   }
@@ -60,12 +51,6 @@ export const Container = styled.div`
     margin-bottom: 10px;
     width: 320px;
     height: 330px;
-  }
-  @media screen and (min-width: 900px) and (max-width: 1200px) {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 60%;
-    height: 60%;
   }
 `
 
@@ -116,10 +101,6 @@ export const LoginButton = styled.button`
     height: 100px;
     font-size: 16px;
   }
-  @media screen and (min-width: 800px) and (max-width: 1200px) {
-    width: 120px;
-    height: 160px;
-  }
 `
 export const RegisterButton = styled(Link)`
   display: flex;
@@ -135,9 +116,6 @@ export const RegisterButton = styled(Link)`
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 35px;
-  @media screen and (min-width: 800px) and (max-width: 1200px) {
-    margin-top: 30px;
-  }
 `
 
 export const OverlayForm = styled.div`
@@ -158,6 +136,10 @@ export const OverlayForm = styled.div`
     rgba(242, 166, 22, 0.8) 0%,
     rgba(254, 227, 1, 0.8) 100%
   );
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 60%;
+    height: 20%;
+  }
 `
 export const ErrorMessage = styled.div`
   margin-bottom: 10px;

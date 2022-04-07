@@ -16,6 +16,11 @@ export const RulesWrapper = styled.div`
   height: 90%;
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    padding-top: 0px;
+    width: 100%;
+    height: 140%;
+  }
 `
 
 export const Title = styled.p`
@@ -30,6 +35,9 @@ export const Title = styled.p`
   border-radius: 35px;
   font-size: 40px;
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 85%;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -44,6 +52,10 @@ export const Wrapper = styled.div`
   border: 4px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 90%;
+    height: 160%;
+  }
 `
 
 export const TextWrapper = styled.p`
@@ -55,6 +67,11 @@ export const TextWrapper = styled.p`
   padding-right: 40px;
   margin-top: 20px;
   font-size: 20px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `
 
 export const PlayButton = styled(Link)`
