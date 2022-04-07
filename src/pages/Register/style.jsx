@@ -12,6 +12,16 @@ export const RegisterWrapper = styled.div`
   height: 100%;
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (max-width: 500px) {
+    justify-content: space-around;
+    width: 100%;
+    height: 85%;
+  }
+  @media screen and (max-width: 900px) {
+    justify-content: space-evenly;
+    width: 100%;
+    height: 85%;
+  }
 `
 export const Container = styled.div`
   display: flex;
@@ -19,12 +29,22 @@ export const Container = styled.div`
   align-self: center;
   align-items: center;
   justify-content: center;
-  height: 55%;
-  width: 65%;
   background: #ffffff;
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  @media screen and (min-width: 1200px) {
+    height: 55%;
+    width: 45%;
+  }
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 80%;
+    height: 60%;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    width: 80%;
+    height: 60%;
+  }
 `
 
 export const Title = styled.div`
@@ -34,6 +54,9 @@ export const Title = styled.div`
   font-size: 144px;
   text-align: center;
   color: ${colors.yellow};
+  @media screen and (max-width: 500px) {
+    font-size: 100px;
+  }
 `
 export const RegisterButton = styled.button`
   display: flex;
@@ -50,18 +73,53 @@ export const RegisterButton = styled.button`
   box-sizing: border-box;
   border-radius: 100px;
   cursor: pointer;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 12vh;
+    height: 12vh;
+  }
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    width: 12vh;
+    height: 16vh;
+    font-size: 24px;
+  }
 `
 export const Input = styled.input`
-  height: 40px;
-  width: 350px;
   background: ${colors.lightBlue};
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+    height: 10%;
+    padding-left: 8px;
+    ::placeholder {
+      font-size: 16px;
+    }
+  }
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 100%;
+    height: 10%;
+    padding-left: 8px;
+    ::placeholder {
+      font-size: 16px;
+    }
+  }
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    width: 140%;
+    height: 20%;
+    ::placeholder {
+      font-size: 20px;
+    }
+  }
 `
 export const RegisterForm = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    margin-top: 30px;
+  }
 `
 export const UpPage = styled.div`
   display: flex;

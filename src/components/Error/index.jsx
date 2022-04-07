@@ -9,6 +9,8 @@ import {
   Redirect,
 } from './style'
 
+//Page contenant une illustration et une redirection sur la page d'accueil lorsque l'url entrée n'existe pas sur le site
+
 function Error() {
   return (
     <Container>

@@ -12,14 +12,15 @@ import { ConnexionContext, SoundContext } from '../../utils/context'
 import opening from '../../assets/opening.mp3'
 
 function Rules() {
-  window.scrollTo(0, 0) //Permet de ramener la vue de l'écran au sommet de la page
+  //Permet de savoir si le son est activé ou non
   const { soundState } = useContext(SoundContext)
-
-  let history = useHistory()
+  //permet de savoir si le joueur est connecté ou non
   const { connected } = useContext(ConnexionContext)
 
+  let history = useHistory()
   //Permet de rediriger vers l'accueil si une personne tente d'accéder à cet écran par l'URL
   useEffect(() => {
+    window.scrollTo(0, 0) //Permet de ramener la vue de l'écran au sommet de la page
     if (soundState === true) {
       new Audio(opening).play()
     }

@@ -7,13 +7,11 @@ import Return from '../../components/Return'
 
 function Leaderboard() {
   //State qui compte le nb de pseudo
-
   const [nbpseudo, setNBPseudo] = useState(0)
   //Les contextes et history permettent une redirection en fonction de l'état du joueur et l'utilisation du bouton retour
-
   const { pathname } = useLocation()
-  let history = useHistory()
   const { connected } = useContext(ConnexionContext)
+  let history = useHistory()
 
   //On récupère tous les utilisateurs et on compte leur nombre pour adapter la taille du fond du tableau en pixel
   useEffect(() => {

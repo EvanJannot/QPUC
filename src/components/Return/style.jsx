@@ -5,8 +5,6 @@ export const Arrow = styled.div`
   align-self: flex-start;
   align-items: center;
   justify-content: center;
-  margin-left: ${({ page }) => (page === '/leaderboard' ? '300px' : '40px')};
-  margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '280px')};
   position: absolute;
   width: 80px;
   height: 60px;
@@ -16,6 +14,18 @@ export const Arrow = styled.div`
   border-radius: 25px;
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  @media screen and (min-width: 1200px) {
+    margin-left: ${({ page }) => (page === '/leaderboard' ? '300px' : '40px')};
+    margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '280px')};
+  }
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    margin-left: ${({ page }) => (page === '/leaderboard' ? '300px' : '20px')};
+    margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '380px')};
+  }
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    margin-left: ${({ page }) => (page === '/leaderboard' ? '300px' : '40px')};
+    margin-bottom: ${({ page }) => (page === '/leaderboard' ? '0px' : '460px')};
+  }
 `
 export const Illustration = styled.img`
   display: flex;

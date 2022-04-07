@@ -1,12 +1,12 @@
 import React, { useState, createContext } from 'react'
 
+//Context pour le son, il permet de définir si les sons seront joués ou non et est changé avec un bouton
 export const SoundContext = createContext()
 
 export const SoundProvider = ({ children }) => {
-  const [soundState, setSound] = useState(true)
+  const [soundState, setSound] = useState(true) //Le son est activé de base
   const changeSound = () => {
-    setSound(soundState === false ? true : false)
-    console.log(soundState)
+    setSound(soundState === false ? true : false) //Si il est désactivé on l'active et sinon on le désactive
   }
 
   return (
@@ -16,15 +16,16 @@ export const SoundProvider = ({ children }) => {
   )
 }
 
+//Permet de changer et de récupérer le score du jeu Face à Face
 export const FaceScoreContext = createContext()
 
 export const FaceScoreProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
-  const [faceScore, setFaceScore] = useState(0)
+  const [faceScore, setFaceScore] = useState(0) //De base le score vaut 0
   const addFacePoints = (points) => {
-    setFaceScore(faceScore + points)
+    setFaceScore(faceScore + points) //On ajoute le nombre de points passé en paramètre
   }
   const resetFacePoints = () => {
+    //On met le score à 0
     setFaceScore(0)
   }
 
@@ -37,17 +38,19 @@ export const FaceScoreProvider = ({ children }) => {
   )
 }
 
+//Permet de compter le temps d'une partie
 export const TimeContext = createContext()
 
 export const TimeProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
-  const [time, setTime] = useState(0)
+  const [time, setTime] = useState(0) //On commence à 0 secondes
 
   const addSecond = () => {
+    //On ajoute une seconde en appelant cette fonction
     setTime(time + 1)
   }
 
   const resetTime = () => {
+    //On remet le temps à 0 avec celle-ci
     setTime(0)
   }
 
@@ -58,12 +61,13 @@ export const TimeProvider = ({ children }) => {
   )
 }
 
+//Permet d'avoir accès au Thème du 4 à la suite
 export const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
   const [choosenTheme] = useState([])
   const SelectTheme = (theme) => {
+    //On défini le thème comme étant celui passé en paramètre
     choosenTheme.splice(0, 1, theme)
   }
 
@@ -74,18 +78,21 @@ export const ThemeProvider = ({ children }) => {
   )
 }
 
+//Permet de gérer le score du joueur
 export const ScoreContext = createContext()
 
 export const ScoreProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(0) //Il vaut d'abord 0
   const changeScore = (points) => {
+    //On peut directement définir sa valeur avec cette fonction
     setScore(points)
   }
   const addPoints = (points) => {
+    //Ou on peut ajouter un nombre de point avec celle-ci
     setScore(score + points)
   }
   const resetScore = () => {
+    //On peut aussi réinitialiser son score
     setScore(0)
   }
 
@@ -98,15 +105,17 @@ export const ScoreProvider = ({ children }) => {
   )
 }
 
+//Permet de gérer le nombre d'erreurs du joueur
 export const ErrorContext = createContext()
 
 export const ErrorProvider = ({ children }) => {
-  // eslint-disable-next-line no-unused-vars
-  const [errors, setError] = useState(0)
+  const [errors, setError] = useState(0) //On commence avec 0 erreurs
   const addError = () => {
+    //On peut ajouter une erreur
     setError(errors + 1)
   }
   const resetError = () => {
+    //Ou réinitialiser le nombre d'erreurs
     setError(0)
   }
 
@@ -117,16 +126,19 @@ export const ErrorProvider = ({ children }) => {
   )
 }
 
+//Gère la liste des questions déjà posées
 export const QuestionListContext = createContext()
 
 export const QuestionListProvider = ({ children }) => {
   // eslint-disable-next-line no-unused-vars
   const [questionList, setQuestion] = useState([])
   const oldQuestion = (questionID) => {
+    //On peut rajouter l'ID d'une question à cette liste
     questionList.push(questionID)
   }
 
   const resetList = () => {
+    //Ou réinitialiser la liste
     questionList.splice(0, questionList.length)
   }
 
@@ -139,14 +151,17 @@ export const QuestionListProvider = ({ children }) => {
   )
 }
 
+//Gère la réponse sélectionnée
 export const AnswerSelectedContext = createContext()
 
 export const SelectedAnswerProvider = ({ children }) => {
   const [listAnswer] = useState([])
   const changeClicked = (answer) => {
+    //Si il y a déjà une réponse sélectionnée non nulle alors on remplace la réponse sélectionnée par celle passée en paramètre
     if (listAnswer.length === 1 && answer !== listAnswer[0]) {
       listAnswer.splice(0, 1, answer)
     }
+    //Si il n'y en a aucun on définie la réponse sélectionée par celle passée en paramètre directement
     if (listAnswer.length === 0) {
       listAnswer.push(answer)
     }
@@ -159,11 +174,13 @@ export const SelectedAnswerProvider = ({ children }) => {
   )
 }
 
+//Permet de connaitre l'ID de l'utilisateur
 export const IdContext = createContext()
 
 export const IdProvider = ({ children }) => {
   const [id] = useState([])
   const changeId = (newId) => {
+    //On défini l'ID comme étant l'ID passé en paramètre
     id.splice(0, 1, newId)
   }
 
@@ -172,11 +189,13 @@ export const IdProvider = ({ children }) => {
   )
 }
 
+//Permet de connaître l'état de connexion du joueur
 export const ConnexionContext = createContext()
 
 export const ConnexionProvider = ({ children }) => {
-  const [connected, setConnected] = useState(false)
+  const [connected, setConnected] = useState(false) //Il est d'abord déconnecté
   const changeConnected = () => {
+    //Si il est connecté on le déconnecte et sinon on le connecte
     setConnected(connected === true ? false : true)
   }
 

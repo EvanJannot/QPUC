@@ -4,13 +4,12 @@ import { PlayButton, MainWrapper, Wrapper, TextWrapper, Title } from './style'
 import { ConnexionContext } from '../../utils/context'
 
 function BeforeFace2Face() {
-  window.scrollTo(0, 0) //Permet de ramener la vue de l'écran au sommet de la page
-
   let history = useHistory()
   const { connected } = useContext(ConnexionContext)
 
   //Permet de rediriger vers l'accueil si une personne tente d'accéder à cet écran par l'URL
   useEffect(() => {
+    window.scrollTo(0, 0) //Permet de ramener la vue de l'écran au sommet de la page
     if (connected === false) {
       history.push('/')
     }
