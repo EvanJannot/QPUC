@@ -192,7 +192,7 @@ export const AnswersWrapper = styled.div`
   border-radius: 35px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 92%;
-    height: 78%;
+    height: 100%;
     font-size: 40px;
     justify-content: flex-start;
   }
