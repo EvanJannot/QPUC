@@ -14,7 +14,7 @@ export const LeaderboardWrapper = styled.div`
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    height: 75%;
+    height: 85%;
   }
 `
 
@@ -27,6 +27,7 @@ export const TableBg = styled.div`
   box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
   @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 90%;
+    margin-top: 80px;
     height: ${({ numberPseudo }) => `${numberPseudo * 0.56}px`};
   }
 `
@@ -60,6 +61,6 @@ export const UpPage = styled.div`
   margin-bottom: 50px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
     margin-bottom: 0px;
-    height: 30%;
+    height: 10%;
   }
 `

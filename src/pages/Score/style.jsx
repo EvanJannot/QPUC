@@ -14,6 +14,9 @@ export const ScoreWrapper = styled.div`
   width: 100%;
   height: 100%;
   background: ${colors.linearBlue};
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    height: 85%;
+  }
 `
 
 export const Title = styled.p`
@@ -29,6 +32,12 @@ export const Title = styled.p`
   box-sizing: border-box;
   border-radius: 35px;
   font-size: 40px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    height: 60px;
+    width: 350px;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 `
 
 export const InfoWrapper = styled.div`
@@ -43,6 +52,10 @@ export const InfoWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 35px;
   box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 90%;
+    height: 55%;
+  }
 `
 
 export const TotalTime = styled.div`
@@ -79,6 +92,9 @@ export const FinalScore = styled.div`
   margin-left: 20px;
   font-size: 32px;
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    margin-left: 0px;
+  }
 `
 
 export const ScoreNumber = styled.div`

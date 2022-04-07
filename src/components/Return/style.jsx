@@ -21,7 +21,9 @@ export const Arrow = styled.div`
   @media screen and (min-width: 300px) and (max-width: 790px) {
     margin-left: ${({ page }) => (page === '/leaderboard' ? '20px' : '20px')};
     margin-bottom: ${({ page }) =>
-      page === '/leaderboard' ? '150px' : '320px'};
+      page === '/leaderboard' ? '-140px' : '330px'};
+    width: 60px;
+    height: 40px;
   }
 `
 export const Illustration = styled.img`

@@ -13,6 +13,9 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 120%;
   background: ${colors.linearBlue};
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    height: 90%;
+  }
 `
 
 export const Title = styled.div`
@@ -28,6 +31,12 @@ export const Title = styled.div`
   border-radius: 35px;
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    height: 60px;
+    width: 350px;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 `
 
 export const InfoWrapper = styled.div`
@@ -39,6 +48,10 @@ export const InfoWrapper = styled.div`
   width: 70%;
   padding-top: 20px;
   padding-bottom: 20px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 90%;
+    margin-bottom: 10px;
+  }
 `
 
 export const Time = styled.div`
@@ -53,6 +66,9 @@ export const Time = styled.div`
 
   color: white;
   font-size: 40px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 20px;
+  }
 `
 
 export const TimeCounter = styled.div`
@@ -70,6 +86,11 @@ export const TimeCounter = styled.div`
   font-size: 60px;
   color: black;
   border-radius: 25px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 100px;
+    height: 56px;
+    font-size: 40px;
+  }
 `
 export const Score = styled.div`
   display: flex;
@@ -82,6 +103,9 @@ export const Score = styled.div`
   font-family: 'Changa One', 'sans-serif';
   color: white;
   font-size: 40px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 20px;
+  }
 `
 
 export const ScoreCounter = styled.div`
@@ -103,6 +127,11 @@ export const ScoreCounter = styled.div`
   color: black;
   border: 3px solid #000000;
   box-sizing: border-box;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 87px;
+    height: 56px;
+    font-size: 40px;
+  }
 `
 
 export const Errors = styled.div`
@@ -116,6 +145,9 @@ export const Errors = styled.div`
   font-family: 'Changa One', 'sans-serif';
   color: white;
   font-size: 40px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 20px;
+  }
 `
 export const ErrorsCounter = styled.div`
   display: flex;
@@ -134,6 +166,11 @@ export const ErrorsCounter = styled.div`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 87px;
+    height: 56px;
+    font-size: 40px;
+  }
 `
 
 export const AnswersWrapper = styled.div`
@@ -151,6 +188,12 @@ export const AnswersWrapper = styled.div`
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 35px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 92%;
+    height: 85%;
+    font-size: 40px;
+    justify-content: flex-start;
+  }
 `
 
 export const Question = styled.div`
@@ -159,11 +202,20 @@ export const Question = styled.div`
   font-size: 32px;
   padding-left: 10px;
   padding-right: 10px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 `
 
 export const Theme = styled.div`
   font-family: 'Changa One', 'sans-serif';
   font-size: 24px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
 `
 
 export const Answers = styled.div`
@@ -173,6 +225,9 @@ export const Answers = styled.div`
   width: 700px;
   flex-wrap: wrap;
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 100%;
+  }
 `
 
 export const PointsBar = styled.div`

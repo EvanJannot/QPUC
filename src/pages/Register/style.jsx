@@ -89,8 +89,8 @@ export const Input = styled.input`
   box-sizing: border-box;
   border-radius: 25px;
   @media screen and (min-width: 1200px) {
-    width: 100%;
-    height: 10%;
+    width: 280px;
+    height: 35px;
     padding-left: 8px;
     ::placeholder {
       font-size: 16px;

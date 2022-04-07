@@ -14,7 +14,7 @@ export const HomeWrapper = styled.div`
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 100%;
     height: 85%;
   }
@@ -47,8 +47,8 @@ export const Container = styled.div`
   border-radius: 35px;
   box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 70px;
+    margin-bottom: 30px;
     width: 320px;
     height: 330px;
   }
@@ -57,7 +57,7 @@ export const Container = styled.div`
 export const TextLogin = styled.label`
   font-size: 30px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    font-size: 18px;
+    font-size: 24px;
   }
 `
 
@@ -72,7 +72,7 @@ export const Input = styled.input`
   border-radius: 25px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 280px;
-    height: 30px;
+    height: 35px;
     padding-left: 8px;
     ::placeholder {
       font-size: 16px;
@@ -137,8 +137,10 @@ export const OverlayForm = styled.div`
     rgba(254, 227, 1, 0.8) 100%
   );
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 60%;
-    height: 20%;
+    width: 85%;
+    height: 17%;
+    margin-top: 70px;
+    margin-bottom: 30px;
   }
 `
 export const ErrorMessage = styled.div`
