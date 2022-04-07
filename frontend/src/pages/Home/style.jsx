@@ -5,21 +5,38 @@ import colors from '../../utils/style/colors'
 export const HomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 1vw;
+  padding-bottom: 10vw;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (max-width: 500px) {
+    justify-content: space-around;
+    width: 100%;
+    height: 85%;
+  }
+  @media screen and (max-width: 900px) {
+    justify-content: space-evenly;
+    width: 100%;
+    height: 85%;
+  }
 `
 export const Illustration = styled.img`
   align-self: center;
   max-width: 45%;
   max-height: 45%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  @media screen and (max-width: 500px) {
+    max-width: 80%;
+    max-height: 80%;
+  }
+  @media screen and (max-width: 900px) {
+    max-width: 80%;
+    max-height: 80%;
+  }
 `
 
 export const Container = styled.div`
@@ -28,6 +45,8 @@ export const Container = styled.div`
   align-self: center;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
   width: 40%;
   height: 50%;
@@ -36,6 +55,25 @@ export const Container = styled.div`
   box-sizing: border-box;
   border-radius: 35px;
   box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
+  @media screen and (max-width: 500px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 40%;
+  }
+  @media screen and (max-width: 900px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 40%;
+  }
+`
+
+export const TextLogin = styled.label`
+  font-size: 30px;
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
+  }
 `
 
 export const Input = styled.input`
@@ -47,6 +85,14 @@ export const Input = styled.input`
   box-shadow: 6px 5px 8px 3px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 25px;
+  @media screen and (max-width: 500px) {
+    width: 80%;
+    height: 10%;
+    padding-left: 8px;
+    ::placeholder {
+      font-size: 16px;
+    }
+  }
 `
 
 export const LoginButton = styled.button`
@@ -59,12 +105,20 @@ export const LoginButton = styled.button`
   box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
 
   background: ${colors.yellow};
-  width: 20%;
-  height: 33%;
+  width: 15vh;
+  height: 15vh;
   border: 2px solid #000000;
   box-sizing: border-box;
   border-radius: 100%;
   cursor: pointer;
+  @media screen and (max-width: 500px) {
+    width: 12vh;
+    height: 12vh;
+  }
+  @media screen and (max-width: 900px) {
+    width: 12vh;
+    height: 12vh;
+  }
 `
 export const RegisterButton = styled(Link)`
   display: flex;

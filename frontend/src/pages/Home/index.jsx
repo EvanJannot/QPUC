@@ -9,6 +9,7 @@ import {
   RegisterButton,
   OverlayForm,
   ErrorMessage,
+  TextLogin,
 } from './style'
 import { Loader } from '../../utils/style/Atoms'
 import { useHistory } from 'react-router-dom'
@@ -128,7 +129,7 @@ function Home() {
           //Si elles sont fausses on affiche un message d'erreur
 
           <Container>
-            <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+            <TextLogin>Nom d'utilisateur :</TextLogin>
             <Input
               type="text"
               onChange={(event) => {
@@ -139,7 +140,7 @@ function Home() {
             />
             <br />
             <br />
-            <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+            <TextLogin>Mot de passe :</TextLogin>
             <Input
               type="password"
               onChange={(event) => {
@@ -157,7 +158,7 @@ function Home() {
         //Si le formulaire n'a pas été envoyé on l'affiche
 
         <Container>
-          <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+          <TextLogin>Nom d'utilisateur :</TextLogin>
           <Input
             type="text"
             onChange={(event) => {
@@ -168,7 +169,7 @@ function Home() {
           />
           <br />
           <br />
-          <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+          <TextLogin>Mot de passe :</TextLogin>
           <Input
             type="password"
             onChange={(event) => {
