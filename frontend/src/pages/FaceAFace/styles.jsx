@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   height: 120%;
   background: ${colors.linearBlue};
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    height: 100%;
+    height: 120%;
   }
 `
 
