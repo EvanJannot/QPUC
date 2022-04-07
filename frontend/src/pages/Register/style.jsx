@@ -38,8 +38,8 @@ export const Container = styled.div`
     width: 45%;
   }
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 95%;
-    height: 60%;
+    width: 370px;
+    height: 450px;
   }
   @media screen and (min-width: 800px) and (max-width: 1200px) {
     width: 80%;
@@ -74,13 +74,13 @@ export const RegisterButton = styled.button`
   border-radius: 100px;
   cursor: pointer;
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 12vh;
-    height: 12vh;
+    width: 100px;
+    height: 100px;
+    font-size: 16px;
   }
   @media screen and (min-width: 800px) and (max-width: 1200px) {
-    width: 12vh;
-    height: 16vh;
-    font-size: 24px;
+    width: 120px;
+    height: 160px;
   }
 `
 export const Input = styled.input`
@@ -97,8 +97,8 @@ export const Input = styled.input`
     }
   }
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 100%;
-    height: 10%;
+    width: 280px;
+    height: 30px;
     padding-left: 8px;
     ::placeholder {
       font-size: 16px;
