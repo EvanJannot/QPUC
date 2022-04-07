@@ -38,7 +38,7 @@ export const Container = styled.div`
     width: 45%;
   }
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 80%;
+    width: 95%;
     height: 60%;
   }
   @media screen and (min-width: 800px) and (max-width: 1200px) {
@@ -55,7 +55,7 @@ export const Title = styled.div`
   text-align: center;
   color: ${colors.yellow};
   @media screen and (max-width: 500px) {
-    font-size: 100px;
+    font-size: 90px;
   }
 `
 export const RegisterButton = styled.button`
