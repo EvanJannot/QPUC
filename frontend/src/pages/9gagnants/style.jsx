@@ -15,8 +15,7 @@ export const MainWrapper = styled.div`
   height: 100%;
   background: ${colors.linearBlue};
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    justify-content: flex-start;
-    height: 85%;
+    height: 100%;
   }
 `
 
@@ -184,7 +183,7 @@ export const AnswersWrapper = styled.div`
   border-radius: 35px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 92%;
-    height: 75%;
+    height: 100%;
     font-size: 40px;
     justify-content: flex-start;
   }
