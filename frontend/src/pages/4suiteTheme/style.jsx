@@ -13,6 +13,9 @@ export const Suite4Wrapper = styled.div`
   width: 100%;
   height: 100%;
   background: ${colors.linearBlue};
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    height: 85%;
+  }
 `
 
 export const Title = styled.div`
@@ -23,6 +26,10 @@ export const Title = styled.div`
   font-size: 60px;
   -webkit-text-stroke: 2px black;
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 40px;
+    text-align: center;
+  }
 `
 
 export const Themes = styled.div`
@@ -33,6 +40,12 @@ export const Themes = styled.div`
   width: 1200px;
   flex-wrap: wrap;
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 92%;
+    margin-top: 10px;
+  }
 `
 export const OverlayTheme = styled.div`
   display: flex;
@@ -53,4 +66,10 @@ export const OverlayTheme = styled.div`
     rgba(254, 227, 1, 0.8) 100%
   );
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    margin-top: 30px;
+    width: 80%;
+    height: 22%;
+    font-size: 24px;
+  }
 `

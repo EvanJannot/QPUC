@@ -16,6 +16,7 @@ export const MainWrapper = styled.div`
   background: ${colors.linearBlue};
   @media screen and (min-width: 300px) and (max-width: 790px) {
     justify-content: flex-start;
+    height: 85%;
   }
 `
 
@@ -84,7 +85,7 @@ export const TimeCounter = styled.div`
   color: black;
   border-radius: 25px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
-    width: 87px;
+    width: 100px;
     height: 56px;
     font-size: 40px;
   }
@@ -183,8 +184,9 @@ export const AnswersWrapper = styled.div`
   border-radius: 35px;
   @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 92%;
-    height: 60%;
+    height: 75%;
     font-size: 40px;
+    justify-content: flex-start;
   }
 `
 
@@ -194,16 +196,28 @@ export const Question = styled.div`
   font-size: 32px;
   padding-left: 10px;
   padding-right: 10px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 `
 
 export const Theme = styled.div`
   font-family: 'Changa One', 'sans-serif';
   font-size: 24px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
 `
 
 export const QuestionPoints = styled.div`
   font-family: 'Changa One', 'sans-serif';
   font-size: 24px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 18px;
+  }
 `
 
 export const Answers = styled.div`
@@ -213,4 +227,7 @@ export const Answers = styled.div`
   width: 700px;
   flex-wrap: wrap;
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 100%;
+  }
 `

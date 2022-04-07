@@ -21,4 +21,11 @@ export const ThemeSelector = styled.div`
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: 'Changa One', 'sans-serif';
   cursor: pointer;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 330px;
+    height: 100px;
+    margin-bottom: 30px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 `

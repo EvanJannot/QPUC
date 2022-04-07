@@ -16,6 +16,12 @@ export const MainWrapper = styled.div`
   height: 90%;
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    padding-top: 0px;
+    justify-content: flex-start;
+    width: 100%;
+    height: 85%;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -29,15 +35,20 @@ export const Wrapper = styled.div`
   box-sizing: border-box;
   border-radius: 35px;
   box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    width: 90%;
+    height: 60%;
+  }
 `
 
 export const TextWrapper = styled.p`
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin-left: 30px;
   margin-right: 30px;
   font-size: 26px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 16px;
+  }
 `
 
 export const Title = styled.p`
@@ -52,6 +63,14 @@ export const Title = styled.p`
   box-sizing: border-box;
   border-radius: 35px;
   font-size: 40px;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 20px;
+    width: 78%;
+    height: 7%;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+  }
 `
 
 export const PlayButton = styled(Link)`
@@ -67,4 +86,8 @@ export const PlayButton = styled(Link)`
   box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.25);
   background: ${colors.yellow};
   border: 2px solid #000000;
+  @media screen and (min-width: 300px) and (max-width: 790px) {
+    font-size: 20px;
+    width: 45%;
+  }
 `
