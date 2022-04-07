@@ -185,6 +185,7 @@ export const AnswersWrapper = styled.div`
     width: 92%;
     height: 100%;
     font-size: 40px;
+    padding-top: 20px;
     justify-content: flex-start;
   }
 `
