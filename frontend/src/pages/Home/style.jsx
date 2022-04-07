@@ -13,12 +13,12 @@ export const HomeWrapper = styled.div`
   height: 100%;
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 300px) and (max-width: 790px) {
     justify-content: space-around;
     width: 100%;
     height: 85%;
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
     justify-content: space-evenly;
     width: 100%;
     height: 85%;
@@ -29,11 +29,11 @@ export const Illustration = styled.img`
   max-width: 45%;
   max-height: 45%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 300px) and (max-width: 790px) {
     max-width: 80%;
     max-height: 80%;
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
     max-width: 80%;
     max-height: 80%;
   }
@@ -55,13 +55,13 @@ export const Container = styled.div`
   box-sizing: border-box;
   border-radius: 35px;
   box-shadow: 12px 12px 14px 6px rgba(0, 0, 0, 0.25);
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 300px) and (max-width: 790px) {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 80%;
     height: 40%;
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 80%;
@@ -71,7 +71,7 @@ export const Container = styled.div`
 
 export const TextLogin = styled.label`
   font-size: 30px;
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 300px) and (max-width: 790px) {
     font-size: 18px;
   }
 `
@@ -85,7 +85,7 @@ export const Input = styled.input`
   box-shadow: 6px 5px 8px 3px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 25px;
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 80%;
     height: 10%;
     padding-left: 8px;
@@ -111,11 +111,11 @@ export const LoginButton = styled.button`
   box-sizing: border-box;
   border-radius: 100%;
   cursor: pointer;
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 300px) and (max-width: 790px) {
     width: 12vh;
     height: 12vh;
   }
-  @media screen and (max-width: 900px) {
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
     width: 12vh;
     height: 12vh;
   }
