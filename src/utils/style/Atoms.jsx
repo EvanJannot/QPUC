@@ -15,6 +15,7 @@ export const Loader = styled.div`
   display: flex;
   align-self: center;
   margin-top: 100px;
+  margin-bottom: 100px;
   padding: 60px;
   border: 12px solid ${colors.orange};
   border-bottom-color: transparent;

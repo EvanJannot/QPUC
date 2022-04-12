@@ -85,7 +85,7 @@ function Home() {
                 //On attend que l'utilisateur puisse lire le message
                 setStateForm(false)
                 setMessage('')
-              }, 1000)
+              }, 2000)
             }
           }
           setDataLoading(false)

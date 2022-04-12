@@ -123,7 +123,8 @@ export const OverlayForm = styled.div`
   align-self: center;
   justify-content: center;
   align-items: center;
-
+  margin-bottom: 100px;
+  margin-top: 100px;
   width: 40%;
   height: 20%;
   font-size: 30px;
