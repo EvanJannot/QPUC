@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 
 export const FooterContainer = styled.footer`
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
