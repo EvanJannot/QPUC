@@ -65,6 +65,7 @@ export const RegisterButton = styled.button`
   justify-content: center;
   font-size: 18px;
   font-family: 'Changa One', 'sans-serif';
+  box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
 
   background: ${colors.yellow};
   width: 100px;
@@ -88,6 +89,7 @@ export const Input = styled.input`
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 25px;
+  box-shadow: 6px 5px 8px 3px rgba(0, 0, 0, 0.25);
   @media screen and (min-width: 1200px) {
     width: 280px;
     height: 35px;
