@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import colors from '../../utils/style/colors'
 
 export const FooterContainer = styled.footer`
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 10%;
   background: ${colors.lightBlue};
   border-top: 4px solid #000000;
