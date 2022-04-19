@@ -1,4 +1,4 @@
-import ErrorIllustration from '../../assets/error.svg'
+import ErrorIllustration from '../../assets/images/error.svg'
 
 import {
   Container,

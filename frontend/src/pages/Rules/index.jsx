@@ -9,7 +9,7 @@ import {
   Title,
 } from './style'
 import { ConnexionContext, SoundContext } from '../../utils/context'
-import opening from '../../assets/opening.mp3'
+import opening from '../../assets/music/opening.mp3'
 
 function Rules() {
   //Permet de savoir si le son est activé ou non

@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom'
-import Logo from '../../assets/goBack.svg'
+import Logo from '../../assets/images/goBack.svg'
 import { Arrow, Illustration } from './style'
 
 function Return(path) {

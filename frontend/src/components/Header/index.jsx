@@ -1,7 +1,7 @@
-import Logo from '../../assets/LogoB.svg'
-import DisconectIcon from '../../assets/disconnect.svg'
-import SoundOn from '../../assets/sound.svg'
-import SoundOff from '../../assets/mute.svg'
+import Logo from '../../assets/images/LogoB.svg'
+import DisconectIcon from '../../assets/images/disconnect.svg'
+import SoundOn from '../../assets/images/sound.svg'
+import SoundOff from '../../assets/images/mute.svg'
 import { useContext } from 'react'
 import {
   ConnexionContext,

@@ -7,8 +7,8 @@ import {
   SoundContext,
 } from '../../utils/context'
 import { AnswerBlock } from './style'
-import correct from '../../assets/goodAnswer.mp3'
-import incorrect from '../../assets/wrongAnswer.mp3'
+import correct from '../../assets/music/goodAnswer.mp3'
+import incorrect from '../../assets/music/wrongAnswer.mp3'
 
 function Answer({ answer, question, game, points }) {
   //Permet de savoir sur quelle réponse on a cliqué

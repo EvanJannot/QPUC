@@ -1,4 +1,4 @@
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/images/Logo.svg'
 import { useState, useEffect, useRef, useContext } from 'react'
 import {
   Input,
