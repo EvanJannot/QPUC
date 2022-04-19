@@ -8,6 +8,7 @@ import {
   QuestionListContext,
 } from '../../utils/context'
 import { useHistory } from 'react-router-dom'
+import Confetti from 'react-confetti'
 
 import {
   ScoreWrapper,
@@ -82,6 +83,11 @@ function Score() {
 
   return (
     <ScoreWrapper>
+      <Confetti
+        width={document.documentElement.clientWidth}
+        height={document.documentElement.clientHeight}
+        colors={['#355F9F', '#F2A616', '#FEE301', '#1F2869', '#50A0D3']}
+      />
       <Title>PARTIE TERMINEE</Title>
       <InfoWrapper>
         <TotalTime>Temps Total : {time}</TotalTime>
