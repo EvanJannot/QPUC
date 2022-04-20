@@ -10,6 +10,7 @@ import {
 } from './style'
 import { useHistory } from 'react-router-dom'
 import Return from '../../components/Return'
+import { Loader } from '../../utils/style/Atoms'
 
 import '../../utils/style/Home.css'
 
@@ -17,6 +18,7 @@ function Register() {
   //State pour conserver les données entrées par l'utilisateur
   const [username, setUsername] = useState([])
   const [password, setPassword] = useState([])
+  const [isDataLoading, setDataLoading] = useState(false)
   let history = useHistory()
 
   //Permet de ramener la vue de l'écran au sommet de la page
@@ -40,7 +42,7 @@ function Register() {
 
     if (username.length >= 3 && password.length >= 5) {
       //On utilise une requête POST pour écrire l'username et le mdp dans la bdd
-
+      setDataLoading(true)
       fetch('https://qpuc-backend.herokuapp.com/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -61,7 +63,9 @@ function Register() {
 
             alert("Erreur lors de l'inscription")
           }
+          setDataLoading(false)
         })
+        .catch((error) => console.log(error))
     } else if (username.length === 0) {
       //Si il n'a pas rempli le champ pseudo
 
@@ -86,37 +90,45 @@ function Register() {
   return (
     <RegisterWrapper>
       <Title>Inscription</Title>
-      <Container>
-        <UpPage>
-          <Return />
-          <RegisterForm>
-            <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
-            <Input
-              type="text"
-              placeholder="Choisissez un nom d'utilisateur"
-              onChange={(event) => {
-                //Lorsque l'utilisateur modifie le champ, on modifie le state du pseudo
+      {isDataLoading ? (
+        //On affiche un Loader
 
-                changeUsername(event.target.value)
-              }}
-            />
-            <br />
-            <br />
-            <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
-            <Input
-              type="password"
-              placeholder="Choisissez un mot de passe"
-              onChange={(event) => {
-                //Lorsque l'utilisateur modifie le champ, on modifie le state du mdp
+        <Loader />
+      ) : (
+        <Container>
+          <UpPage>
+            <Return />
+            <RegisterForm>
+              <label style={{ 'font-size': '30px' }}>Nom d'utilisateur :</label>
+              <Input
+                type="text"
+                placeholder="Choisissez un nom d'utilisateur"
+                onChange={(event) => {
+                  //Lorsque l'utilisateur modifie le champ, on modifie le state du pseudo
 
-                changePassword(event.target.value)
-              }}
-            />
-            <br />
-            <RegisterButton onClick={clickRegister}>S'INSCRIRE</RegisterButton>
-          </RegisterForm>
-        </UpPage>
-      </Container>
+                  changeUsername(event.target.value)
+                }}
+              />
+              <br />
+              <br />
+              <label style={{ 'font-size': '30px' }}>Mot de passe :</label>
+              <Input
+                type="password"
+                placeholder="Choisissez un mot de passe"
+                onChange={(event) => {
+                  //Lorsque l'utilisateur modifie le champ, on modifie le state du mdp
+
+                  changePassword(event.target.value)
+                }}
+              />
+              <br />
+              <RegisterButton onClick={clickRegister}>
+                S'INSCRIRE
+              </RegisterButton>
+            </RegisterForm>
+          </UpPage>
+        </Container>
+      )}
     </RegisterWrapper>
   )
 }
