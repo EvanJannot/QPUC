@@ -10,7 +10,6 @@ export const LeaderboardWrapper = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
   background: ${colors.linearBlue};
   font-family: 'Changa One', 'sans-serif';
   @media screen and (min-width: 300px) and (max-width: 790px) {
