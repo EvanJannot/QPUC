@@ -80,7 +80,7 @@ function Suite4() {
   //useEffect appelé dès que le joueur répond à une question qu'il ait bon ou faux
   useEffect(() => {
     setDataLoading(true)
-    fetch(`https://qpuc-backend.herokuapp.com/api/question/`)
+    fetch(`https://qpuc-production.up.railway.app/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
         //On choisi une question au hasard

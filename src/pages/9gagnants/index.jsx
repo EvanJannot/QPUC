@@ -75,7 +75,7 @@ function Gagnants9() {
     setDataLoading(true)
     //On récupère toutes les questions
 
-    fetch(`https://qpuc-backend.herokuapp.com/api/question/`)
+    fetch(`https://qpuc-production.up.railway.app/api/question/`)
       .then((response) => response.json())
       .then((requestData) => {
         //On génère un entier aléatoire avec comme limite le nombre de réponses
